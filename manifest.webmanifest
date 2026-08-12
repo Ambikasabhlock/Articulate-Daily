@@ -1,0 +1,11 @@
+{
+  "name": "Articulate Daily",
+  "short_name": "Articulate",
+  "description": "Advanced English vocabulary and communication practice.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f3f7f6",
+  "theme_color": "#0f766e",
+  "lang": "en-GB",
+  "icons": [{"src":"assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

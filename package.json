@@ -1,0 +1,13 @@
+{
+  "name": "articulate-daily-v3.03",
+  "version": "3.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/run-tests.mjs",
+    "serve": "node tests/serve.mjs",
+    "manifest": "node tests/create-manifest.mjs"
+  },
+  "engines": { "node": ">=20" },
+  "devDependencies": { "playwright": "1.62.0" }
+}

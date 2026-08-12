@@ -1,0 +1,1933 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f766e" />
+  <meta name="description" content="Build better English every day with advanced vocabulary, workplace communication, pronunciation and daily practice." />
+  <title>Articulate Daily | Advanced English for Work and Life</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <style>
+    :root {
+      --bg: #f3f7f6;
+      --surface: #ffffff;
+      --surface-2: #eaf3f1;
+      --text: #15312d;
+      --muted: #627671;
+      --line: #d8e5e2;
+      --primary: #0f766e;
+      --primary-dark: #0b5e58;
+      --accent: #f0a83b;
+      --danger: #b42318;
+      --success: #1f7a4d;
+      --shadow: 0 14px 35px rgba(15, 70, 64, 0.10);
+      --radius: 22px;
+      --radius-sm: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    .sr-only { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(15,118,110,.11), transparent 32%),
+        radial-gradient(circle at 95% 10%, rgba(240,168,59,.12), transparent 30%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; }
+
+    .app-shell {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 26px 18px;
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(18px);
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      z-index: 20;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 8px 24px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(145deg, var(--primary), #16a394);
+      color: white;
+      box-shadow: 0 10px 24px rgba(15,118,110,.26);
+      font-weight: 800;
+      font-size: 21px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .brand p { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
+
+    .nav { display: grid; gap: 7px; }
+    .nav button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      text-align: left;
+      padding: 12px 13px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 600;
+    }
+    .nav button:hover { background: var(--surface-2); color: var(--text); }
+    .nav button.active { background: var(--primary); color: white; }
+    .nav-icon { width: 22px; text-align: center; font-size: 17px; }
+
+    .sidebar-bottom {
+      margin-top: auto;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+
+    .profile-mini {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 14px;
+      background: var(--surface-2);
+    }
+    .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--primary);
+      color: white;
+      font-weight: 700;
+    }
+    .profile-mini strong { display: block; font-size: 14px; }
+    .profile-mini small { color: var(--muted); }
+
+    .main {
+      min-width: 0;
+      padding: 28px clamp(18px, 4vw, 54px) 110px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .topbar h2 { margin: 0; font-family: "Playfair Display", Georgia, serif; font-size: clamp(28px, 4vw, 42px); }
+    .topbar p { margin: 6px 0 0; color: var(--muted); }
+
+    .top-actions { display: flex; gap: 10px; align-items: center; }
+    .streak-pill {
+      background: #fff7e8;
+      color: #8d5b12;
+      border: 1px solid #f6ddb5;
+      padding: 10px 13px;
+      border-radius: 999px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .view { display: none; animation: fade .22s ease; }
+    .view.active { display: block; }
+    @keyframes fade { from { opacity: .2; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+
+    .grid { display: grid; gap: 18px; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .dashboard-grid { grid-template-columns: 1.25fr .75fr; }
+
+    .card {
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(216,229,226,.95);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+    .card h3 { margin: 0 0 7px; font-size: 18px; }
+    .card-sub { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+      color: white;
+      background:
+        linear-gradient(130deg, rgba(5,67,62,.98), rgba(15,118,110,.94)),
+        var(--primary);
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      right: -70px;
+      top: -85px;
+      background: rgba(255,255,255,.11);
+      box-shadow: -65px 205px 0 rgba(255,255,255,.06);
+    }
+    .hero-card > * { position: relative; z-index: 1; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.13);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .daily-word-line { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin: 20px 0 6px; }
+    .daily-word {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(40px, 6vw, 66px);
+      margin: 0;
+      line-height: 1;
+    }
+    .phonetic { color: #caece8; font-size: 16px; }
+    .daily-meaning { max-width: 660px; font-size: 18px; line-height: 1.6; margin: 18px 0; }
+    .daily-example {
+      border-left: 3px solid var(--accent);
+      padding-left: 14px;
+      color: #e9fbf8;
+      font-style: italic;
+      max-width: 660px;
+    }
+
+    .button-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 19px; }
+    .btn {
+      border: 0;
+      border-radius: 12px;
+      padding: 11px 15px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+    }
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-light { background: white; color: var(--primary-dark); }
+    .btn-soft { background: var(--surface-2); color: var(--primary-dark); }
+    .btn-outline { background: transparent; color: inherit; border: 1px solid currentColor; }
+    .btn-danger { background: #fff0ee; color: var(--danger); }
+    .btn-small { min-height: 36px; padding: 8px 11px; font-size: 13px; }
+    .btn:disabled { opacity: .55; cursor: not-allowed; }
+
+    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .stat {
+      border-radius: 16px;
+      background: var(--surface-2);
+      padding: 17px;
+    }
+    .stat strong { display: block; font-size: 28px; }
+    .stat span { color: var(--muted); font-size: 13px; }
+
+    .progress-track { height: 10px; border-radius: 999px; overflow: hidden; background: var(--line); }
+    .progress-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--primary), #30b7aa); width: 0; transition: width .35s ease; }
+
+    .quick-list { display: grid; gap: 10px; }
+    .quick-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 13px;
+      background: white;
+    }
+    .quick-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--primary); flex: 0 0 auto; }
+    .quick-item strong { display: block; }
+    .quick-item small { color: var(--muted); }
+
+    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+    .field { display: grid; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    label { font-size: 13px; font-weight: 700; color: #3f5752; }
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fbfdfd;
+      color: var(--text);
+      padding: 12px 13px;
+      outline: none;
+      transition: .18s ease;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(15,118,110,.09); }
+    textarea { min-height: 110px; resize: vertical; }
+
+    .lookup-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+    .status {
+      margin-top: 12px;
+      min-height: 22px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .status.error { color: var(--danger); }
+    .status.success { color: var(--success); }
+
+    .drop-zone {
+      border: 2px dashed #a9c9c4;
+      border-radius: 18px;
+      padding: 34px 20px;
+      text-align: center;
+      background: #f7fbfa;
+      transition: .2s ease;
+    }
+    .drop-zone.dragover { border-color: var(--primary); background: #eaf6f4; transform: translateY(-2px); }
+    .drop-zone input { display: none; }
+    .drop-icon { font-size: 42px; }
+    .file-note { color: var(--muted); font-size: 13px; margin: 10px auto 0; max-width: 650px; }
+
+    .extract-result { margin-top: 18px; display: none; }
+    .extract-result.show { display: block; }
+    .word-chips { display: grid; gap: 18px; max-height: 620px; overflow: auto; padding: 4px; }
+    .extract-group { display: grid; gap: 10px; }
+    .extract-group-head { display:flex; align-items:center; justify-content:space-between; gap:12px; position:sticky; top:-4px; z-index:1; background:var(--surface); padding:8px 2px; }
+    .extract-group-head h4 { margin:0; font-size:18px; }
+    .extract-group-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:10px; }
+    .extract-word { border:1px solid var(--line); border-radius:14px; padding:13px; background:white; text-align:left; color:var(--text); }
+    .extract-word.selected { border-color:var(--primary); box-shadow:0 0 0 2px rgba(12,117,107,.12); background:#f1faf8; }
+    .extract-word-top { display:flex; justify-content:space-between; gap:8px; align-items:center; }
+    .extract-word strong { font-size:16px; }
+    .extract-label { border-radius:999px; padding:3px 8px; background:var(--soft); color:var(--primary); font-size:11px; font-weight:800; }
+    .extract-word p { margin:7px 0 0; font-size:13px; line-height:1.45; }
+    .extract-examples { color:var(--muted); }
+    .chip {
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--text);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .chip.selected { background: var(--primary); color: white; border-color: var(--primary); }
+
+    .word-list { display: grid; gap: 12px; }
+    .word-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      background: white;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: start;
+    }
+    .word-card h4 { margin: 0; font-family: "Playfair Display", Georgia, serif; font-size: 22px; }
+    .word-heading-line, .practice-word-line { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .inline-phonetic { color: var(--muted); font-size: 14px; font-weight: 600; }
+    .pronounce-btn {
+      width: 34px;
+      min-height: 34px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255,255,255,.78);
+      color: var(--primary-dark);
+      display: inline-grid;
+      place-items: center;
+      line-height: 1;
+    }
+    .pronounce-btn:hover { background: white; border-color: #9fc6c1; }
+    .word-meta { color: var(--primary); font-size: 12px; font-weight: 700; margin: 4px 0 8px; }
+    .word-meaning { margin: 0 0 8px; color: #354c47; }
+    .word-example { margin: 0; color: var(--muted); font-style: italic; }
+    .word-actions { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .search { min-width: min(100%, 310px); flex: 1; }
+    .filter-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-row select { width: auto; min-width: 130px; }
+
+    .practice-prompt {
+      padding: 18px;
+      border-radius: 16px;
+      background: var(--surface-2);
+      margin-bottom: 16px;
+    }
+    .practice-word { font-family: "Playfair Display", Georgia, serif; font-size: 36px; margin: 0 0 6px; }
+    .feedback-box { display: none; margin-top: 16px; border-radius: 14px; padding: 15px; background: #eef8f2; color: #255c3e; }
+    .feedback-box.show { display: block; }
+
+    .quiz-options { display: grid; gap: 10px; margin-top: 16px; }
+    .quiz-option {
+      text-align: left;
+      padding: 13px;
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 12px;
+    }
+    .quiz-option.correct { border-color: #54a77b; background: #edf9f2; }
+    .quiz-option.wrong { border-color: #df8a82; background: #fff1f0; }
+
+    .profile-list { display: grid; gap: 10px; }
+    .profile-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      border: 1px solid var(--line);
+      padding: 13px;
+      border-radius: 14px;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 36px 20px;
+      color: var(--muted);
+      border: 1px dashed var(--line);
+      border-radius: 16px;
+    }
+
+    .toast {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      max-width: 340px;
+      background: #163f39;
+      color: white;
+      border-radius: 14px;
+      padding: 13px 16px;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+      transition: .25s ease;
+      z-index: 100;
+    }
+    .toast.show { opacity: 1; transform: none; }
+
+    .mobile-nav { display: none; }
+    .muted { color: var(--muted); }
+    .hidden { display: none !important; }
+    .small { font-size: 13px; }
+    .divider { border: 0; border-top: 1px solid var(--line); margin: 20px 0; }
+    code { background: var(--surface-2); padding: 2px 5px; border-radius: 5px; }
+
+    @media (max-width: 960px) {
+      .app-shell { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .main { padding: 22px 18px 100px; }
+      .mobile-nav {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        z-index: 80;
+        background: rgba(255,255,255,.94);
+        backdrop-filter: blur(18px);
+        border: 1px solid var(--line);
+        border-radius: 19px;
+        box-shadow: var(--shadow);
+        padding: 7px;
+      }
+      .mobile-nav button {
+        border: 0;
+        background: transparent;
+        border-radius: 12px;
+        color: var(--muted);
+        padding: 8px 2px;
+        display: grid;
+        gap: 3px;
+        place-items: center;
+        font-size: 10px;
+      }
+      .mobile-nav button span:first-child { font-size: 18px; }
+      .mobile-nav button.active { color: white; background: var(--primary); }
+      .dashboard-grid, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .topbar { align-items: flex-start; }
+      .top-actions { flex-direction: column; align-items: flex-end; }
+    }
+
+    @media (max-width: 620px) {
+      .topbar h2 { font-size: 30px; }
+      .topbar p { font-size: 13px; }
+      .streak-pill { padding: 8px 10px; font-size: 12px; }
+      .card { padding: 17px; border-radius: 18px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .lookup-row { grid-template-columns: 1fr; }
+      .word-card { grid-template-columns: 1fr; }
+      .word-actions { justify-content: flex-start; }
+      .daily-word { font-size: 42px; }
+      .daily-meaning { font-size: 16px; }
+      .mobile-nav { grid-template-columns: repeat(6, 1fr); left: 6px; right: 6px; bottom: 6px; }
+      .mobile-nav button { font-size: 9px; }
+      .toast { left: 14px; right: 14px; bottom: 92px; }
+    }
+
+
+    /* Articulate Daily 2.0: refined visual system */
+    :root {
+      --bg: #f5f7f6;
+      --surface: #ffffff;
+      --surface-2: #eef4f2;
+      --surface-3: #f8faf9;
+      --text: #17312d;
+      --muted: #687c77;
+      --line: #dbe6e3;
+      --primary: #0c756b;
+      --primary-dark: #075a52;
+      --primary-soft: #dff1ee;
+      --accent: #d99a37;
+      --danger: #b42318;
+      --success: #19734a;
+      --warning: #8a5b13;
+      --shadow: 0 12px 34px rgba(24, 70, 63, 0.075);
+      --shadow-hover: 0 18px 42px rgba(24, 70, 63, 0.12);
+      --radius: 20px;
+      --radius-sm: 13px;
+    }
+
+    body[data-theme="dark"] {
+      --bg: #101817;
+      --surface: #172220;
+      --surface-2: #1d2c29;
+      --surface-3: #14201e;
+      --text: #ecf6f3;
+      --muted: #a6bbb5;
+      --line: #2b403c;
+      --primary: #3ab8a8;
+      --primary-dark: #70d2c4;
+      --primary-soft: #203c37;
+      --accent: #efb65a;
+      --danger: #ff8f86;
+      --success: #68d69b;
+      --warning: #f0c477;
+      --shadow: 0 12px 34px rgba(0,0,0,.2);
+      --shadow-hover: 0 18px 42px rgba(0,0,0,.3);
+      background: radial-gradient(circle at 10% 0%, rgba(58,184,168,.10), transparent 32%), var(--bg);
+    }
+
+    body[data-font-size="large"] { font-size: 17px; }
+    body[data-font-size="large"] .small,
+    body[data-font-size="large"] .card-sub,
+    body[data-font-size="large"] label { font-size: 14px; }
+
+    .sidebar { background: color-mix(in srgb, var(--surface) 90%, transparent); }
+    .card {
+      background: var(--surface);
+      border-color: var(--line);
+      box-shadow: var(--shadow);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .card:hover { box-shadow: var(--shadow-hover); border-color: color-mix(in srgb, var(--primary) 20%, var(--line)); }
+    .card-header { display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:16px; }
+    .card-header h3 { margin:0 0 5px; }
+    .card-header p { margin:0; }
+    .section-kicker { color:var(--primary); font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; }
+    .soft-panel { background:var(--surface-3); border:1px solid var(--line); border-radius:16px; padding:16px; }
+    .icon-button {
+      border:1px solid var(--line); background:var(--surface); color:var(--primary-dark);
+      width:40px; height:40px; border-radius:12px; display:inline-grid; place-items:center;
+      flex:0 0 auto; font-size:17px;
+    }
+    .icon-button:hover { background:var(--primary-soft); border-color:color-mix(in srgb, var(--primary) 40%, var(--line)); }
+    .daily-word-line { width:100%; display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:16px; }
+    .daily-word-line .phonetic { align-self:end; padding-bottom:6px; }
+    .daily-speaker { border-color:rgba(255,255,255,.35); background:rgba(255,255,255,.12); color:white; }
+    .daily-speaker:hover { background:rgba(255,255,255,.22); }
+    .practice-word-line { display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:14px; width:100%; }
+    .practice-word-line .inline-phonetic { justify-self:start; }
+    .practice-word-line .pronounce-btn { justify-self:end; }
+    .pronounce-btn { margin-left:auto; }
+
+    .plan-list { display:grid; gap:10px; }
+    .plan-item { display:grid; grid-template-columns:42px minmax(0,1fr) auto; align-items:center; gap:12px; padding:12px; border:1px solid var(--line); border-radius:14px; background:var(--surface-3); }
+    .plan-icon { width:40px; height:40px; border-radius:12px; display:grid; place-items:center; background:var(--primary-soft); color:var(--primary-dark); font-weight:800; }
+    .plan-copy strong { display:block; }
+    .plan-copy small { color:var(--muted); }
+    .plan-count { font-size:13px; font-weight:800; color:var(--primary-dark); background:var(--surface); border:1px solid var(--line); padding:6px 9px; border-radius:999px; white-space:nowrap; }
+    .plan-item.complete .plan-icon { background:#e8f7ee; color:var(--success); }
+    .plan-item.complete .plan-count { color:var(--success); }
+
+    .insight-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+    .insight-tile { padding:16px; border:1px solid var(--line); border-radius:16px; background:var(--surface-3); }
+    .insight-tile strong { display:block; font-size:25px; margin:4px 0; }
+    .insight-tile span { color:var(--muted); font-size:12px; }
+    .weekly-bars { display:grid; grid-template-columns:repeat(7,1fr); gap:9px; align-items:end; min-height:150px; padding-top:10px; }
+    .bar-day { display:grid; gap:7px; align-items:end; text-align:center; height:140px; }
+    .bar-track { height:108px; border-radius:9px; background:var(--surface-2); display:flex; align-items:flex-end; overflow:hidden; }
+    .bar-fill { width:100%; min-height:4px; background:linear-gradient(180deg,#3ab8a8,var(--primary)); border-radius:9px 9px 0 0; }
+    .bar-day small { color:var(--muted); font-size:11px; }
+    .category-list { display:grid; gap:11px; }
+    .category-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:10px; align-items:center; }
+    .category-row small { color:var(--muted); }
+    .mini-track { height:7px; background:var(--surface-2); border-radius:999px; overflow:hidden; margin-top:5px; }
+    .mini-fill { height:100%; background:var(--primary); border-radius:inherit; }
+    .badge-card { display:flex; align-items:center; gap:14px; background:linear-gradient(135deg,var(--surface),var(--primary-soft)); }
+    .badge-mark { width:58px; height:58px; border-radius:18px; display:grid; place-items:center; background:var(--primary); color:white; font-size:27px; box-shadow:0 10px 25px rgba(12,117,107,.2); }
+
+    .check-row { display:flex; align-items:center; gap:9px; padding:10px 0; }
+    .check-row input { width:auto; }
+    .status-pill { display:inline-flex; align-items:center; gap:6px; border-radius:999px; padding:5px 9px; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.04em; background:var(--surface-2); color:var(--muted); }
+    .status-pill.new { color:#275d8b; background:#eaf4ff; }
+    .status-pill.learning { color:#8a5b13; background:#fff6df; }
+    .status-pill.familiar { color:#5e4b9b; background:#f1edff; }
+    .status-pill.mastered { color:var(--success); background:#e8f7ee; }
+    body[data-theme="dark"] .status-pill.new { background:#1c3549; color:#a8d5ff; }
+    body[data-theme="dark"] .status-pill.learning { background:#3d321d; color:#f1ce83; }
+    body[data-theme="dark"] .status-pill.familiar { background:#332c4d; color:#cfc3ff; }
+    body[data-theme="dark"] .status-pill.mastered { background:#1f3d2f; color:#91e0b3; }
+
+    .review-actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
+    .review-btn { border:1px solid var(--line); background:var(--surface); color:var(--text); padding:9px 12px; border-radius:11px; font-weight:700; }
+    .review-btn:hover { border-color:var(--primary); background:var(--primary-soft); }
+    .review-btn.again { color:var(--danger); }
+    .review-btn.easy { color:var(--success); }
+    .learning-panel { display:grid; gap:12px; }
+    .learning-block { padding:14px; border:1px solid var(--line); border-radius:14px; background:var(--surface-3); }
+    .learning-block h4 { margin:0 0 8px; font-size:14px; }
+    .tag-list { display:flex; flex-wrap:wrap; gap:7px; }
+    .tag-token { border:1px solid var(--line); background:var(--surface); border-radius:999px; padding:6px 9px; font-size:12px; }
+    .distinction { color:var(--muted); line-height:1.55; font-size:13px; }
+    .result-grid { display:grid; gap:10px; margin-top:14px; }
+    .result-option { padding:14px; border:1px solid var(--line); border-radius:14px; background:var(--surface-3); }
+    .result-option header { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:7px; }
+    .result-option strong { color:var(--primary-dark); }
+
+    .pronunciation-console { display:grid; gap:12px; }
+    .pronunciation-target { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px; border-radius:16px; background:var(--surface-3); border:1px solid var(--line); }
+    .pronunciation-target strong { font-family:"Playfair Display",Georgia,serif; font-size:28px; }
+    .score-meter { height:10px; background:var(--surface-2); border-radius:999px; overflow:hidden; }
+    .score-fill { height:100%; width:0; background:linear-gradient(90deg,var(--danger),var(--accent),var(--success)); transition:width .3s ease; }
+
+    .coach-hero { background:linear-gradient(135deg,#063f3a,#0c756b 62%,#15978a); color:white; overflow:hidden; position:relative; }
+    .coach-hero::after { content:""; position:absolute; width:300px; height:300px; border-radius:50%; right:-110px; top:-140px; background:rgba(255,255,255,.09); }
+    .coach-hero > * { position:relative; z-index:1; }
+    .coach-hero .card-sub, .coach-hero label { color:#d8f0ec; }
+    .coach-hero textarea, .coach-hero select { background:rgba(255,255,255,.96); color:#17312d; }
+    .coach-reply { min-height:180px; white-space:pre-wrap; line-height:1.65; }
+    .coach-placeholder { color:var(--muted); }
+    .conversation-list { display:grid; gap:10px; max-height:360px; overflow:auto; }
+    .conversation-item { padding:13px; border:1px solid var(--line); border-radius:14px; background:var(--surface-3); }
+    .conversation-item .question { font-weight:700; margin-bottom:7px; }
+    .conversation-item .answer { color:var(--muted); font-size:13px; }
+    .notice { border-left:3px solid var(--accent); background:#fff8e9; color:#674817; padding:12px 14px; border-radius:0 12px 12px 0; font-size:13px; }
+    body[data-theme="dark"] .notice { background:#362c1b; color:#f1d7a7; }
+
+    .word-card { background:var(--surface); padding:18px; }
+    .word-main { min-width:0; }
+    .word-top-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:14px; align-items:start; }
+    .word-title-group { min-width:0; }
+    .word-title-group .word-heading-line { gap:9px; }
+    .pronunciation-motion { display:inline-flex; flex-wrap:wrap; gap:.18em; align-items:baseline; }
+    .pronunciation-motion .spoken-word { display:inline-block; opacity:.48; transition:opacity .18s ease,color .18s ease,transform .18s ease; }
+    .pronunciation-motion .spoken-word.active { opacity:1; color:var(--primary); transform:translateY(-.08em); text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:.16em; }
+    @media (prefers-reduced-motion: reduce) { .pronunciation-motion .spoken-word { transition:none; } .pronunciation-motion .spoken-word.active { transform:none; } }
+    .word-icon-actions { display:flex; align-items:center; gap:7px; justify-content:flex-end; }
+    .favourite-active { color:#b86b00; background:#fff4dc; }
+    body[data-theme="dark"] .favourite-active { background:#46351c; color:#ffd17e; }
+    .word-details { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:12px; }
+    .detail-box { padding:11px; background:var(--surface-3); border:1px solid var(--line); border-radius:12px; }
+    .detail-box strong { display:block; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-bottom:5px; }
+    .due-text { font-size:12px; color:var(--muted); margin-top:9px; }
+
+    .material-upload { display:grid; gap:22px; }
+    .upload-intro { max-width:720px; }
+    .upload-intro h3 { margin:6px 0 8px; }
+    .upload-steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+    .upload-step { padding:14px; border:1px solid var(--line); border-radius:14px; background:var(--surface-2); display:grid; gap:4px; }
+    .upload-step-icon { width:28px; height:28px; border-radius:50%; display:grid; place-items:center; background:var(--primary); color:#fff; font-weight:800; }
+    .upload-step small, .upload-privacy { color:var(--muted); }
+    .drop-zone.upload-zone { margin:0; padding:28px 18px; border-style:solid; background:linear-gradient(135deg,var(--surface-2),var(--surface)); }
+    .upload-privacy { max-width:590px; margin:8px auto 0; font-size:13px; }
+    @media (max-width:700px) { .upload-steps { grid-template-columns:1fr; } }
+
+    .settings-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; margin-top:18px; }
+    .target-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+    .target-grid input { min-width:0; }
+
+    /* Word-of-the-day card: high-contrast light theme */
+    .card.hero-card {
+      background:
+        radial-gradient(circle at 88% 10%, rgba(240,168,59,.13), transparent 28%),
+        linear-gradient(145deg, #e7f1ef 0%, #f5f8f7 62%, #eef5f3 100%);
+      color: var(--text);
+      border-color: #bfd8d3;
+      box-shadow: 0 16px 38px rgba(15, 70, 64, .12);
+    }
+    .card.hero-card::after {
+      background: rgba(15,118,110,.055);
+      box-shadow: -65px 205px 0 rgba(240,168,59,.055);
+    }
+    .card.hero-card .eyebrow {
+      background: #d7e9e5;
+      color: var(--primary-dark);
+      border: 1px solid #bdd8d3;
+    }
+    .card.hero-card .daily-word { color: #173b36; }
+    .card.hero-card .phonetic { color: #4f716b; }
+    .card.hero-card .daily-meaning { color: #294b45; }
+    .card.hero-card .daily-example { color: #476963; }
+    .card.hero-card .daily-speaker {
+      background: #ffffff;
+      color: var(--primary-dark);
+      border-color: #b9d5d0;
+      box-shadow: 0 7px 18px rgba(15,118,110,.10);
+    }
+    .card.hero-card .daily-speaker:hover {
+      background: #dcece8;
+      border-color: var(--primary);
+    }
+    .card.hero-card .btn-outline {
+      color: var(--primary-dark);
+      border-color: #91bdb5;
+      background: rgba(255,255,255,.42);
+    }
+    .card.hero-card .btn-outline:hover { background: #dcece8; }
+
+    body[data-theme="dark"] .card.hero-card {
+      background: linear-gradient(145deg, #18302c 0%, #1b3934 100%);
+      color: #ecf6f3;
+      border-color: #33524c;
+    }
+    body[data-theme="dark"] .card.hero-card .daily-word { color: #f2fbf8; }
+    body[data-theme="dark"] .card.hero-card .phonetic,
+    body[data-theme="dark"] .card.hero-card .daily-meaning,
+    body[data-theme="dark"] .card.hero-card .daily-example { color: #c6ddd8; }
+    body[data-theme="dark"] .card.hero-card .eyebrow {
+      background: #244943;
+      color: #9ee4da;
+      border-color: #39635c;
+    }
+    body[data-theme="dark"] .card.hero-card .daily-speaker {
+      background: #203f3a;
+      color: #dff8f4;
+      border-color: #416963;
+    }
+    body[data-theme="dark"] .card.hero-card .btn-outline {
+      color: #dff8f4;
+      border-color: #5d857e;
+      background: rgba(255,255,255,.04);
+    }
+
+    body[data-theme="dark"] input,
+    body[data-theme="dark"] textarea,
+    body[data-theme="dark"] select,
+    body[data-theme="dark"] .quick-item,
+    body[data-theme="dark"] .quiz-option,
+    body[data-theme="dark"] .chip,
+    body[data-theme="dark"] .profile-row { background:var(--surface-3); color:var(--text); }
+    body[data-theme="dark"] .mobile-nav { background:rgba(23,34,32,.95); }
+    body[data-theme="dark"] .btn-light { color:#075a52; }
+
+    @media (max-width: 1100px) {
+      .insight-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width: 960px) {
+      .mobile-nav { display:flex; overflow-x:auto; grid-template-columns:none; gap:4px; scrollbar-width:none; }
+      .mobile-nav::-webkit-scrollbar { display:none; }
+      .mobile-nav button { min-width:68px; flex:1 0 68px; }
+      .settings-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width: 620px) {
+      .daily-word-line { grid-template-columns:minmax(0,1fr) auto; }
+      .daily-word-line .daily-word { grid-column:1; }
+      .daily-word-line .daily-speaker { grid-column:2; grid-row:1; }
+      .daily-word-line .phonetic { grid-column:1 / -1; padding:0; }
+      .practice-word-line { grid-template-columns:minmax(0,1fr) auto; }
+      .practice-word-line .practice-word { grid-column:1; }
+      .practice-word-line .pronounce-btn { grid-column:2; grid-row:1; }
+      .practice-word-line .inline-phonetic { grid-column:1 / -1; }
+      .plan-item { grid-template-columns:38px minmax(0,1fr); }
+      .plan-count { grid-column:2; justify-self:start; }
+      .word-card { grid-template-columns:1fr; }
+      .word-actions { justify-content:flex-start; }
+      .word-details { grid-template-columns:1fr; }
+      .target-grid { grid-template-columns:1fr; }
+      .weekly-bars { gap:5px; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">A</div>
+        <div><h1>Articulate Daily</h1><p>Advanced English for Work and Life</p></div>
+      </div>
+
+      <nav class="nav" aria-label="Main navigation">
+        <button class="active" data-view="dashboard"><span class="nav-icon">⌂</span>Today</button>
+        <button data-view="add"><span class="nav-icon">＋</span>Add a word</button>
+        <button data-view="extract"><span class="nav-icon">⇧</span>Extract words</button>
+        <button data-view="practice"><span class="nav-icon">✎</span>Practice</button>
+        <button data-view="coach"><span class="nav-icon">◉</span>UK speaking coach</button>
+        <button data-view="library"><span class="nav-icon">▤</span>My library</button>
+        <button data-view="settings"><span class="nav-icon">⚙</span>Profiles & backup</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="profile-mini">
+          <div class="avatar" id="sideAvatar">P</div>
+          <div><strong id="sideProfileName">My Profile</strong><small id="sideWordCount">0 saved words</small></div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h2 id="pageTitle">Your English today</h2>
+          <p id="pageSubtitle">Build confident, precise English for work and everyday life.</p>
+        </div>
+        <div class="top-actions">
+          <div class="streak-pill">🔥 <span id="streakCount">0</span> day streak</div>
+        </div>
+      </header>
+
+      <section id="dashboard" class="view active">
+        <div class="grid dashboard-grid">
+          <article class="card hero-card">
+            <span class="eyebrow">Word of the day</span>
+            <div class="daily-word-line">
+              <div class="daily-word" id="dailyWord">Pragmatic</div>
+              <div class="phonetic" id="dailyPhonetic">/præɡˈmætɪk/ · adjective</div>
+              <button class="icon-button daily-speaker" id="dailySpeakerIcon" type="button" aria-label="Hear the word in a UK accent" title="Hear the word in a UK accent">🔊</button>
+            </div>
+            <p class="daily-meaning" id="dailyMeaning">Dealing with problems in a practical way rather than relying only on theory.</p>
+            <p class="daily-example" id="dailyExample">“We need a pragmatic plan that the team can deliver within this quarter.”</p>
+            <div class="button-row">
+              <button class="btn btn-light" id="speakDailyBtn">🔊 Hear it</button>
+              <button class="btn btn-outline" id="saveDailyBtn">＋ Save word</button>
+              <button class="btn btn-outline" id="practiceDailyBtn">✎ Use in a sentence</button>
+            </div>
+          </article>
+
+          <aside class="grid">
+            <article class="card">
+              <h3>Your progress</h3>
+              <p class="card-sub">A quick view of your current vocabulary habit.</p>
+              <div class="stats">
+                <div class="stat"><strong id="statWords">0</strong><span>Saved words</span></div>
+                <div class="stat"><strong id="statPractised">0</strong><span>Sentences written</span></div>
+                <div class="stat"><strong id="statMastered">0</strong><span>Mastered</span></div>
+                <div class="stat"><strong id="statToday">0</strong><span>Added today</span></div>
+              </div>
+              <p class="small muted" style="margin:16px 0 7px">Daily target: <span id="targetText">0/3</span></p>
+              <div class="progress-track"><div class="progress-fill" id="dailyProgress"></div></div>
+            </article>
+          </aside>
+        </div>
+
+        <div class="grid grid-2" style="margin-top:18px">
+          <article class="card">
+            <div class="card-header">
+              <div><span class="section-kicker">Daily routine</span><h3>Today’s learning plan</h3><p class="card-sub">A balanced plan for vocabulary, recall, writing and pronunciation.</p></div>
+              <span class="status-pill" id="planCompletion">0% complete</span>
+            </div>
+            <div class="plan-list" id="dailyPlanList"></div>
+            <div class="button-row"><button class="btn btn-primary" data-go="practice">Continue plan</button><button class="btn btn-soft" data-go="coach">Speaking practice</button></div>
+          </article>
+
+          <article class="card">
+            <h3>Recent words</h3>
+            <p class="card-sub">The latest words saved in this profile.</p>
+            <div id="recentWords" class="quick-list"></div>
+          </article>
+        </div>
+
+        <div class="grid grid-2" style="margin-top:18px">
+          <article class="card">
+            <div class="card-header"><div><span class="section-kicker">Recall</span><h3>Review queue</h3><p class="card-sub">Words are scheduled using spaced repetition.</p></div><span class="status-pill learning" id="reviewDuePill">0 due</span></div>
+            <div class="insight-grid">
+              <div class="insight-tile"><span>Due today</span><strong id="dueTodayCount">0</strong><small class="muted">Ready to review</small></div>
+              <div class="insight-tile"><span>Familiar</span><strong id="familiarCount">0</strong><small class="muted">Building long-term recall</small></div>
+              <div class="insight-tile"><span>Favourites</span><strong id="favouriteCount">0</strong><small class="muted">Words you marked</small></div>
+            </div>
+            <div class="button-row"><button class="btn btn-primary" id="reviewDueBtn">Review due words</button><button class="btn btn-soft" data-go="library">Open library</button></div>
+          </article>
+
+          <article class="card badge-card">
+            <div class="badge-mark" id="badgeMark">A</div>
+            <div><span class="section-kicker">Achievement</span><h3 id="badgeTitle">Getting started</h3><p class="card-sub" id="badgeText">Save your first word to begin your learning record.</p><div class="small muted" id="dailyChallenge">Today’s challenge will appear here.</div></div>
+          </article>
+        </div>
+
+        <div class="grid grid-2" style="margin-top:18px">
+          <article class="card">
+            <div class="card-header"><div><span class="section-kicker">Weekly view</span><h3>Your activity</h3><p class="card-sub">Learning actions completed during the last seven days.</p></div><strong id="weeklyActionTotal">0 actions</strong></div>
+            <div class="weekly-bars" id="weeklyBars"></div>
+          </article>
+          <article class="card">
+            <div class="card-header"><div><span class="section-kicker">Focus areas</span><h3>Professional English categories</h3><p class="card-sub">See where your vocabulary is developing.</p></div></div>
+            <div class="category-list" id="categorySummary"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="add" class="view">
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Add a new word</h3>
+            <p class="card-sub">Enter a word and look up its definition automatically, or add your own meaning.</p>
+            <form id="wordForm" class="form-grid">
+              <div class="field full">
+                <label for="wordInput">English word or phrase</label>
+                <div class="lookup-row">
+                  <input id="wordInput" required placeholder="e.g. articulate" autocomplete="off" />
+                  <button type="button" class="btn btn-soft" id="lookupBtn">Find meaning</button>
+                </div>
+                <input type="hidden" id="phoneticInput" />
+              </div>
+              <div class="field">
+                <label for="partInput">Part of speech</label>
+                <select id="partInput"><option>adjective</option><option>noun</option><option>verb</option><option>adverb</option><option>phrase</option><option>other</option></select>
+              </div>
+              <div class="field">
+                <label for="levelInput">Level</label>
+              <select id="levelInput"><option>Advanced</option><option>Intermediate</option><option>Professional</option><option>Everyday</option></select>
+              </div>
+              <div class="field">
+                <label for="categoryInput">Professional category</label>
+                <select id="categoryInput"><option>Meetings & Communication</option><option>Writing & Reports</option><option>Leadership & Strategy</option><option>Data & Analysis</option><option>Technology</option><option>Governance & Risk</option><option>Interviews & Careers</option><option>Everyday Conversation</option><option>General Advanced</option></select>
+              </div>
+              <div class="field">
+                <label for="difficultyInput">Personal difficulty</label>
+                <select id="difficultyInput"><option value="2">Moderate</option><option value="1">Easy</option><option value="3">Challenging</option></select>
+              </div>
+              <div class="field full">
+                <label for="meaningInput">Meaning</label>
+                <textarea id="meaningInput" required placeholder="A clear meaning in your own words"></textarea>
+              </div>
+              <div class="field full">
+                <label for="exampleInput">Example sentence</label>
+                <textarea id="exampleInput" placeholder="Use the word in a realistic sentence"></textarea>
+              </div>
+              <div class="field">
+                <label for="sourceInput">Source</label>
+                <input id="sourceInput" placeholder="Meeting, article, book..." />
+              </div>
+              <div class="field">
+                <label for="tagsInput">Tags</label>
+                <input id="tagsInput" placeholder="office, leadership, report" />
+              </div>
+              <div class="field full">
+                <label for="notesInput">Personal notes</label>
+                <textarea id="notesInput" placeholder="Where you heard it, how you want to use it, or a memory clue"></textarea>
+              </div>
+              <div class="field full check-row">
+                <input id="favouriteInput" type="checkbox" />
+                <label for="favouriteInput">Add to favourites</label>
+              </div>
+              <div class="field full">
+                <button class="btn btn-primary" type="submit">Save to my library</button>
+                <div class="status" id="lookupStatus"></div>
+              </div>
+            </form>
+          </article>
+
+          <article class="card">
+            <h3>Voice capture</h3>
+            <p class="card-sub">Say a word or sentence in UK English. Voice recognition depends on browser support and works best in Chrome or Edge.</p>
+            <div class="button-row">
+              <button class="btn btn-primary" id="voiceWordBtn">🎙 Speak a word</button>
+              <button class="btn btn-soft" id="voiceSentenceBtn">🎙 Dictate example</button>
+            </div>
+            <hr class="divider" />
+            <h3>Office English prompt</h3>
+            <p class="card-sub">Try converting this plain sentence into more precise professional English:</p>
+            <div class="practice-prompt" id="officePrompt">“We need to look at this problem carefully before deciding.”</div>
+            <button class="btn btn-soft" id="newOfficePromptBtn">Show another prompt</button>
+          </article>
+        </div>
+      </section>
+
+      <section id="extract" class="view">
+        <article class="card material-upload">
+          <div class="upload-intro"><span class="section-kicker">Your material, your vocabulary</span><h3>Turn something you read into words you can use</h3><p class="card-sub">Bring a document, screenshot or note. The app finds useful English vocabulary and lets you choose what to practise.</p></div>
+          <div class="upload-steps"><div class="upload-step"><div class="upload-step-icon">1</div><strong>Choose material</strong><small>Document, image or note</small></div><div class="upload-step"><div class="upload-step-icon">2</div><strong>Find useful words</strong><small>Review vocabulary suggestions</small></div><div class="upload-step"><div class="upload-step-icon">3</div><strong>Practise your picks</strong><small>Add them to your library</small></div></div>
+          <label class="drop-zone upload-zone" id="dropZone" for="fileInput">
+            <input type="file" id="fileInput" accept=".txt,.md,.csv,.json,.pdf,.docx,image/*" />
+            <div class="drop-icon">📄</div>
+            <strong>Choose a file or drop it here</strong>
+            <p class="file-note">PDF, DOCX, image, text, Markdown, CSV and JSON are supported.</p><p class="upload-privacy">Your selected file is processed on this device and is not uploaded by the vocabulary extractor. File limits protect your browser from very large documents.</p>
+          </label>
+          <div class="status" id="fileStatus"></div>
+
+          <div class="extract-result" id="extractResult">
+            <div class="toolbar">
+              <div><h3 style="margin:0">Vocabulary from your material</h3><p class="small muted" style="margin:4px 0 0">Review Simple, Medium, Strategic and Power Expression suggestions, then select what you want to learn.</p></div>
+              <div class="button-row" style="margin:0"><button class="btn btn-small btn-soft" id="selectAllBtn">Select all</button><button class="btn btn-small btn-primary" id="addSelectedBtn">Add selected</button></div>
+            </div>
+            <div class="word-chips" id="wordChips"></div>
+          </div>
+        </article>
+      </section>
+
+      <section id="practice" class="view">
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Sentence practice</h3>
+            <p class="card-sub">Write a natural sentence that proves you understand the word.</p>
+            <div class="practice-prompt">
+              <div class="toolbar" style="margin:0 0 10px"><span class="status-pill learning" id="practiceStatus">Learning</span><span class="small muted" id="practiceDue"></span></div>
+              <div class="practice-word-line">
+                <p class="practice-word" id="practiceWord">Add words first</p>
+                <span class="inline-phonetic" id="practicePhonetic"></span>
+                <button class="pronounce-btn" id="speakPracticeWordBtn" type="button" aria-label="Hear the word in a UK accent" title="Hear the word in a UK accent">🔊</button>
+              </div>
+              <p id="practiceMeaning" class="muted">Your saved words will appear here.</p>
+            </div>
+            <label for="practiceSentence">Your sentence</label>
+            <textarea id="practiceSentence" placeholder="Write a complete sentence with the word..."></textarea>
+            <div class="button-row">
+              <button class="btn btn-primary" id="checkSentenceBtn">Check sentence</button>
+              <button class="btn btn-soft" id="dictatePracticeBtn">🎙 Dictate</button>
+              <button class="btn btn-soft" id="speakPracticeSentenceBtn">🔊 Hear sentence</button>
+              <button class="btn btn-soft" id="nextPracticeBtn">Next word</button>
+            </div>
+            <div class="feedback-box" id="sentenceFeedback"></div>
+            <div class="review-actions" aria-label="Spaced repetition rating">
+              <button class="review-btn again" data-review-rating="again">Again · 1 day</button>
+              <button class="review-btn" data-review-rating="hard">Hard · 3 days</button>
+              <button class="review-btn" data-review-rating="good">Good · 7 days</button>
+              <button class="review-btn easy" data-review-rating="easy">Easy · 14 days</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header"><div><h3>Mini daily test</h3><p class="card-sub">Practise meanings, collocations and sentence completion.</p></div><select id="quizMode" style="width:auto"><option value="meaning">Meaning</option><option value="collocation">Collocation</option><option value="gap">Complete sentence</option></select></div>
+            <div class="practice-prompt">
+              <div class="practice-word-line">
+                <p class="practice-word" id="quizWord">Pragmatic</p>
+                <span class="inline-phonetic" id="quizPhonetic"></span>
+                <button class="pronounce-btn" id="speakQuizWordBtn" type="button" aria-label="Hear the quiz word in a UK accent" title="Hear the quiz word in a UK accent">🔊</button>
+              </div>
+              <p class="muted" id="quizQuestion">Which meaning is correct?</p>
+            </div>
+            <div class="quiz-options" id="quizOptions"></div>
+            <div class="button-row"><button class="btn btn-soft" id="nextQuizBtn">Next question</button></div>
+          </article>
+        </div>
+
+        <div class="grid grid-2" style="margin-top:18px">
+          <article class="card">
+            <div class="card-header"><div><span class="section-kicker">Word intelligence</span><h3>Phrases, word family and synonyms</h3><p class="card-sub">Learn the word as part of natural professional English.</p></div></div>
+            <div class="learning-panel" id="practiceInsights"></div>
+          </article>
+          <article class="card">
+            <div class="card-header"><div><span class="section-kicker">Writing coach</span><h3>Improve your sentence</h3><p class="card-sub">Create clear, professional and advanced versions in your browser.</p></div></div>
+            <textarea id="improveSentenceInput" placeholder="Write or paste a sentence you want to improve..."></textarea>
+            <div class="button-row"><button class="btn btn-primary" id="improveSentenceBtn">Improve sentence</button><button class="btn btn-soft" id="dictateImproveBtn">🎙 Dictate</button></div>
+            <div class="result-grid" id="improvementResults"></div>
+          </article>
+        </div>
+
+        <article class="card" style="margin-top:18px">
+          <div class="card-header"><div><span class="section-kicker">UK pronunciation</span><h3>Listen, record and compare</h3><p class="card-sub">Hear a British English voice, record yourself and test what the browser recognises.</p></div></div>
+          <div class="pronunciation-console">
+            <div class="pronunciation-target"><div><strong id="pronunciationTarget">Word</strong><div class="inline-phonetic" id="pronunciationPhonetic"></div></div><button class="icon-button" id="hearPronunciationTarget" aria-label="Hear the pronunciation target in UK English" title="Hear UK pronunciation">🔊</button></div>
+            <div class="button-row"><button class="btn btn-primary" id="recordPronunciationBtn">● Record voice</button><button class="btn btn-soft" id="stopRecordingBtn" disabled>■ Stop</button><button class="btn btn-soft" id="playRecordingBtn" disabled>▶ Replay</button><button class="btn btn-soft" id="testPronunciationBtn">🎙 Test pronunciation</button></div>
+            <div class="status" id="pronunciationStatus">Listen first, then record or test your pronunciation.</div>
+            <div class="score-meter"><div class="score-fill" id="pronunciationScoreFill"></div></div>
+          </div>
+        </article>
+      </section>
+
+      <section id="coach" class="view">
+        <article class="card coach-hero">
+          <div class="card-header"><div><span class="eyebrow">UK English conversation</span><h3 style="font-size:30px;margin-top:14px">Speaking Coach</h3><p class="card-sub">Ask an office-related question or speak about any topic. The coach prepares a natural response and reads it in a British English voice.</p></div></div>
+          <div class="form-grid">
+            <div class="field">
+              <label for="coachTopic">Conversation type</label>
+              <select id="coachTopic"><option value="office">Office question</option><option value="meeting">Meeting update</option><option value="data">Data or report explanation</option><option value="presentation">Presentation practice</option><option value="disagreement">Polite disagreement</option><option value="interview">Interview answer</option><option value="general">Any topic</option></select>
+            </div>
+            <div class="field">
+              <label for="coachStyle">Response style</label>
+              <select id="coachStyle"><option value="natural">Natural and clear</option><option value="professional">Professional</option><option value="advanced">Advanced and articulate</option><option value="concise">Concise</option></select>
+            </div>
+            <div class="field full">
+              <label for="coachInput">Your question or topic</label>
+              <textarea id="coachInput" placeholder="For example: How should I explain a delay in a project meeting?"></textarea>
+            </div>
+          </div>
+          <div class="button-row"><button class="btn btn-light" id="coachReplyBtn">Create UK English reply</button><button class="btn btn-outline" id="coachSpeakBtn">🎙 Ask by voice</button><button class="btn btn-outline" id="coachPromptBtn">Give me a practice topic</button></div>
+        </article>
+
+        <div class="grid grid-2" style="margin-top:18px">
+          <article class="card">
+            <div class="card-header"><div><span class="section-kicker">Suggested response</span><h3>Coach reply</h3></div><button class="icon-button" id="speakCoachReplyBtn" aria-label="Hear the coach response in a UK accent" title="Hear the response in a UK accent">🔊</button></div>
+            <div class="coach-reply coach-placeholder" id="coachReply">Your tailored response will appear here.</div>
+            <div class="learning-block" style="margin-top:14px"><h4>Pronunciation focus</h4><div id="coachPronunciation" class="distinction">Key words and pronunciation guidance will appear here.</div></div>
+            <div class="check-row"><input type="checkbox" id="coachAutoSpeak" checked><label for="coachAutoSpeak">Read the reply aloud automatically</label></div>
+          </article>
+          <article class="card">
+            <div class="card-header"><div><span class="section-kicker">Practice record</span><h3>Recent conversations</h3><p class="card-sub">Saved only in this profile on this browser.</p></div><button class="btn btn-small btn-soft" id="clearCoachHistoryBtn">Clear</button></div>
+            <div class="conversation-list" id="coachHistory"></div>
+          </article>
+        </div>
+        <div class="notice" style="margin-top:18px">This single-file coach helps you frame and practise English. It does not retrieve live company information or current facts from the internet.</div>
+      </section>
+
+      <section id="library" class="view">
+        <article class="card">
+          <div class="toolbar">
+            <div><h3 style="margin:0">My vocabulary library</h3><p class="small muted" style="margin:4px 0 0">Search, review, pronounce and manage your saved words.</p></div>
+            <button class="btn btn-primary" data-go="add">＋ Add word</button>
+          </div>
+          <div class="toolbar">
+            <label class="sr-only" for="librarySearch">Search vocabulary library</label><input class="search" id="librarySearch" type="search" placeholder="Search words, meanings or tags" />
+            <div class="filter-row">
+              <select id="levelFilter" aria-label="Filter by level"><option value="all">All levels</option><option>Advanced</option><option>Intermediate</option><option>Professional</option><option>Everyday</option></select>
+              <select id="masteryFilter" aria-label="Filter by learning progress"><option value="all">All progress</option><option value="new">New</option><option value="learning">Learning</option><option value="familiar">Familiar</option><option value="mastered">Mastered</option><option value="due">Due for review</option></select>
+              <select id="categoryFilter" aria-label="Filter by category"><option value="all">All categories</option><option>Meetings & Communication</option><option>Writing & Reports</option><option>Leadership & Strategy</option><option>Data & Analysis</option><option>Technology</option><option>Governance & Risk</option><option>Interviews & Careers</option><option>Everyday Conversation</option><option>General Advanced</option></select>
+              <select id="favouriteFilter" aria-label="Filter favourites"><option value="all">All words</option><option value="favourite">Favourites only</option></select>
+            </div>
+          </div>
+          <div id="libraryList" class="word-list"></div>
+        </article>
+      </section>
+
+      <section id="settings" class="view">
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Profiles</h3>
+            <p class="card-sub">Each profile has its own vocabulary and progress on this browser.</p>
+            <div class="lookup-row">
+              <label class="sr-only" for="newProfileName">New profile name</label><input id="newProfileName" maxlength="80" placeholder="New profile name" />
+              <button class="btn btn-primary" id="createProfileBtn">Create</button>
+            </div>
+            <div class="profile-list" id="profileList" style="margin-top:16px"></div>
+          </article>
+
+          <article class="card">
+            <h3>Backup and move between devices</h3>
+            <p class="card-sub">GitHub Pages is a static site, so browser data does not automatically sync between your phone and laptop. Export a backup on one device, then import it on another.</p>
+            <div class="button-row">
+              <button class="btn btn-primary" id="exportBtn">Download backup</button>
+              <label class="btn btn-soft" for="importInput">Import backup</label>
+              <input id="importInput" type="file" accept="application/json,.json" class="hidden" />
+            </div>
+            <hr class="divider" />
+            <h3>Data and privacy</h3>
+            <p class="small muted">Words, profiles and progress are stored in this browser. If you enable cloud sync, the same app data is also stored in your Supabase account. Clearing browser data can remove the local copy, so keep a backup. Dictionary lookup sends the requested word to a public dictionary service. Selected documents are processed in your browser; browser speech recognition may use your browser provider's online speech service.</p>
+            <p class="small muted"><strong>Before deleting:</strong> download a backup if you may want this information again. Deletion requires two confirmations.</p>
+            <button class="btn btn-danger btn-small" id="clearAllBtn">Delete all app data</button>
+          </article>
+        </div>
+
+        <div class="settings-grid">
+          <article class="card">
+            <h3>Account and cloud sync</h3>
+            <p class="card-sub">Optional free sync across devices. Your local data continues working when you are offline or the cloud service is unavailable.</p>
+            <div id="cloudSignedOut" class="form-grid">
+              <div class="field full"><label for="accountEmail">Email address</label><input id="accountEmail" type="email" autocomplete="email" maxlength="254" placeholder="you@example.com"></div>
+              <div class="field full"><label for="accountPassword">Password</label><input id="accountPassword" type="password" autocomplete="current-password" minlength="8" maxlength="128" placeholder="At least 8 characters"></div>
+              <div class="field full"><div class="button-row"><button class="btn btn-primary" id="signInBtn" type="button">Sign in</button><button class="btn btn-soft" id="signUpBtn" type="button">Create free account</button><button class="btn btn-soft" id="resetPasswordBtn" type="button">Forgot password?</button></div></div>
+            </div>
+            <div id="cloudSignedIn" class="hidden"><p class="small">Signed in as <strong id="accountIdentity"></strong></p><div class="button-row"><button class="btn btn-primary" id="syncNowBtn" type="button">Sync now</button><button class="btn btn-soft" id="signOutBtn" type="button">Sign out</button></div></div>
+            <div class="status" id="cloudStatus" role="status" aria-live="polite">Cloud sync is not configured yet. Local saving is active.</div>
+          </article>
+          <article class="card">
+            <h3>Appearance and learning targets</h3>
+            <p class="card-sub">Choose a comfortable view and customise your daily plan.</p>
+            <div class="form-grid">
+              <div class="field"><label for="themeSelect">Appearance</label><select id="themeSelect"><option value="light">Light</option><option value="dark">Dark</option><option value="system">Use device setting</option></select></div>
+              <div class="field"><label for="fontSizeSelect">Text size</label><select id="fontSizeSelect"><option value="normal">Standard</option><option value="large">Large</option></select></div>
+            </div>
+            <div class="target-grid" style="margin-top:14px">
+              <div class="field"><label for="newTargetInput">New words</label><input id="newTargetInput" type="number" min="1" max="20" value="5"></div>
+              <div class="field"><label for="reviewTargetInput">Reviews</label><input id="reviewTargetInput" type="number" min="1" max="30" value="5"></div>
+              <div class="field"><label for="sentenceTargetInput">Sentences</label><input id="sentenceTargetInput" type="number" min="1" max="10" value="2"></div>
+              <div class="field"><label for="pronunciationTargetInput">Pronunciation</label><input id="pronunciationTargetInput" type="number" min="1" max="10" value="1"></div>
+            </div>
+            <button class="btn btn-primary" id="savePreferencesBtn" style="margin-top:15px">Save preferences</button>
+          </article>
+
+          <article class="card">
+            <h3>Vocabulary files and weekly report</h3>
+            <p class="card-sub">Move your word list through CSV or download a simple progress report.</p>
+            <div class="button-row"><button class="btn btn-primary" id="exportCsvBtn">Export words as CSV</button><label class="btn btn-soft" for="importCsvInput">Import CSV</label><input id="importCsvInput" class="hidden" type="file" accept=".csv,text/csv"><button class="btn btn-soft" id="weeklyReportBtn">Download weekly report</button></div>
+            <p class="small muted">CSV includes words, meanings, examples, categories, notes, review status and next review date.</p>
+          </article>
+        </div>
+
+        <footer class="card" style="margin-top:18px"><p class="card-sub" style="margin:0">Every word you practise is a small step towards clearer, more confident communication. Keep going—your progress adds up.</p></footer>
+      </section>
+    </main>
+  </div>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <button class="active" data-view="dashboard"><span>⌂</span><span>Today</span></button>
+    <button data-view="add"><span>＋</span><span>Add</span></button>
+    <button data-view="extract"><span>⇧</span><span>Extract</span></button>
+    <button data-view="practice"><span>✎</span><span>Practice</span></button>
+    <button data-view="coach"><span>◉</span><span>Coach</span></button>
+    <button data-view="library"><span>▤</span><span>Library</span></button>
+    <button data-view="settings"><span>⚙</span><span>Settings</span></button>
+  </nav>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="config.js"></script>
+  <script>
+    "use strict";
+
+    const STORAGE_KEY = "lexiflow_single_file_v1";
+    const APP_VERSION = 2;
+    const MAX_FILE_BYTES = 20 * 1024 * 1024;
+    const MAX_IMAGE_BYTES = 10 * 1024 * 1024;
+    const MAX_IMPORT_BYTES = 5 * 1024 * 1024;
+    const MAX_PROFILES = 10;
+    const MAX_WORDS_PER_PROFILE = 5000;
+    const MAX_TEXT_LENGTH = 2000000;
+    const libraryScripts = {
+      pdf: { global:"pdfjsLib", src:"vendor/pdf.min.js" },
+      docx: { global:"mammoth", src:"vendor/mammoth.browser.min.js" },
+      image: { global:"Tesseract", src:"vendor/tesseract.min.js" },
+      supabase: { global:"supabase", src:"vendor/supabase.min.js" }
+    };
+    let cloudClient=null, cloudUser=null, cloudSyncTimer=null, cloudApplying=false, cloudAuthReady=false;
+    const titleMap = {
+      dashboard: ["Your English today", "Build better English every day with a clear, personalised plan."],
+      add: ["Add a new word", "Capture vocabulary, context and personal learning notes."],
+      extract: ["Extract useful vocabulary", "Turn documents and images into a personal learning list."],
+      practice: ["Practice and remember", "Use spaced repetition, writing, quizzes and UK pronunciation."],
+      coach: ["UK speaking coach", "Practise office conversations and speak confidently about any topic."],
+      library: ["Your vocabulary library", "Search, review and organise everything you have learned."],
+      settings: ["Profiles and backup", "Protect your progress and personalise your learning routine."]
+    };
+
+    const wordBank = [
+      {word:"pragmatic", phonetic:"/præɡˈmætɪk/", part:"adjective", meaning:"Dealing with a situation in a practical and realistic way.", example:"We need a pragmatic plan that the team can deliver within this quarter.", level:"Professional", tags:["office","decision-making"]},
+      {word:"articulate", phonetic:"/ɑːˈtɪkjələt/", part:"adjective", meaning:"Able to express ideas clearly and effectively.", example:"She gave an articulate explanation of the proposed data strategy.", level:"Advanced", tags:["communication","office"]},
+      {word:"nuanced", phonetic:"/ˈnjuːɑːnst/", part:"adjective", meaning:"Showing subtle differences or careful distinctions.", example:"The report provides a nuanced view of student engagement.", level:"Advanced", tags:["analysis","writing"]},
+      {word:"cogent", phonetic:"/ˈkəʊdʒənt/", part:"adjective", meaning:"Clear, logical and convincing.", example:"He presented a cogent argument for changing the delivery model.", level:"Advanced", tags:["persuasion","office"]},
+      {word:"salient", phonetic:"/ˈseɪliənt/", part:"adjective", meaning:"Most noticeable, important or relevant.", example:"Please summarise the salient points before the steering group meeting.", level:"Professional", tags:["meetings","reports"]},
+      {word:"meticulous", phonetic:"/məˈtɪkjələs/", part:"adjective", meaning:"Very careful and precise about small details.", example:"Her meticulous validation prevented errors in the final dashboard.", level:"Advanced", tags:["quality","work"]},
+      {word:"discerning", phonetic:"/dɪˈsɜːnɪŋ/", part:"adjective", meaning:"Showing good judgement and the ability to notice quality.", example:"A discerning reader will question the assumptions behind the figures.", level:"Advanced", tags:["judgement","analysis"]},
+      {word:"consolidate", phonetic:"/kənˈsɒlɪdeɪt/", part:"verb", meaning:"To combine several things into one stronger or more effective whole.", example:"We should consolidate the separate reports into a single trusted view.", level:"Professional", tags:["data","office"]},
+      {word:"mitigate", phonetic:"/ˈmɪtɪɡeɪt/", part:"verb", meaning:"To make a risk, problem or harmful effect less serious.", example:"The controls will mitigate the risk of unauthorised access.", level:"Professional", tags:["risk","governance"]},
+      {word:"substantiate", phonetic:"/səbˈstænʃieɪt/", part:"verb", meaning:"To support a claim with evidence or proof.", example:"The team must substantiate the recommendation with reliable data.", level:"Advanced", tags:["evidence","writing"]},
+      {word:"ambiguous", phonetic:"/æmˈbɪɡjuəs/", part:"adjective", meaning:"Open to more than one interpretation; not completely clear.", example:"The current definition is ambiguous and may produce inconsistent results.", level:"Professional", tags:["clarity","requirements"]},
+      {word:"proactive", phonetic:"/prəʊˈæktɪv/", part:"adjective", meaning:"Taking action before a problem occurs rather than only reacting later.", example:"A proactive communication plan will reduce avoidable escalations.", level:"Professional", tags:["leadership","office"]},
+      {word:"scrutinise", phonetic:"/ˈskruːtənaɪz/", part:"verb", meaning:"To examine something very carefully.", example:"The committee will scrutinise the evidence before approving the proposal.", level:"Advanced", tags:["analysis","governance"]},
+      {word:"coherent", phonetic:"/kəʊˈhɪərənt/", part:"adjective", meaning:"Logical, consistent and easy to understand as a whole.", example:"The paper needs a more coherent structure and a clearer conclusion.", level:"Professional", tags:["writing","communication"]},
+      {word:"feasible", phonetic:"/ˈfiːzəbəl/", part:"adjective", meaning:"Possible and practical to do successfully.", example:"The proposed timeline is ambitious but still feasible.", level:"Professional", tags:["planning","delivery"]},
+      {word:"intrinsic", phonetic:"/ɪnˈtrɪnzɪk/", part:"adjective", meaning:"Belonging naturally to something as an essential quality.", example:"Trust is intrinsic to effective data governance.", level:"Advanced", tags:["concepts","writing"]},
+      {word:"pervasive", phonetic:"/pəˈveɪsɪv/", part:"adjective", meaning:"Spreading widely throughout an area or group.", example:"AI is becoming pervasive across modern workplace tools.", level:"Advanced", tags:["technology","trends"]},
+      {word:"resilient", phonetic:"/rɪˈzɪliənt/", part:"adjective", meaning:"Able to recover quickly from difficulty or change.", example:"We need a resilient service that remains stable during peak demand.", level:"Professional", tags:["systems","leadership"]},
+      {word:"tenable", phonetic:"/ˈtenəbəl/", part:"adjective", meaning:"Able to be defended, maintained or justified.", example:"That position is no longer tenable given the new evidence.", level:"Advanced", tags:["argument","decision-making"]},
+      {word:"exemplify", phonetic:"/ɪɡˈzemplɪfaɪ/", part:"verb", meaning:"To be a clear or typical example of something.", example:"This project exemplifies effective collaboration between data and academic teams.", level:"Advanced", tags:["writing","examples"]},
+      {word:"conducive", phonetic:"/kənˈdjuːsɪv/", part:"adjective", meaning:"Making a particular outcome likely or easier to achieve.", example:"A calm environment is conducive to thoughtful discussion.", level:"Advanced", tags:["workplace","conditions"]},
+      {word:"delineate", phonetic:"/dɪˈlɪnieɪt/", part:"verb", meaning:"To describe or mark the boundaries of something precisely.", example:"The proposal should delineate responsibilities across all teams.", level:"Advanced", tags:["governance","writing"]},
+      {word:"judicious", phonetic:"/dʒuːˈdɪʃəs/", part:"adjective", meaning:"Showing careful thought and good judgement.", example:"A judicious use of automation can improve quality without removing oversight.", level:"Advanced", tags:["judgement","leadership"]},
+      {word:"rectify", phonetic:"/ˈrektɪfaɪ/", part:"verb", meaning:"To correct something that is wrong.", example:"We must rectify the data quality issue before publication.", level:"Professional", tags:["quality","action"]},
+      {word:"succinct", phonetic:"/səkˈsɪŋkt/", part:"adjective", meaning:"Expressed clearly in a few words.", example:"Please provide a succinct summary for senior leaders.", level:"Professional", tags:["communication","reports"]},
+      {word:"corroborate", phonetic:"/kəˈrɒbəreɪt/", part:"verb", meaning:"To confirm or support a statement with additional evidence.", example:"We used a second source to corroborate the reported figures.", level:"Advanced", tags:["evidence","analysis"]},
+      {word:"inadvertent", phonetic:"/ˌɪnədˈvɜːtənt/", part:"adjective", meaning:"Not intentional; happening by accident.", example:"The change caused an inadvertent delay in the reporting cycle.", level:"Advanced", tags:["risk","communication"]},
+      {word:"transient", phonetic:"/ˈtrænziənt/", part:"adjective", meaning:"Temporary and not likely to last for long.", example:"The increase may be transient rather than a sustained trend.", level:"Advanced", tags:["analysis","trends"]},
+      {word:"pertinent", phonetic:"/ˈpɜːtɪnənt/", part:"adjective", meaning:"Directly relevant to the matter being considered.", example:"Please include only the most pertinent evidence in the briefing.", level:"Advanced", tags:["relevance","writing"]},
+      {word:"unprecedented", phonetic:"/ʌnˈpresɪdentɪd/", part:"adjective", meaning:"Never having happened or existed before.", example:"The university experienced unprecedented demand for the new service.", level:"Professional", tags:["change","reports"]},
+      {word:"viable", phonetic:"/ˈvaɪəbəl/", part:"adjective", meaning:"Capable of working successfully over time.", example:"We are assessing whether the proposed platform is financially viable.", level:"Professional", tags:["planning","strategy"]},
+      {word:"empirical", phonetic:"/ɪmˈpɪrɪkəl/", part:"adjective", meaning:"Based on observation, experience or evidence rather than theory alone.", example:"The recommendation should be grounded in empirical evidence.", level:"Advanced", tags:["research","evidence"]},
+      {word:"disparate", phonetic:"/ˈdɪspərət/", part:"adjective", meaning:"Fundamentally different or difficult to compare.", example:"The platform brings together disparate data sources.", level:"Advanced", tags:["data","comparison"]},
+      {word:"conjecture", phonetic:"/kənˈdʒektʃə/", part:"noun", meaning:"An opinion or conclusion formed without complete evidence.", example:"At this stage, the explanation remains conjecture rather than fact.", level:"Advanced", tags:["reasoning","evidence"]},
+      {word:"impetus", phonetic:"/ˈɪmpɪtəs/", part:"noun", meaning:"A force or reason that makes something happen more quickly.", example:"The audit provided the impetus for a wider governance review.", level:"Advanced", tags:["change","strategy"]},
+      {word:"reconcile", phonetic:"/ˈrekənsaɪl/", part:"verb", meaning:"To make two apparently conflicting things consistent, or to compare records and resolve differences.", example:"The team must reconcile the dashboard totals with the source system.", level:"Professional", tags:["data","quality"]},
+      {word:"prescient", phonetic:"/ˈpresiənt/", part:"adjective", meaning:"Showing knowledge of events before they happen.", example:"Her prescient warning helped the team prepare for the demand surge.", level:"Advanced", tags:["foresight","leadership"]},
+      {word:"equivocal", phonetic:"/ɪˈkwɪvəkəl/", part:"adjective", meaning:"Open to different interpretations or deliberately unclear.", example:"The response was equivocal and did not confirm a clear decision.", level:"Advanced", tags:["clarity","communication"]},
+      {word:"granular", phonetic:"/ˈɡrænjələ/", part:"adjective", meaning:"Containing or examining very small levels of detail.", example:"Managers need a more granular breakdown by course and cohort.", level:"Professional", tags:["data","analysis"]},
+      {word:"holistic", phonetic:"/həʊˈlɪstɪk/", part:"adjective", meaning:"Considering a whole system rather than only separate parts.", example:"We need a holistic view of student experience across the full journey.", level:"Professional", tags:["strategy","analysis"]}
+    ];
+
+    const languageExtras = {
+      pragmatic: {collocations:["pragmatic approach","pragmatic solution","pragmatic decision"], synonyms:["practical","realistic","sensible"], family:["pragmatism","pragmatically"], distinction:"Pragmatic emphasises what will work in practice. Practical is broader and may simply mean useful or workable."},
+      articulate: {collocations:["articulate a vision","highly articulate","articulate response"], synonyms:["eloquent","clear","expressive"], family:["articulate (verb)","articulation","articulately"], distinction:"Articulate focuses on clear expression. Eloquent also suggests fluency, grace and persuasive style."},
+      nuanced: {collocations:["nuanced understanding","nuanced analysis","more nuanced view"], synonyms:["subtle","refined","qualified"], family:["nuance","nuanced"], distinction:"Nuanced shows careful attention to small differences. Subtle may also describe something difficult to notice."},
+      cogent: {collocations:["cogent argument","cogent explanation","cogent case"], synonyms:["convincing","compelling","logical"], family:["cogently","cogency"], distinction:"Cogent combines clarity, logic and persuasiveness. Compelling focuses more strongly on persuasive impact."},
+      salient: {collocations:["salient point","salient feature","most salient issue"], synonyms:["relevant","prominent","notable"], family:["salience","saliently"], distinction:"Salient means especially noticeable or relevant in the present context. Relevant does not necessarily mean prominent."},
+      meticulous: {collocations:["meticulous attention","meticulous review","meticulous planning"], synonyms:["thorough","precise","careful"], family:["meticulously","meticulousness"], distinction:"Meticulous stresses very close attention to detail. Thorough stresses completeness."},
+      consolidate: {collocations:["consolidate data","consolidate findings","consolidate progress"], synonyms:["combine","integrate","strengthen"], family:["consolidation","consolidated"], distinction:"Consolidate often means combining items to make the result stronger or easier to manage."},
+      mitigate: {collocations:["mitigate risk","mitigate the impact","mitigating action"], synonyms:["reduce","alleviate","lessen"], family:["mitigation","mitigating"], distinction:"Mitigate means make something harmful less severe. It does not necessarily remove the problem completely."},
+      substantiate: {collocations:["substantiate a claim","substantiate the recommendation","substantiate with evidence"], synonyms:["support","verify","validate"], family:["substantiation","substantiated"], distinction:"Substantiate requires evidence. Support can be broader and may include opinion or assistance."},
+      ambiguous: {collocations:["ambiguous wording","ambiguous requirement","remain ambiguous"], synonyms:["unclear","equivocal","open-ended"], family:["ambiguity","ambiguously"], distinction:"Ambiguous allows more than one interpretation. Unclear may simply be difficult to understand."},
+      proactive: {collocations:["proactive approach","proactive communication","proactive intervention"], synonyms:["forward-looking","preventive","anticipatory"], family:["proactively","proactivity"], distinction:"Proactive means acting before events require a reaction. Preventive focuses specifically on stopping a problem."},
+      scrutinise: {collocations:["scrutinise the evidence","closely scrutinise","scrutinise performance"], synonyms:["examine","inspect","analyse"], family:["scrutiny","scrutinised"], distinction:"Scrutinise means examine very carefully, often with a critical purpose."},
+      coherent: {collocations:["coherent strategy","coherent narrative","internally coherent"], synonyms:["logical","consistent","unified"], family:["coherence","coherently"], distinction:"Coherent means the parts form a clear and logical whole. Consistent focuses on absence of contradiction."},
+      feasible: {collocations:["technically feasible","financially feasible","feasible option"], synonyms:["viable","workable","achievable"], family:["feasibility","feasibly"], distinction:"Feasible asks whether something can be done. Viable often asks whether it can continue successfully over time."},
+      resilient: {collocations:["resilient system","organisational resilience","highly resilient"], synonyms:["robust","adaptable","durable"], family:["resilience","resiliently"], distinction:"Resilient emphasises recovery after difficulty. Robust emphasises strength and reliability."},
+      succinct: {collocations:["succinct summary","succinct response","clear and succinct"], synonyms:["concise","brief","compact"], family:["succinctly","succinctness"], distinction:"Succinct means brief while still clear and complete. Brief only describes length."},
+      pertinent: {collocations:["pertinent question","pertinent evidence","directly pertinent"], synonyms:["relevant","applicable","material"], family:["pertinence","pertinently"], distinction:"Pertinent means directly relevant to the issue being considered."},
+      viable: {collocations:["commercially viable","viable solution","long-term viability"], synonyms:["feasible","sustainable","workable"], family:["viability","viably"], distinction:"Viable normally includes the ability to succeed or continue, not merely the ability to start."},
+      empirical: {collocations:["empirical evidence","empirical research","empirically supported"], synonyms:["evidence-based","observational","experimental"], family:["empiricism","empirically"], distinction:"Empirical evidence comes from observation or experiment rather than theory alone."},
+      granular: {collocations:["granular detail","granular breakdown","more granular analysis"], synonyms:["detailed","fine-grained","specific"], family:["granularity"], distinction:"Granular means divided into very small or detailed elements, especially in data and analysis."},
+      holistic: {collocations:["holistic approach","holistic view","holistic assessment"], synonyms:["comprehensive","integrated","whole-system"], family:["holism","holistically"], distinction:"Holistic considers the whole and the relationships between parts. Comprehensive means broad or complete."}
+    };
+
+    const officePrompts = [
+      "How should I explain a delay without sounding defensive?",
+      "Give a concise update on a project that is broadly on track.",
+      "Explain why two dashboard totals do not currently match.",
+      "Disagree politely with a proposal in a senior meeting.",
+      "Ask a colleague for evidence to support a recommendation.",
+      "Present three priorities for the coming week.",
+      "Explain a technical issue to a non-technical audience.",
+      "Respond when a deadline is unrealistic."
+    ];
+
+    const stopWords = new Set(("a an the and or but if then than that this these those is are was were be been being to of in on for with as at by from into about over after before between through during without within it its they them their he she we you i me my our your who whom which what when where why how can could should would may might must will do does did done have has had not no yes very more most less many much some any each every all both either neither also just only even so such too quite rather really own same other another new old good better best bad big small high low first last next now then here there up down out off again further once").split(/\s+/));
+
+    const defaultTargets = { newWords: 5, reviews: 5, sentences: 2, pronunciation: 1 };
+    let state = loadState();
+    let activeProfileId = state.activeProfileId;
+    let extractedCandidates = [];
+    let practiceIndex = 0;
+    let currentQuiz = null;
+    let currentPracticeId = null;
+    let activeRecognition = null;
+    let speechVoices = [];
+    let mediaRecorder = null;
+    let mediaStream = null;
+    let audioChunks = [];
+    let recordedAudioUrl = "";
+    let lastCoachSpeech = "";
+
+    function uid(prefix = "id") { return `${prefix}_${Date.now()}_${Math.random().toString(16).slice(2)}`; }
+    function localDateKey(date = new Date()) {
+      const y = date.getFullYear();
+      const m = String(date.getMonth() + 1).padStart(2, "0");
+      const d = String(date.getDate()).padStart(2, "0");
+      return `${y}-${m}-${d}`;
+    }
+    function addDaysKey(days, from = new Date()) { const d = new Date(from); d.setHours(12,0,0,0); d.setDate(d.getDate() + days); return localDateKey(d); }
+    function parseDateKey(key) { const [y,m,d] = String(key || "").split("-").map(Number); return new Date(y || 2000, (m || 1)-1, d || 1, 12); }
+    function normaliseWord(value) { return String(value || "").trim().toLowerCase().replace(/\s+/g, " "); }
+    function capitalise(value) { return String(value || "").replace(/\b\w/g, c => c.toUpperCase()); }
+    function escapeHtml(value) { return String(value ?? "").replace(/[&<>'"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c])); }
+    function safeId(value, prefix = "id") { const cleaned=String(value||"").replace(/[^a-zA-Z0-9_-]/g,"").slice(0,80); return cleaned || uid(prefix); }
+    function cleanText(value, max = 5000) { return String(value ?? "").replace(/\0/g, "").trim().slice(0,max); }
+    function validDate(value) { const text=String(value||""); return /^\d{4}-\d{2}-\d{2}(?:T.*)?$/.test(text) ? text : ""; }
+    function loadLibrary(kind) {
+      const item=libraryScripts[kind]; if(!item)return Promise.reject(new Error("Unsupported library."));
+      if(window[item.global])return Promise.resolve(window[item.global]);
+      if(item.promise)return item.promise;
+      item.promise=new Promise((resolve,reject)=>{const script=document.createElement("script");script.src=item.src;script.async=true;script.referrerPolicy="no-referrer";script.onload=()=>resolve(window[item.global]);script.onerror=()=>{item.promise=null;reject(new Error("The document reader could not load. Check your connection."));};document.head.appendChild(script);});
+      return item.promise;
+    }
+    function clamp(value, min, max) { return Math.min(max, Math.max(min, value)); }
+    function toast(message) {
+      const el = document.getElementById("toast");
+      if (!el) return;
+      el.textContent = message;
+      el.classList.add("show");
+      clearTimeout(toast.timer);
+      toast.timer = setTimeout(() => el.classList.remove("show"), 2800);
+    }
+
+    function defaultProfile(name = "My Profile") {
+      return { id: uid("p"), name, words: [], sentenceCount: 0, activityDates: [], dailyStats: {}, coachHistory: [], createdAt: new Date().toISOString() };
+    }
+    function defaultState() {
+      const p = defaultProfile();
+      return { version: APP_VERSION, activeProfileId: p.id, profiles: { [p.id]: p }, settings: { theme: "light", fontSize: "normal", dailyTargets: { ...defaultTargets } } };
+    }
+    function inferCategory(tags = [], word = "") {
+      const all = `${word} ${Array.isArray(tags) ? tags.join(" ") : tags}`.toLowerCase();
+      if (/data|analysis|research|evidence|quality|figure|metric/.test(all)) return "Data & Analysis";
+      if (/leadership|strategy|decision|foresight|change/.test(all)) return "Leadership & Strategy";
+      if (/meeting|communication|persuasion|clarity|office/.test(all)) return "Meetings & Communication";
+      if (/writing|report|summary|narrative/.test(all)) return "Writing & Reports";
+      if (/risk|governance|control|audit/.test(all)) return "Governance & Risk";
+      if (/technology|system|ai|platform/.test(all)) return "Technology";
+      if (/interview|career|job/.test(all)) return "Interviews & Careers";
+      if (/everyday|conversation/.test(all)) return "Everyday Conversation";
+      return "General Advanced";
+    }
+    function migrateWord(word) {
+      if (!word || typeof word !== "object" || Array.isArray(word)) throw new Error("Invalid word entry");
+      const status = word.status || (word.mastered ? "mastered" : ((word.reviewCount || 0) ? "learning" : "new"));
+      return {
+        id: safeId(word.id,"w"), word: cleanText(word.word,120), meaning: cleanText(word.meaning,2000), example: cleanText(word.example,2000), example2: cleanText(word.example2,2000),
+        part: cleanText(word.part,40)||"other", level: cleanText(word.level,40)||"Advanced", source:cleanText(word.source,300), phonetic:cleanText(word.phonetic,120),
+        tags: (Array.isArray(word.tags) ? word.tags : String(word.tags || "").split(",")).map(t=>cleanText(t,50)).filter(Boolean).slice(0,20),
+        category: cleanText(word.category,80) || inferCategory(word.tags, word.word),
+        difficulty: clamp(Number(word.difficulty || 2),1,3),
+        notes: cleanText(word.notes,5000),
+        favourite: Boolean(word.favourite),
+        status,
+        mastered: status === "mastered",
+        intervalDays: Number(word.intervalDays || (status === "mastered" ? 30 : 1)),
+        reviewCount: Number(word.reviewCount || 0),
+        nextReviewAt: validDate(word.nextReviewAt) || localDateKey(),
+        lastReviewedAt: validDate(word.lastReviewedAt),
+        createdAt: validDate(word.createdAt) || new Date().toISOString()
+      };
+    }
+    function migrateProfile(p) {
+      if (!p || typeof p !== "object" || Array.isArray(p)) throw new Error("Invalid profile");
+      return {
+        id:safeId(p.id,"p"), name:cleanText(p.name,80)||"My Profile",
+        words: (Array.isArray(p.words)?p.words:[]).slice(0,MAX_WORDS_PER_PROFILE).map(migrateWord),
+        sentenceCount: Number(p.sentenceCount || 0),
+        activityDates: Array.isArray(p.activityDates) ? p.activityDates : [],
+        dailyStats: p.dailyStats && typeof p.dailyStats==="object" && !Array.isArray(p.dailyStats) ? p.dailyStats : {},
+        coachHistory: (Array.isArray(p.coachHistory) ? p.coachHistory : []).slice(0,20).map(h=>({id:safeId(h?.id,"c"),question:cleanText(h?.question,2000),answer:cleanText(h?.answer,5000),createdAt:validDate(h?.createdAt)||new Date().toISOString()})),
+        createdAt:validDate(p.createdAt)||new Date().toISOString()
+      };
+    }
+    function migrateState(value) {
+      const fallback = defaultState();
+      if (!value || !value.profiles || !value.activeProfileId) return fallback;
+      const profiles = {};
+      Object.values(value.profiles).slice(0,MAX_PROFILES).forEach(p => { const mp = migrateProfile(p); profiles[mp.id] = mp; });
+      const active = profiles[value.activeProfileId] ? value.activeProfileId : Object.keys(profiles)[0];
+      if (!active) return fallback;
+      return {
+        ...value,
+        version: APP_VERSION,
+        activeProfileId: active,
+        profiles,
+        settings: {
+          theme: value.settings?.theme || "light",
+          fontSize: value.settings?.fontSize || "normal",
+          dailyTargets: { ...defaultTargets, ...(value.settings?.dailyTargets || {}) }
+        }
+      };
+    }
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return migrateState(raw ? JSON.parse(raw) : null);
+      } catch (error) {
+        console.warn("Could not load saved data", error);
+        return defaultState();
+      }
+    }
+    function saveState() {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); if(!cloudApplying)scheduleCloudSync(); return true; }
+      catch (error) { console.warn("Could not save data", error); toast("This browser could not save the latest change. Export a backup to protect your data."); return false; }
+    }
+    function setCloudStatus(message,kind="") { const el=document.getElementById("cloudStatus");if(!el)return;el.textContent=message;el.className=`status${kind?` ${kind}`:""}`; }
+    function renderCloudAccount() { const signedIn=document.getElementById("cloudSignedIn"),signedOut=document.getElementById("cloudSignedOut");if(!signedIn||!signedOut)return;signedIn.classList.toggle("hidden",!cloudUser);signedOut.classList.toggle("hidden",!!cloudUser);document.getElementById("accountIdentity").textContent=cloudUser?.email||""; }
+    function cloudConfig() { const c=window.ARTICULATE_CONFIG||{};return {url:String(c.supabaseUrl||""),key:String(c.supabaseAnonKey||"")}; }
+    async function initCloud() { const config=cloudConfig();if(!config.url||!config.key){setCloudStatus("Cloud sync is not configured yet. Local saving is active.");renderCloudAccount();return;}try{await loadLibrary("supabase");cloudClient=window.supabase.createClient(config.url,config.key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});const {data}=await cloudClient.auth.getSession();cloudUser=data.session?.user||null;cloudClient.auth.onAuthStateChange((_event,session)=>{if(!cloudAuthReady)return;const previousId=cloudUser?.id||null;cloudUser=session?.user||null;renderCloudAccount();if(cloudUser&&cloudUser.id!==previousId)setTimeout(()=>syncCloud(true),0);else if(!cloudUser)setCloudStatus("Signed out. Changes are saved locally.");});renderCloudAccount();if(cloudUser)await syncCloud(true);else setCloudStatus("Sign in to sync this device, or continue using local saving.");cloudAuthReady=true;}catch(error){console.error(error);setCloudStatus("Cloud sync could not start. Local saving is still active.","error");} }
+    function scheduleCloudSync(){if(!cloudClient||!cloudUser)return;clearTimeout(cloudSyncTimer);cloudSyncTimer=setTimeout(()=>syncCloud(false),1200);}
+    async function syncCloud(checkRemote=false){if(!cloudClient||!cloudUser)return;setCloudStatus("Syncing…");try{if(checkRemote){const {data,error}=await cloudClient.from("user_app_state").select("app_state,updated_at").eq("user_id",cloudUser.id).maybeSingle();if(error)throw error;if(data?.app_state){const remote=migrateState(data.app_state);if(JSON.stringify(remote)===JSON.stringify(migrateState(state))){setCloudStatus("Cloud and device data are already in sync.","success");return;}const choice=String(prompt("Cloud and device data are different. Type CLOUD to use the cloud copy, DEVICE to upload this device's copy, or BACKUP to download this device's data before deciding.","BACKUP")||"").trim().toUpperCase();if(choice==="BACKUP"){exportBackup();setCloudStatus("Backup downloaded. Sync is paused until you choose Sync now.");return;}if(choice==="CLOUD"){cloudApplying=true;state=remote;activeProfileId=state.activeProfileId;localStorage.setItem(STORAGE_KEY,JSON.stringify(state));renderAll();cloudApplying=false;setCloudStatus("Cloud data downloaded.","success");return;}if(choice!=="DEVICE"){setCloudStatus("Sync cancelled. Local data is unchanged.");return;}}}const {error}=await cloudClient.from("user_app_state").upsert({user_id:cloudUser.id,app_state:state,updated_at:new Date().toISOString()},{onConflict:"user_id"});if(error)throw error;setCloudStatus(`Synced at ${new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"})}.`,"success");}catch(error){console.error(error);setCloudStatus("Sync failed. Your latest changes remain safely stored on this device.","error");}}
+    async function accountAction(mode){if(!cloudClient)return setCloudStatus("Cloud sync must be configured before you can create an account.","error");const email=document.getElementById("accountEmail").value.trim();const password=document.getElementById("accountPassword").value;if(!/^\S+@\S+\.\S+$/.test(email)||password.length<8)return setCloudStatus("Enter a valid email and a password of at least 8 characters.","error");setCloudStatus(mode==="signup"?"Creating account…":"Signing in…");const result=mode==="signup"?await cloudClient.auth.signUp({email,password}):await cloudClient.auth.signInWithPassword({email,password});if(result.error)return setCloudStatus(result.error.message,"error");setCloudStatus(mode==="signup"&&!result.data.session?"Check your email to confirm the account.":"Signed in successfully.","success");}
+    async function resetPassword(){if(!cloudClient)return setCloudStatus("Cloud sync must be configured before password recovery is available.","error");const email=document.getElementById("accountEmail").value.trim();if(!/^\S+@\S+\.\S+$/.test(email))return setCloudStatus("Enter your account email first, then choose Forgot password.","error");setCloudStatus("Sending password-reset email…");const {error}=await cloudClient.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});if(error)return setCloudStatus(error.message,"error");setCloudStatus("Check your email for a secure password-reset link.","success");}
+    async function deleteAllAppData(){const scope=cloudUser?"this device and your cloud account":"this device";if(!confirm(`First confirmation: permanently delete every profile, saved word and progress item from ${scope}?`))return toast("Data deletion cancelled.");if(prompt("Second confirmation: type DELETE ALL exactly to continue.")!=="DELETE ALL")return toast("Data deletion cancelled.");if(cloudClient&&cloudUser){setCloudStatus("Deleting cloud data…");const {error}=await cloudClient.from("user_app_state").delete().eq("user_id",cloudUser.id);if(error){setCloudStatus("Cloud deletion failed. No local data was deleted.","error");return toast("Cloud deletion failed; your data was left unchanged.");}}cloudApplying=true;try{localStorage.removeItem(STORAGE_KEY)}catch{}state=defaultState();activeProfileId=state.activeProfileId;localStorage.setItem(STORAGE_KEY,JSON.stringify(state));cloudApplying=false;renderAll();setCloudStatus(cloudUser?"All saved app data was deleted. Your account remains signed in.":"All local app data was deleted.","success");toast("All app data has been deleted.");}
+    function profile() { return state.profiles[activeProfileId]; }
+    function ensureDailyStats(date = localDateKey()) {
+      const p = profile();
+      if (!p.dailyStats[date]) p.dailyStats[date] = { newWords: 0, reviews: 0, sentences: 0, pronunciation: 0, quizzes: 0, coach: 0 };
+      return p.dailyStats[date];
+    }
+    function recordActivity(type, amount = 1) {
+      const p = profile();
+      const today = localDateKey();
+      if (!p.activityDates.includes(today)) p.activityDates.push(today);
+      p.activityDates = p.activityDates.slice(-180);
+      if (type) ensureDailyStats(today)[type] = Number(ensureDailyStats(today)[type] || 0) + amount;
+    }
+    function calculateStreak() {
+      const dates = new Set(profile().activityDates || []);
+      let streak = 0;
+      const cursor = new Date(); cursor.setHours(12,0,0,0);
+      while (dates.has(localDateKey(cursor))) { streak++; cursor.setDate(cursor.getDate() - 1); }
+      return streak;
+    }
+    function dateHash() { const d = new Date(); return Number(`${d.getFullYear()}${String(d.getMonth()+1).padStart(2,"0")}${String(d.getDate()).padStart(2,"0")}`); }
+    function dailyEntry() { return wordBank[dateHash() % wordBank.length]; }
+    function phoneticFor(entry) {
+      if (!entry) return "";
+      if (entry.phonetic) return entry.phonetic;
+      return wordBank.find(item => normaliseWord(item.word) === normaliseWord(entry.word))?.phonetic || "";
+    }
+    function statusLabel(status) { return ({new:"New",learning:"Learning",familiar:"Familiar",mastered:"Mastered"})[status] || "Learning"; }
+    function isDue(word) { return !word.nextReviewAt || word.nextReviewAt <= localDateKey(); }
+    function dueWords() { return profile().words.filter(isDue).sort((a,b) => String(a.nextReviewAt).localeCompare(String(b.nextReviewAt))); }
+    function humanDue(word) {
+      if (!word.nextReviewAt) return "Ready for review";
+      const diff = Math.round((parseDateKey(word.nextReviewAt) - parseDateKey(localDateKey())) / 86400000);
+      if (diff < 0) return `${Math.abs(diff)} day${Math.abs(diff) === 1 ? "" : "s"} overdue`;
+      if (diff === 0) return "Due today";
+      if (diff === 1) return "Due tomorrow";
+      return `Due in ${diff} days`;
+    }
+    function getInsights(entry) {
+      const word = normaliseWord(entry?.word);
+      if (languageExtras[word]) return languageExtras[word];
+      const part = entry?.part || "word";
+      const collocations = part === "verb" ? [`${word} the evidence`, `${word} a proposal`, `carefully ${word}`]
+        : part === "noun" ? [`clear ${word}`, `${word} for change`, `provide ${word}`]
+        : [`${word} approach`, `${word} assessment`, `highly ${word}`];
+      return { collocations, synonyms:["related term","close alternative","context-specific synonym"], family:[word], distinction:"Check the sentence context before replacing one advanced word with another. Similar words often differ in tone, strength or formality." };
+    }
+    function getPracticePool() {
+      const due = dueWords();
+      if (due.length) return due;
+      if (profile().words.length) return [...profile().words].sort((a,b) => (a.status === "mastered") - (b.status === "mastered"));
+      return wordBank.slice(0, 10).map(w => ({...w, id:`bank_${w.word}`, status:"new", nextReviewAt:localDateKey(), difficulty:2, category:inferCategory(w.tags,w.word)}));
+    }
+    function currentPracticeEntry() {
+      const pool = getPracticePool();
+      if (currentPracticeId) {
+        const found = pool.find(w => w.id === currentPracticeId);
+        if (found) return found;
+      }
+      practiceIndex = pool.length ? practiceIndex % pool.length : 0;
+      return pool[practiceIndex];
+    }
+
+    function applyPreferences() {
+      const theme = state.settings.theme;
+      const actual = theme === "system" ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : theme;
+      document.body.dataset.theme = actual;
+      document.body.dataset.fontSize = state.settings.fontSize || "normal";
+      const themeSelect = document.getElementById("themeSelect"); if (themeSelect) themeSelect.value = theme;
+      const fontSelect = document.getElementById("fontSizeSelect"); if (fontSelect) fontSelect.value = state.settings.fontSize || "normal";
+      const targets = state.settings.dailyTargets;
+      ["new","review","sentence","pronunciation"].forEach(key => {
+        const map = {new:"newWords",review:"reviews",sentence:"sentences",pronunciation:"pronunciation"};
+        const input = document.getElementById(`${key}TargetInput`); if (input) input.value = targets[map[key]];
+      });
+    }
+    function previewPreferences(){const chosen=themeSelect.value;const actual=chosen==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):chosen;document.body.dataset.theme=actual;document.body.dataset.fontSize=fontSizeSelect.value;}
+    function showView(id) {
+      document.querySelectorAll(".view").forEach(v => v.classList.toggle("active", v.id === id));
+      document.querySelectorAll("[data-view]").forEach(b => { const selected=b.dataset.view===id; b.classList.toggle("active",selected); if(selected)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current"); });
+      const [title, subtitle] = titleMap[id] || titleMap.dashboard;
+      document.getElementById("pageTitle").textContent = title;
+      document.getElementById("pageSubtitle").textContent = subtitle;
+      if (id === "library") renderLibrary();
+      if (id === "practice") refreshPractice();
+      if (id === "settings") { renderProfiles(); applyPreferences(); }
+      if (id === "coach") renderCoachHistory();
+      window.scrollTo({top:0, behavior:"smooth"});
+    }
+
+    function renderAll() {
+      applyPreferences();
+      const p = profile();
+      const today = dailyEntry();
+      document.getElementById("dailyWord").textContent = capitalise(today.word);
+      document.getElementById("dailyPhonetic").textContent = `${today.phonetic} · ${today.part}`;
+      document.getElementById("dailyMeaning").textContent = today.meaning;
+      document.getElementById("dailyExample").textContent = `“${today.example}”`;
+      const stats = ensureDailyStats();
+      const mastered = p.words.filter(w => w.status === "mastered").length;
+      document.getElementById("statWords").textContent = p.words.length;
+      document.getElementById("statPractised").textContent = p.sentenceCount || 0;
+      document.getElementById("statMastered").textContent = mastered;
+      document.getElementById("statToday").textContent = stats.newWords || 0;
+      const targets = state.settings.dailyTargets;
+      const achieved = Math.min(stats.newWords, targets.newWords) + Math.min(stats.reviews, targets.reviews) + Math.min(stats.sentences, targets.sentences) + Math.min(stats.pronunciation, targets.pronunciation);
+      const totalTargets = targets.newWords + targets.reviews + targets.sentences + targets.pronunciation;
+      const pct = totalTargets ? Math.round(achieved / totalTargets * 100) : 0;
+      document.getElementById("targetText").textContent = `${achieved}/${totalTargets}`;
+      document.getElementById("dailyProgress").style.width = `${pct}%`;
+      document.getElementById("streakCount").textContent = calculateStreak();
+      document.getElementById("sideProfileName").textContent = p.name;
+      document.getElementById("sideAvatar").textContent = p.name.charAt(0).toUpperCase();
+      document.getElementById("sideWordCount").textContent = `${p.words.length} saved word${p.words.length === 1 ? "" : "s"}`;
+      renderDailyPlan();
+      renderDashboardIntelligence();
+      renderRecent();
+      renderLibrary();
+      renderProfiles();
+      refreshPractice();
+      renderCoachHistory();
+      if (!currentQuiz) newQuiz();
+    }
+
+    function renderDailyPlan() {
+      const stats = ensureDailyStats();
+      const t = state.settings.dailyTargets;
+      const items = [
+        {icon:"＋", title:"Learn new words", detail:"Meaning, context and professional category", key:"newWords", value:stats.newWords || 0, target:t.newWords, go:"add"},
+        {icon:"↻", title:"Review scheduled words", detail:"Spaced repetition strengthens long-term recall", key:"reviews", value:stats.reviews || 0, target:t.reviews, go:"practice"},
+        {icon:"✎", title:"Write useful sentences", detail:"Use vocabulary in realistic office situations", key:"sentences", value:stats.sentences || 0, target:t.sentences, go:"practice"},
+        {icon:"🔊", title:"Practise UK pronunciation", detail:"Listen, record and compare your speech", key:"pronunciation", value:stats.pronunciation || 0, target:t.pronunciation, go:"practice"}
+      ];
+      const total = items.reduce((s,i) => s + Math.min(i.value,i.target),0);
+      const target = items.reduce((s,i) => s + i.target,0);
+      document.getElementById("planCompletion").textContent = `${target ? Math.round(total/target*100) : 0}% complete`;
+      document.getElementById("dailyPlanList").innerHTML = items.map(i => `<button class="plan-item ${i.value >= i.target ? "complete" : ""}" data-go="${i.go}" style="width:100%;text-align:left;color:inherit"><span class="plan-icon">${i.value >= i.target ? "✓" : i.icon}</span><span class="plan-copy"><strong>${i.title}</strong><small>${i.detail}</small></span><span class="plan-count">${Math.min(i.value,i.target)}/${i.target}</span></button>`).join("");
+    }
+    function weeklyData() {
+      const result = [];
+      for (let i=6;i>=0;i--) {
+        const d = new Date(); d.setHours(12,0,0,0); d.setDate(d.getDate()-i);
+        const key = localDateKey(d); const s = profile().dailyStats[key] || {};
+        result.push({key,label:d.toLocaleDateString("en-GB",{weekday:"short"}).slice(0,2), actions:Object.values(s).reduce((a,b) => a + Number(b || 0),0)});
+      }
+      return result;
+    }
+    function renderDashboardIntelligence() {
+      const p = profile(); const due = dueWords();
+      document.getElementById("dueTodayCount").textContent = due.length;
+      document.getElementById("reviewDuePill").textContent = `${due.length} due`;
+      document.getElementById("familiarCount").textContent = p.words.filter(w => w.status === "familiar").length;
+      document.getElementById("favouriteCount").textContent = p.words.filter(w => w.favourite).length;
+      const week = weeklyData(); const max = Math.max(1,...week.map(d=>d.actions)); const total = week.reduce((s,d)=>s+d.actions,0);
+      document.getElementById("weeklyActionTotal").textContent = `${total} action${total===1?"":"s"}`;
+      document.getElementById("weeklyBars").innerHTML = week.map(d => `<div class="bar-day"><div class="bar-track" title="${d.actions} actions"><div class="bar-fill" style="height:${Math.max(4,Math.round(d.actions/max*100))}%"></div></div><small>${d.label}</small></div>`).join("");
+      const counts = {};
+      p.words.forEach(w => counts[w.category || "General Advanced"] = (counts[w.category || "General Advanced"] || 0) + 1);
+      const categories = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,6);
+      const categoryEl = document.getElementById("categorySummary");
+      categoryEl.innerHTML = categories.length ? categories.map(([name,count]) => `<div class="category-row"><div><strong>${escapeHtml(name)}</strong><div class="mini-track"><div class="mini-fill" style="width:${Math.round(count/Math.max(1,p.words.length)*100)}%"></div></div></div><small>${count}</small></div>`).join("") : `<div class="empty">Categories appear after you save words.</div>`;
+      const streak = calculateStreak(); const mastered = p.words.filter(w=>w.status==="mastered").length;
+      let badge = {mark:"A",title:"Getting started",text:"Save your first word to begin your learning record."};
+      if (p.words.length >= 1) badge = {mark:"1",title:"First word saved",text:"Your personal vocabulary library has begun."};
+      if (p.words.length >= 10) badge = {mark:"10",title:"Vocabulary builder",text:"You have saved ten useful words."};
+      if (streak >= 7) badge = {mark:"7",title:"Consistent learner",text:"You have maintained a seven-day learning streak."};
+      if (mastered >= 10) badge = {mark:"★",title:"Recall specialist",text:"Ten words have reached mastered status."};
+      if (p.words.length >= 50) badge = {mark:"50",title:"Articulate explorer",text:"Your library now contains fifty words."};
+      document.getElementById("badgeMark").textContent = badge.mark;
+      document.getElementById("badgeTitle").textContent = badge.title;
+      document.getElementById("badgeText").textContent = badge.text;
+      const challenge = dailyEntry();
+      document.getElementById("dailyChallenge").textContent = `Today’s challenge: use “${challenge.word}” naturally in one spoken sentence.`;
+    }
+    function renderRecent() {
+      const el = document.getElementById("recentWords");
+      const recent = [...profile().words].sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt)).slice(0,4);
+      el.innerHTML = recent.length ? recent.map(w => `<div class="quick-item"><span class="quick-dot"></span><div style="min-width:0;flex:1"><div class="word-heading-line"><strong>${escapeHtml(capitalise(w.word))}</strong>${phoneticFor(w)?`<span class="inline-phonetic">${escapeHtml(phoneticFor(w))}</span>`:""}</div><small>${escapeHtml(w.meaning)}</small></div><button class="icon-button" data-action="speak-word" data-id="${w.id}" title="Hear UK pronunciation">🔊</button></div>`).join("") : `<div class="empty">No saved words yet. Add today’s word or enter one you recently learned.</div>`;
+    }
+
+    function addWord(entry, silent = false) {
+      const p = profile(); const word = normaliseWord(entry.word);
+      if (!word) return false;
+      if (p.words.some(w => normaliseWord(w.word) === word)) { if (!silent) toast(`“${capitalise(word)}” is already in your library.`); return false; }
+      const item = migrateWord({
+        id:uid("w"), word, meaning:entry.meaning || "Meaning to be added", example:entry.example || "", example2:entry.example2 || "", part:entry.part || "other", level:entry.level || "Advanced",
+        source:entry.source || "", tags:Array.isArray(entry.tags)?entry.tags:String(entry.tags||"").split(",").map(t=>t.trim()).filter(Boolean), phonetic:entry.phonetic || "",
+        category:entry.category || inferCategory(entry.tags,word), difficulty:Number(entry.difficulty || 2), notes:entry.notes || "", favourite:Boolean(entry.favourite), status:"new", mastered:false,
+        intervalDays:1, nextReviewAt:localDateKey(), reviewCount:0, createdAt:new Date().toISOString()
+      });
+      p.words.push(item); recordActivity("newWords"); saveState();
+      if (!silent) toast(`Saved “${capitalise(word)}”.`);
+      renderAll(); return true;
+    }
+    function cleanDictionaryTerm(value) {
+      return String(value || "")
+        .trim()
+        .replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}'’\-]+$/gu, "")
+        .replace(/\s+/g, " ");
+    }
+    async function dictionaryLookup(word, setForm = true) {
+      const status = document.getElementById("lookupStatus");
+      const lookupWord = cleanDictionaryTerm(word);
+      if (!lookupWord) {
+        if (setForm) {
+          status.textContent = "Enter or speak a word first.";
+          status.className = "status error";
+        }
+        return null;
+      }
+      if (setForm) {
+        document.getElementById("wordInput").value = lookupWord;
+        status.textContent = `Looking up “${lookupWord}”…`;
+        status.className = "status";
+      }
+      try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 10000);
+        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(lookupWord.toLowerCase())}`, { signal: controller.signal });
+        clearTimeout(timeout);
+        if (!response.ok) throw new Error("No definition found");
+        const data = await response.json();
+        const first = data?.[0];
+        const meaningBlock = first?.meanings?.find(m => m?.definitions?.length) || first?.meanings?.[0];
+        const definition = meaningBlock?.definitions?.find(d => d?.definition) || meaningBlock?.definitions?.[0];
+        const exampleDefinitions = (meaningBlock?.definitions || []).filter(d => d?.example);
+        if (!first || !definition?.definition) throw new Error("No definition found");
+        const result = {
+          word: first.word || lookupWord,
+          phonetic: first.phonetic || first.phonetics?.find(p => p.text)?.text || "",
+          part: meaningBlock?.partOfSpeech || "other",
+          meaning: definition.definition,
+          example: definition.example || "",
+          example2: exampleDefinitions.find(d => d.example !== definition.example)?.example || ""
+        };
+        if (setForm) {
+          document.getElementById("meaningInput").value = result.meaning;
+          document.getElementById("exampleInput").value = result.example;
+          document.getElementById("phoneticInput").value = result.phonetic;
+          const part = document.getElementById("partInput");
+          if ([...part.options].some(o => o.value === result.part)) part.value = result.part;
+          const bank = wordBank.find(w => normaliseWord(w.word) === normaliseWord(lookupWord));
+          document.getElementById("categoryInput").value = inferCategory(bank?.tags || [], lookupWord);
+          status.textContent = "Meaning found. Review it, then save the word.";
+          status.className = "status success";
+          toast(`Meaning found for “${capitalise(lookupWord)}”.`);
+        }
+        return result;
+      } catch (error) {
+        if (setForm) {
+          status.textContent = error?.name === "AbortError"
+            ? "The dictionary took too long to respond. Check your connection and try again."
+            : `No online definition was found for “${lookupWord}”. Check the spelling or enter the meaning manually.`;
+          status.className = "status error";
+        }
+        return null;
+      }
+    }
+
+    function refreshSpeechVoices() { if ("speechSynthesis" in window) speechVoices = speechSynthesis.getVoices(); }
+    function preferredBritishVoice() {
+      refreshSpeechVoices(); const british = speechVoices.filter(v=>/^en-GB$/i.test(v.lang)); const preferred=/Sonia|Ryan|Libby|George|Daniel|Kate|Serena|Oliver|Google UK English/i;
+      return british.find(v=>preferred.test(v.name)) || british.find(v=>v.localService) || british[0] || null;
+    }
+    let activeSpeechMotion=null;
+    function prepareSpeechMotion(parts, spoken) {
+      const prepared=[];
+      for(const part of parts||[]){const element=part?.element,value=String(part?.text||"").trim();if(!element||!value)continue;const phraseStart=spoken.toLocaleLowerCase("en-GB").indexOf(value.toLocaleLowerCase("en-GB"));if(phraseStart<0)continue;const original=element.textContent;element.textContent="";element.classList.add("pronunciation-motion");element.setAttribute("aria-label",original);let cursor=0;for(const match of value.matchAll(/\S+/g)){if(match.index>cursor)element.append(document.createTextNode(value.slice(cursor,match.index)));const span=document.createElement("span");span.className="spoken-word";span.textContent=match[0];span.setAttribute("aria-hidden","true");span.dataset.start=String(phraseStart+match.index);span.dataset.end=String(phraseStart+match.index+match[0].length);element.append(span);cursor=match.index+match[0].length;}if(cursor<value.length)element.append(document.createTextNode(value.slice(cursor)));prepared.push({element,original});}
+      return {clear(){for(const item of prepared){item.element.classList.remove("pronunciation-motion");item.element.removeAttribute("aria-label");item.element.textContent=item.original;}if(activeSpeechMotion===this)activeSpeechMotion=null;},highlight(index){for(const item of prepared){for(const word of item.element.querySelectorAll(".spoken-word")){const active=index>=Number(word.dataset.start)&&index<Number(word.dataset.end);word.classList.toggle("active",active);}}}};
+    }
+    function speak(text, rate = .86, motionParts = []) {
+      const spoken = String(text || "").replace(/<[^>]+>/g," ").replace(/\s+/g," ").trim();
+      if (!spoken) return toast("There is no text to read aloud.");
+      if (!("speechSynthesis" in window)) return toast("Speech playback is not supported in this browser.");
+      activeSpeechMotion?.clear();
+      speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(spoken); u.lang="en-GB"; u.rate=rate; u.pitch=1; const voice=preferredBritishVoice(); if (voice) u.voice=voice;
+      u.onstart=()=>{activeSpeechMotion=prepareSpeechMotion(motionParts,spoken);};u.onboundary=e=>activeSpeechMotion?.highlight(Number(e.charIndex||0));u.onend=()=>activeSpeechMotion?.clear();
+      u.onerror=()=>{activeSpeechMotion?.clear();toast("The UK English voice could not play. Check your device speech settings.");}; speechSynthesis.speak(u);
+    }
+    async function requestMicrophone() {
+      if (!window.isSecureContext && location.hostname !== "localhost") throw new Error("secure");
+      if (!navigator.mediaDevices?.getUserMedia) return null;
+      const stream = await navigator.mediaDevices.getUserMedia({audio:true});
+      return stream;
+    }
+    async function startRecognition(targetId, options = {}) {
+      const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const target = targetId ? document.getElementById(targetId) : null;
+      if (!Recognition) { target?.focus(); return toast("Voice recognition is not supported here. Use Chrome or Edge, or your phone keyboard microphone."); }
+      if (!window.isSecureContext && location.hostname !== "localhost") return toast("Microphone access requires HTTPS, such as GitHub Pages.");
+      if (activeRecognition) { try { activeRecognition.abort(); } catch {} activeRecognition=null; }
+      let permissionStream;
+      try { permissionStream = await requestMicrophone(); permissionStream?.getTracks().forEach(t=>t.stop()); }
+      catch (error) { return toast(error.message === "secure" ? "Open the app through HTTPS to use the microphone." : "Microphone permission is blocked or unavailable."); }
+      const recognition = new Recognition(); activeRecognition=recognition; recognition.lang="en-GB"; recognition.continuous=false; recognition.interimResults=false; recognition.maxAlternatives=1;
+      const button = options.buttonId ? document.getElementById(options.buttonId) : null; const original=button?.textContent || ""; let heard=false; let failed=false; let timer;
+      recognition.onstart=()=>{ if(button){button.disabled=true;button.textContent="🎙 Listening…";} toast(options.prompt || "Listening… Speak now."); timer=setTimeout(()=>{try{recognition.stop()}catch{}},20000); };
+      recognition.onresult=e=>{ const transcript=Array.from(e.results).map(r=>r[0]?.transcript||"").join(" ").trim(); if(!transcript)return; heard=true;
+        if(target){ target.value = options.append === false ? transcript : (target.value.trim()?`${target.value.trim()} ${transcript}`:transcript); target.dispatchEvent(new Event("input",{bubbles:true})); target.focus(); }
+        options.onResult?.(transcript); toast("Voice captured in UK English mode."); };
+      recognition.onerror=e=>{ failed=true; const m={"not-allowed":"Microphone permission is blocked.","audio-capture":"No working microphone was found.","no-speech":"No speech was detected.","network":"Voice recognition needs an internet connection in this browser.","aborted":"Dictation stopped."}; toast(m[e.error]||"Voice recognition could not complete."); };
+      recognition.onend=()=>{clearTimeout(timer);if(button){button.disabled=false;button.textContent=original;}if(activeRecognition===recognition)activeRecognition=null;if(!heard&&!failed)toast("No speech was detected. Please try again.");};
+      try { recognition.start(); } catch { if(button){button.disabled=false;button.textContent=original;} activeRecognition=null; toast("The microphone could not start. Refresh the page and try again."); }
+    }
+
+    function renderLibrary() {
+      const list=document.getElementById("libraryList"); if(!list)return;
+      const q=normaliseWord(document.getElementById("librarySearch")?.value||""); const level=document.getElementById("levelFilter")?.value||"all"; const mastery=document.getElementById("masteryFilter")?.value||"all"; const category=document.getElementById("categoryFilter")?.value||"all"; const fav=document.getElementById("favouriteFilter")?.value||"all";
+      const words=[...profile().words].filter(w=>!q||[w.word,w.meaning,w.example,w.notes,w.category,...(w.tags||[])].join(" ").toLowerCase().includes(q))
+        .filter(w=>level==="all"||w.level===level).filter(w=>category==="all"||w.category===category).filter(w=>fav==="all"||w.favourite)
+        .filter(w=>mastery==="all"||(mastery==="due"?isDue(w):w.status===mastery)).sort((a,b)=>a.word.localeCompare(b.word));
+      if(!words.length){list.innerHTML=`<div class="empty">No matching words. Add a word or change the filters.</div>`;return;}
+      list.innerHTML=words.map(w=>{const insight=getInsights(w);return `<article class="word-card"><div class="word-main">
+        <div class="word-top-row"><div class="word-title-group"><div class="word-heading-line"><h4>${escapeHtml(capitalise(w.word))}</h4>${phoneticFor(w)?`<span class="inline-phonetic">${escapeHtml(phoneticFor(w))}</span>`:""}</div><div class="word-meta">${escapeHtml(w.part)} · ${escapeHtml(w.level)} · ${escapeHtml(w.category)}</div></div>
+        <div class="word-icon-actions"><button class="icon-button" data-action="speak-word" data-id="${w.id}" title="Hear word in a UK accent">🔊</button><button class="icon-button ${w.favourite?"favourite-active":""}" data-action="favourite" data-id="${w.id}" title="Favourite">★</button></div></div>
+        <p class="word-meaning">${escapeHtml(w.meaning)}</p>${w.example?`<p class="word-example"><b>Example 1:</b> “${escapeHtml(w.example)}”</p>`:""}${w.example2?`<p class="word-example"><b>Example 2:</b> “${escapeHtml(w.example2)}”</p>`:""}
+        <div class="word-details"><div class="detail-box"><strong>Useful phrases</strong>${escapeHtml(insight.collocations.slice(0,2).join(" · "))}</div><div class="detail-box"><strong>Progress</strong><span class="status-pill ${w.status}">${statusLabel(w.status)}</span><div class="due-text">${humanDue(w)} · ${w.reviewCount} reviews</div></div></div>
+        ${w.notes?`<p class="small muted"><strong>Note:</strong> ${escapeHtml(w.notes)}</p>`:""}${(w.tags||[]).length?`<p class="small muted">${w.tags.map(t=>`#${escapeHtml(t)}`).join(" ")}</p>`:""}
+        </div><div class="word-actions"><button class="btn btn-small btn-soft" data-action="speak-example" data-id="${w.id}" ${w.example?"":"disabled"}>🔊 Sentence</button><button class="btn btn-small btn-soft" data-action="review" data-id="${w.id}">Review now</button><button class="btn btn-small btn-soft" data-action="toggle-status" data-id="${w.id}">${w.status==="mastered"?"Set learning":"Mark mastered"}</button><button class="btn btn-small btn-danger" data-action="delete" data-id="${w.id}">Delete</button></div></article>`}).join("");
+    }
+
+    function refreshPractice() {
+      const item=currentPracticeEntry(); if(!item)return;
+      document.getElementById("practiceWord").textContent=capitalise(item.word); document.getElementById("practicePhonetic").textContent=[phoneticFor(item),item.part].filter(Boolean).join(" · "); document.getElementById("practiceMeaning").textContent=item.meaning;
+      const status=item.status||"new"; const pill=document.getElementById("practiceStatus"); pill.textContent=statusLabel(status); pill.className=`status-pill ${status}`; document.getElementById("practiceDue").textContent=item.id?.startsWith("bank_")?"Save it to begin reviews":humanDue(item);
+      document.getElementById("pronunciationTarget").textContent=capitalise(item.word); document.getElementById("pronunciationPhonetic").textContent=[phoneticFor(item),item.part].filter(Boolean).join(" · ");
+      renderPracticeInsights(item);
+    }
+    function renderPracticeInsights(item) {
+      const insight=getInsights(item); const el=document.getElementById("practiceInsights"); if(!el)return;
+      el.innerHTML=`<div class="learning-block"><h4>Common collocations</h4><div class="tag-list">${insight.collocations.map(x=>`<button class="tag-token" data-speak-text="${escapeHtml(x)}">🔊 ${escapeHtml(x)}</button>`).join("")}</div></div>
+      <div class="learning-block"><h4>Word family</h4><div class="tag-list">${insight.family.map(x=>`<span class="tag-token">${escapeHtml(x)}</span>`).join("")}</div></div>
+      <div class="learning-block"><h4>Synonyms and difference</h4><div class="tag-list">${insight.synonyms.map(x=>`<span class="tag-token">${escapeHtml(x)}</span>`).join("")}</div><p class="distinction">${escapeHtml(insight.distinction)}</p></div>`;
+    }
+    function reviewWord(word,rating) {
+      const days={again:1,hard:3,good:7,easy:14}; const base=days[rating]||3; const prior=Math.max(1,Number(word.intervalDays||1));
+      let interval=base; if(rating==="hard"&&word.reviewCount>0)interval=Math.max(3,Math.round(prior*1.4)); if(rating==="good"&&word.reviewCount>0)interval=Math.max(7,Math.round(prior*2)); if(rating==="easy"&&word.reviewCount>0)interval=Math.max(14,Math.round(prior*2.8));
+      word.reviewCount=Number(word.reviewCount||0)+1; word.intervalDays=interval; word.lastReviewedAt=localDateKey(); word.nextReviewAt=addDaysKey(interval);
+      if(rating==="again")word.status="learning"; else if(word.reviewCount>=6||interval>=30)word.status="mastered"; else if(word.reviewCount>=2)word.status="familiar"; else word.status="learning"; word.mastered=word.status==="mastered";
+      recordActivity("reviews"); saveState(); toast(`${capitalise(word.word)} scheduled in ${interval} day${interval===1?"":"s"}.`); currentPracticeId=null; practiceIndex++; renderAll();
+    }
+    function reviewCurrent(rating) {
+      let item=currentPracticeEntry(); if(!item)return;
+      if(item.id?.startsWith("bank_")){ addWord(item,true); item=profile().words.find(w=>normaliseWord(w.word)===normaliseWord(item.word)); }
+      reviewWord(item,rating);
+    }
+    function checkSentence() {
+      const item=currentPracticeEntry(); const value=document.getElementById("practiceSentence").value.trim(); const feedback=document.getElementById("sentenceFeedback");
+      if(!value){feedback.textContent="Write or dictate a sentence first.";feedback.classList.add("show");return;}
+      const contains=value.toLowerCase().includes(item.word.toLowerCase()); const words=value.split(/\s+/).length; const complete=/^[A-Z]/.test(value)&&/[.!?]$/.test(value);
+      const checks=[contains?"✓ The target word is included.":"• Include the target word exactly.",words>=7?"✓ The sentence has enough context.":"• Add more context so the meaning is clear.",complete?"✓ Capitalisation and punctuation look complete.":"• Start with a capital letter and finish with punctuation.",`Model: “${item.example||`The team used ${item.word} language to explain the recommendation clearly.`}”`];
+      feedback.innerHTML=checks.map(c=>`<div>${escapeHtml(c)}</div>`).join(""); feedback.classList.add("show");
+      if(contains&&words>=7){profile().sentenceCount++;recordActivity("sentences");saveState();renderDailyPlan();renderDashboardIntelligence();toast("Sentence practice recorded.");}
+    }
+    function cleanSentence(value) { let s=String(value||"").trim().replace(/\s+/g," "); if(!s)return""; s=s.charAt(0).toUpperCase()+s.slice(1); if(!/[.!?]$/.test(s))s+="."; return s; }
+    function transformSentence(value, advanced=false) {
+      let s=cleanSentence(value); const replacements=[[/\blook at\b/gi,"review"],[/\bcheck again\b/gi,"revalidate"],[/\btell\b/gi,"inform"],[/\bshow\b/gi,"demonstrate"],[/\bhelp\b/gi,"support"],[/\ba lot of\b/gi,"a substantial amount of"],[/\bvery important\b/gi,"critical"],[/\bproblem\b/gi,"issue"],[/\bget\b/gi,"obtain"],[/\buse\b/gi,"utilise"],[/\bI think\b/gi,"In my view"],[/\bwe need to\b/gi,"we should"]]; replacements.forEach(([a,b])=>s=s.replace(a,b));
+      if(advanced){ s=s.replace(/^In my view,?\s*/i,"From a strategic perspective, "); if(!/however|therefore|consequently|moreover/i.test(s)&&s.length>60)s=s.replace(/\.\s*$/,", while ensuring that the rationale remains clear and evidence-based."); }
+      return cleanSentence(s);
+    }
+    function improveSentence() {
+      const input=document.getElementById("improveSentenceInput").value; if(!input.trim())return toast("Write or dictate a sentence first."); const clear=cleanSentence(input); const professional=transformSentence(input,false); const advanced=transformSentence(input,true);
+      const results=[{label:"Clear",text:clear},{label:"Professional",text:professional},{label:"Advanced",text:advanced}]; document.getElementById("improvementResults").innerHTML=results.map((r,i)=>`<div class="result-option"><header><strong>${r.label}</strong><button class="icon-button" data-speak-text="${escapeHtml(r.text)}" title="Hear in UK English">🔊</button></header><div>${escapeHtml(r.text)}</div></div>`).join("");
+    }
+
+    function newQuiz() {
+      const mode=document.getElementById("quizMode")?.value||"meaning"; const pool=[]; const seen=new Set(); [...profile().words,...wordBank].forEach(i=>{if(!seen.has(i.word)){seen.add(i.word);pool.push(i)}}); const correct=pool[Math.floor(Math.random()*pool.length)]; const others=pool.filter(w=>w.word!==correct.word).sort(()=>Math.random()-.5).slice(0,3); let options,question;
+      if(mode==="meaning"){options=[...others.map(o=>({label:o.meaning,word:o.word})),{label:correct.meaning,word:correct.word}];question="Which meaning is correct?";}
+      else if(mode==="collocation"){const correctLabel=getInsights(correct).collocations[0];options=[...others.map(o=>({label:getInsights(o).collocations[0],word:o.word})),{label:correctLabel,word:correct.word}];question=`Which phrase naturally uses “${correct.word}”?`;}
+      else {const sentence=(correct.example||`The team used ${correct.word} to explain the decision.`).replace(new RegExp(correct.word,"i"),"________");options=[...others.map(o=>({label:o.word,word:o.word})),{label:correct.word,word:correct.word}];question=sentence;}
+      options.sort(()=>Math.random()-.5); currentQuiz={correct,options,answered:false,mode}; document.getElementById("quizWord").textContent=capitalise(correct.word); document.getElementById("quizPhonetic").textContent=[phoneticFor(correct),correct.part].filter(Boolean).join(" · "); document.getElementById("quizQuestion").textContent=question; document.getElementById("quizOptions").innerHTML=options.map((o,i)=>`<button class="quiz-option" data-quiz="${i}">${escapeHtml(o.label)}</button>`).join("");
+    }
+    function answerQuiz(index) {
+      if(!currentQuiz||currentQuiz.answered)return; currentQuiz.answered=true; const buttons=[...document.querySelectorAll("[data-quiz]")]; buttons.forEach((btn,i)=>{const item=currentQuiz.options[i];if(item.word===currentQuiz.correct.word)btn.classList.add("correct");else if(i===index)btn.classList.add("wrong");btn.disabled=true;}); if(currentQuiz.options[index].word===currentQuiz.correct.word){recordActivity("quizzes");saveState();toast("Correct answer.");}else toast("Review the answer highlighted in green.");
+    }
+
+    async function startAudioRecording() {
+      if(!window.MediaRecorder)return toast("Audio recording is not supported in this browser.");
+      try { mediaStream=await requestMicrophone(); if(!mediaStream)return; audioChunks=[]; mediaRecorder=new MediaRecorder(mediaStream); mediaRecorder.ondataavailable=e=>{if(e.data.size)audioChunks.push(e.data)}; mediaRecorder.onstop=()=>{const blob=new Blob(audioChunks,{type:mediaRecorder.mimeType||"audio/webm"}); if(recordedAudioUrl)URL.revokeObjectURL(recordedAudioUrl); recordedAudioUrl=URL.createObjectURL(blob); document.getElementById("playRecordingBtn").disabled=false; document.getElementById("pronunciationStatus").textContent="Recording saved. Replay it or test pronunciation."; mediaStream?.getTracks().forEach(t=>t.stop()); mediaStream=null;}; mediaRecorder.start(); document.getElementById("recordPronunciationBtn").disabled=true; document.getElementById("stopRecordingBtn").disabled=false; document.getElementById("pronunciationStatus").textContent="Recording… Say the word and a complete sentence."; }
+      catch{toast("Microphone permission is blocked or unavailable.");}
+    }
+    function stopAudioRecording(){if(mediaRecorder&&mediaRecorder.state!=="inactive")mediaRecorder.stop();document.getElementById("recordPronunciationBtn").disabled=false;document.getElementById("stopRecordingBtn").disabled=true;}
+    function playRecording(){if(!recordedAudioUrl)return toast("Record your voice first.");new Audio(recordedAudioUrl).play();}
+    function similarity(a,b){a=normaliseWord(a).replace(/[^a-z ]/g,"");b=normaliseWord(b).replace(/[^a-z ]/g,"");const m=a.length,n=b.length;if(!m&&!n)return 1;const dp=Array.from({length:m+1},()=>Array(n+1).fill(0));for(let i=0;i<=m;i++)dp[i][0]=i;for(let j=0;j<=n;j++)dp[0][j]=j;for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)dp[i][j]=Math.min(dp[i-1][j]+1,dp[i][j-1]+1,dp[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return 1-dp[m][n]/Math.max(m,n,1);}
+    function testPronunciation(){const item=currentPracticeEntry();startRecognition(null,{buttonId:"testPronunciationBtn",prompt:`Say ${item.word} clearly.`,onResult:t=>{const score=Math.round(similarity(item.word,t)*100);document.getElementById("pronunciationScoreFill").style.width=`${score}%`;document.getElementById("pronunciationStatus").textContent=`The browser heard “${t}”. Recognition match: ${score}%. Focus on clear syllables and natural stress.`;recordActivity("pronunciation");saveState();renderDailyPlan();renderDashboardIntelligence();}});}
+
+    function buildCoachReply(input,topic,style) {
+      const clean=cleanSentence(input); const lower=clean.toLowerCase(); let body="";
+      if(topic==="meeting"||/status|progress|update/.test(lower)) body="The work is progressing, although there are a few points that require attention. The main achievement should be stated first, followed by the current risk, the owner and the next milestone.";
+      else if(/delay|late|deadline|behind/.test(lower)) body="The delivery has been delayed because a dependency took longer than expected. The impact is being assessed, and a revised date should be confirmed with clear ownership and mitigation actions.";
+      else if(topic==="data"||/data|dashboard|figure|metric|report|number/.test(lower)) body="The clearest approach is to explain the source, definition and reporting period before interpreting the result. Where figures differ, distinguish a timing difference from a genuine data-quality issue and avoid presenting an assumption as fact.";
+      else if(topic==="disagreement"||/disagree|concern|not agree|challenge/.test(lower)) body="I understand the reasoning behind that view. However, I have a concern about the evidence and the likely delivery impact. It may be helpful to test the assumption before we make a final decision.";
+      else if(topic==="presentation"||/present|presentation|explain/.test(lower)) body="Begin with one clear message, support it with two or three points, and finish with the action you want the audience to take. Keep technical detail available, but do not lead with it.";
+      else if(topic==="interview"||/interview|experience|strength|example/.test(lower)) body="Use a concise situation, explain your specific responsibility, describe the action you took and finish with a measurable result. Make your personal contribution explicit rather than speaking only about the team.";
+      else if(/artificial intelligence|\bai\b/.test(lower)) body="Artificial intelligence describes systems that perform tasks such as recognising patterns, generating language or supporting decisions. In the workplace, its value depends on reliable data, appropriate oversight and a clear understanding of risk.";
+      else if(/leadership|manager|team/.test(lower)) body="Effective leadership combines clear priorities, honest communication and appropriate support. A strong leader explains the purpose, sets expectations and creates space for challenge without losing accountability.";
+      else if(/education|learning|student/.test(lower)) body="Education is most effective when knowledge, practice and feedback reinforce one another. Technology can support access and personalisation, but it should strengthen rather than replace thoughtful teaching and human judgement.";
+      else body="A strong response can follow four steps: define the topic, explain why it matters, give one practical example and finish with your own considered view.";
+      let opening="Certainly. "; let closing="";
+      if(style==="professional") { opening="A professional response would be: "; closing=" The next step is to confirm the relevant evidence, owner and timescale."; }
+      if(style==="advanced") { opening="A more articulate response would be: "; closing=" This creates a balanced position that is both credible and actionable."; }
+      if(style==="concise") { body=body.split(". ").slice(0,2).join(". "); if(!/[.!?]$/.test(body))body+="."; opening=""; closing=""; }
+      return `${opening}${body}${closing}`;
+    }
+    function coachFocusWords(reply){const candidates=reply.toLowerCase().match(/[a-z]{7,}/g)||[];const unique=[...new Set(candidates)].slice(0,5);return unique.map(w=>{const bank=wordBank.find(x=>x.word===w);return bank?`${capitalise(w)} ${bank.phonetic}`:capitalise(w)}).join(" · ")||"Speak slowly, stress the main content words and pause between ideas.";}
+    function generateCoachReply(){const input=document.getElementById("coachInput").value.trim();if(!input)return toast("Ask a question or enter a topic first.");const topic=document.getElementById("coachTopic").value;const style=document.getElementById("coachStyle").value;const reply=buildCoachReply(input,topic,style);lastCoachSpeech=reply;const el=document.getElementById("coachReply");el.textContent=reply;el.classList.remove("coach-placeholder");document.getElementById("coachPronunciation").textContent=coachFocusWords(reply);profile().coachHistory.unshift({id:uid("c"),question:input,answer:reply,createdAt:new Date().toISOString()});profile().coachHistory=profile().coachHistory.slice(0,20);recordActivity("coach");saveState();renderCoachHistory();if(document.getElementById("coachAutoSpeak").checked)speak(reply,.88);}
+    function renderCoachHistory(){const el=document.getElementById("coachHistory");if(!el)return;const history=profile().coachHistory||[];el.innerHTML=history.length?history.map(h=>`<div class="conversation-item"><div class="question">${escapeHtml(h.question)}</div><div class="answer">${escapeHtml(h.answer)}</div><div class="button-row" style="margin-top:8px"><button class="btn btn-small btn-soft" data-speak-text="${escapeHtml(h.answer)}">🔊 Listen</button></div></div>`).join(""):`<div class="empty">Your speaking practice will appear here.</div>`;}
+
+    function renderProfiles(){const list=document.getElementById("profileList");if(!list)return;list.innerHTML=Object.values(state.profiles).map(p=>`<div class="profile-row"><div><strong>${escapeHtml(p.name)}</strong><div class="small muted">${p.words.length} saved word${p.words.length===1?"":"s"}${p.id===activeProfileId?" · Active":""}</div></div><div class="button-row" style="margin:0">${p.id!==activeProfileId?`<button class="btn btn-small btn-soft" data-profile-action="switch" data-id="${p.id}">Open</button>`:""}${Object.keys(state.profiles).length>1?`<button class="btn btn-small btn-danger" data-profile-action="delete" data-id="${p.id}">Delete</button>`:""}</div></div>`).join("");}
+
+    const powerExpressionBank=[
+      {word:"big picture",meaning:"The overall situation or most important perspective.",example:"Step back and consider the big picture before making the decision.",example2:"The big picture helped the team connect daily work with its long-term purpose."},
+      {word:"raise the bar",meaning:"To set a higher standard of quality or achievement.",example:"Her careful preparation raised the bar for the whole team.",example2:"We can raise the bar by turning every lesson into practical improvement."},
+      {word:"on the same page",meaning:"Sharing the same understanding or intention.",example:"Let us confirm the priorities so everyone is on the same page.",example2:"A clear conversation put the partners on the same page."},
+      {word:"think outside the box",meaning:"To approach a problem in an original or imaginative way.",example:"We need to think outside the box to solve this constraint.",example2:"Thinking outside the box revealed an opportunity others had overlooked."},
+      {word:"move the needle",meaning:"To make a noticeable and meaningful difference.",example:"Small consistent improvements can move the needle over time.",example2:"The new coaching approach moved the needle on learner confidence."},
+      {word:"take ownership",meaning:"To accept responsibility and act proactively toward a result.",example:"She took ownership of the issue and coordinated the solution.",example2:"Taking ownership turns a difficult moment into an opportunity to lead."},
+      {word:"food for thought",meaning:"An idea worth considering carefully.",example:"The feedback gave us useful food for thought.",example2:"Her question was food for thought as we planned the next step."},
+      {word:"step in the right direction",meaning:"An action that represents progress toward a desired result.",example:"The revised plan is a step in the right direction.",example2:"Every deliberate improvement is a step in the right direction."}
+    ];
+    function sourceSentenceFor(text,term){const sentences=String(text).replace(/\s+/g," ").split(/(?<=[.!?])\s+/);return cleanText(sentences.find(s=>new RegExp(`\\b${term.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}\\b`,"i").test(s))||"",300);}
+    function extractionTier(word,bank,count){if(bank||word.length>=10)return "Strategic Words";if(word.length>=7||count>=3)return "Medium Words";return "Simple Words";}
+    async function processFile(file){if(!file)return;const status=document.getElementById("fileStatus");status.className="status";status.textContent=`Reading ${file.name}…`;document.getElementById("extractResult").classList.remove("show");try{const ext=file.name.split(".").pop().toLowerCase();const image=file.type.startsWith("image/");if(file.size>(image?MAX_IMAGE_BYTES:MAX_FILE_BYTES))throw new Error(`This file is too large. The limit is ${image?10:20} MB.`);let text="";if(["txt","md","csv","json"].includes(ext)||file.type.startsWith("text/")){text=await file.text();if(text.length>MAX_TEXT_LENGTH)throw new Error("This text file is too large to process safely.");}else if(ext==="pdf"||file.type==="application/pdf"){await loadLibrary("pdf");pdfjsLib.GlobalWorkerOptions.workerSrc="vendor/pdf.worker.min.js";const pdf=await pdfjsLib.getDocument({data:await file.arrayBuffer()}).promise;const pages=[];for(let i=1;i<=Math.min(pdf.numPages,40);i++){status.textContent=`Reading PDF page ${i} of ${Math.min(pdf.numPages,40)}…`;const page=await pdf.getPage(i);const content=await page.getTextContent();pages.push(content.items.map(x=>x.str).join(" "));}text=pages.join("\n");}else if(ext==="docx"){await loadLibrary("docx");text=(await mammoth.extractRawText({arrayBuffer:await file.arrayBuffer()})).value;}else if(image){await loadLibrary("image");status.textContent="Reading text from the image…";const result=await Tesseract.recognize(file,"eng",{workerPath:"vendor/tesseract-worker.min.js",corePath:"vendor/tesseract-core-simd-lstm.js",langPath:"vendor",logger:m=>{if(m.status&&typeof m.progress==="number")status.textContent=`${capitalise(m.status)} ${Math.round(m.progress*100)}%`;}});text=result.data.text;}else throw new Error("This file type is not supported.");if(!text.trim())throw new Error("No readable text was found.");extractedCandidates=extractAdvancedWords(text);renderExtracted();await enrichExtractedCandidates(status);renderExtracted();status.textContent=`Found and organised ${extractedCandidates.length} useful items from ${file.name}.`;status.className="status success";}catch(error){console.error(error);status.textContent=error.message||"The file could not be processed.";status.className="status error";}}
+    function extractAdvancedWords(text){const saved=new Set(profile().words.map(w=>normaliseWord(w.word)));const counts=new Map();const words=text.toLowerCase().match(/[a-z][a-z'-]{3,}/g)||[];for(let raw of words){raw=raw.replace(/^'+|'+$/g,"");if(stopWords.has(raw)||saved.has(raw)||raw.length<4)continue;counts.set(raw,(counts.get(raw)||0)+1);}const results=[...counts.entries()].map(([word,count])=>{const bank=wordBank.find(w=>w.word===word);return{word,count,selected:Boolean(bank)||word.length>=9,tier:extractionTier(word,bank,count),sourceExample:sourceSentenceFor(text,word),bank};}).sort((a,b)=>((b.bank?50:0)+b.word.length+b.count)-((a.bank?50:0)+a.word.length+a.count)).slice(0,48);for(const phrase of powerExpressionBank){if(text.toLowerCase().includes(phrase.word)&&!saved.has(phrase.word))results.push({...phrase,count:1,selected:true,tier:"Power Expressions",sourceExample:sourceSentenceFor(text,phrase.word),bank:phrase});}return results;}
+    async function enrichExtractedCandidates(status){const pending=extractedCandidates.filter(x=>x.tier!=="Power Expressions");for(let start=0;start<pending.length;start+=4){status.textContent=`Finding meanings and examples ${Math.min(start+4,pending.length)} of ${pending.length}…`;await Promise.all(pending.slice(start,start+4).map(async item=>{const lookup=item.bank||await dictionaryLookup(item.word,false);item.meaning=lookup?.meaning||"A reliable dictionary definition was not available; review this word in its document context.";item.example=lookup?.example||item.sourceExample||`The document uses “${item.word}” as part of its message.`;item.example2=lookup?.example2||(item.sourceExample&&item.sourceExample!==item.example?item.sourceExample:`Notice how “${item.word}” contributes to the meaning of the passage.`);item.part=lookup?.part;item.phonetic=lookup?.phonetic;}));}}
+    function renderExtracted(){const result=document.getElementById("extractResult"),chips=document.getElementById("wordChips");result.classList.add("show");if(!extractedCandidates.length){chips.innerHTML=`<div class="empty">No suitable vocabulary was detected.</div>`;return;}const tiers=["Simple Words","Medium Words","Strategic Words","Power Expressions"];chips.innerHTML=tiers.map(tier=>{const items=extractedCandidates.map((item,i)=>({item,i})).filter(x=>x.item.tier===tier);if(!items.length)return"";return`<section class="extract-group"><div class="extract-group-head"><h4>${tier}</h4><span class="small muted">${items.length} suggestion${items.length===1?"":"s"}</span></div><div class="extract-group-list">${items.map(({item,i})=>`<button class="extract-word ${item.selected?"selected":""}" data-chip="${i}" type="button" aria-pressed="${item.selected}"><span class="extract-word-top"><strong>${escapeHtml(capitalise(item.word))}</strong><span class="extract-label">${escapeHtml(tier.replace(" Words",""))} · ×${item.count}</span></span><p>${escapeHtml(item.meaning||"Finding a reliable meaning…")}</p>${item.example?`<p class="extract-examples"><b>Everyday:</b> ${escapeHtml(item.example)}</p>`:""}${item.example2?`<p class="extract-examples"><b>In context:</b> ${escapeHtml(item.example2)}</p>`:""}</button>`).join("")}</div></section>`;}).join("");}
+    async function addSelectedExtracted(){const selected=extractedCandidates.filter(x=>x.selected);if(!selected.length)return toast("Select at least one word.");const status=document.getElementById("fileStatus");let added=0;for(const item of selected){if(addWord({word:item.word,meaning:item.meaning||item.bank?.meaning||"Meaning to be added",example:item.example||item.bank?.example||item.sourceExample||"",example2:item.example2||item.bank?.example2||"",part:item.part||item.bank?.part||"expression",phonetic:item.phonetic||item.bank?.phonetic||"",source:"File extraction",level:item.tier==="Strategic Words"?"Advanced":item.tier==="Medium Words"?"Intermediate":item.tier==="Simple Words"?"Everyday":"Expression",tags:["extracted",item.tier.toLowerCase().replace(/\s+/g,"-")],category:item.tier==="Power Expressions"?"Power Expressions":inferCategory(["extracted"],item.word),difficulty:item.tier==="Strategic Words"?3:item.tier==="Simple Words"?1:2},true))added++;}status.textContent=`Added ${added} item${added===1?"":"s"} to your library and cloud sync queue.`;status.className="status success";toast(`${added} selected item${added===1?"":"s"} saved.`);}
+
+    function downloadText(filename,content,type="text/plain"){const blob=new Blob([content],{type});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(url),500);}
+    function exportBackup(){downloadText(`articulate-daily-backup-${localDateKey()}.json`,JSON.stringify(state,null,2),"application/json");}
+    async function importBackup(file){try{if(!file)return;if(file.size>MAX_IMPORT_BYTES)throw new Error();const parsed=migrateState(JSON.parse(await file.text()));if(!confirm("Import this backup and replace the app data currently stored in this browser?"))return;state=parsed;activeProfileId=state.activeProfileId;saveState();renderAll();toast("Backup imported successfully.");}catch{toast("This backup file is not valid or is too large.");}}
+    function csvEscape(value){let s=String(value??"");if(/^[=+@-]/.test(s))s=`'${s}`;return /[",\n]/.test(s)?`"${s.replace(/"/g,'""')}"`:s;}
+    function parseCsv(text){const rows=[];let row=[],field="",quoted=false;for(let i=0;i<text.length;i++){const c=text[i],n=text[i+1];if(c==='"'&&quoted&&n==='"'){field+='"';i++;}else if(c==='"')quoted=!quoted;else if(c===','&&!quoted){row.push(field);field="";}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&n==='\n')i++;row.push(field);if(row.some(x=>x.trim()))rows.push(row);row=[];field="";}else field+=c;}row.push(field);if(row.some(x=>x.trim()))rows.push(row);return rows;}
+    function exportCsv(){const headers=["word","phonetic","part","level","category","meaning","example","example2","source","tags","notes","favourite","status","difficulty","reviewCount","nextReviewAt","createdAt"];const rows=profile().words.map(w=>headers.map(h=>h==="tags"?(w.tags||[]).join("|"):w[h]));downloadText(`articulate-daily-words-${localDateKey()}.csv`,[headers,...rows].map(r=>r.map(csvEscape).join(",")).join("\n"),"text/csv");}
+    async function importCsv(file){try{if(!file)return;if(file.size>MAX_IMPORT_BYTES)throw new Error();const rows=parseCsv(await file.text());if(rows.length<2||rows.length>MAX_WORDS_PER_PROFILE+1)throw new Error();const allowed=new Set(["word","phonetic","part","level","category","meaning","example","example2","source","tags","notes","favourite","status","difficulty","reviewCount","nextReviewAt","createdAt"]);const headers=rows[0].map(h=>h.trim());if(!headers.includes("word")||headers.some(h=>!allowed.has(h)))throw new Error();let added=0;rows.slice(1).forEach(r=>{const obj={};headers.forEach((h,i)=>obj[h]=cleanText(r[i]||"",h==="notes"?5000:2000));obj.tags=String(obj.tags||"").split("|").filter(Boolean).slice(0,20);obj.favourite=String(obj.favourite).toLowerCase()==="true";obj.difficulty=clamp(Number(obj.difficulty||2),1,3);if(addWord(obj,true))added++;});toast(`Imported ${added} new word${added===1?"":"s"}.`);renderAll();}catch{toast("The CSV file is invalid or too large.");}}
+    function weeklyReport(){const week=weeklyData();const p=profile();const total=week.reduce((s,d)=>s+d.actions,0);const added=week.reduce((s,d)=>s+Number(p.dailyStats[d.key]?.newWords||0),0);const reviewed=week.reduce((s,d)=>s+Number(p.dailyStats[d.key]?.reviews||0),0);const sentences=week.reduce((s,d)=>s+Number(p.dailyStats[d.key]?.sentences||0),0);const html=`<!doctype html><meta charset="utf-8"><title>Articulate Daily Weekly Report</title><style>body{font-family:Arial,sans-serif;max-width:800px;margin:40px auto;color:#17312d;line-height:1.5}h1{color:#0c756b}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.card{border:1px solid #dbe6e3;border-radius:14px;padding:16px}.card strong{font-size:28px;display:block}@media(max-width:650px){.grid{grid-template-columns:1fr 1fr}}</style><h1>Articulate Daily</h1><p>Weekly progress report for <strong>${escapeHtml(p.name)}</strong>, generated ${new Date().toLocaleDateString("en-GB")}.</p><div class="grid"><div class="card"><strong>${total}</strong>learning actions</div><div class="card"><strong>${added}</strong>new words</div><div class="card"><strong>${reviewed}</strong>reviews</div><div class="card"><strong>${sentences}</strong>sentences</div></div><h2>Current position</h2><p>${p.words.length} saved words, ${p.words.filter(w=>w.status==="mastered").length} mastered, ${dueWords().length} due for review, ${calculateStreak()}-day streak.</p><h2>Words added this week</h2><ul>${p.words.filter(w=>week.some(d=>d.key===String(w.createdAt).slice(0,10))).map(w=>`<li><strong>${escapeHtml(capitalise(w.word))}</strong>: ${escapeHtml(w.meaning)}</li>`).join("")||"<li>No new words this week.</li>"}</ul>`;downloadText(`articulate-daily-weekly-report-${localDateKey()}.html`,html,"text/html");}
+
+    document.addEventListener("click",event=>{
+      const view=event.target.closest("[data-view]");if(view)showView(view.dataset.view);const go=event.target.closest("[data-go]");if(go)showView(go.dataset.go);
+      const speakText=event.target.closest("[data-speak-text]");if(speakText)speak(speakText.dataset.speakText,.86);
+      const rating=event.target.closest("[data-review-rating]");if(rating)reviewCurrent(rating.dataset.reviewRating);
+      const action=event.target.closest("[data-action]");if(action){const w=profile().words.find(x=>x.id===action.dataset.id);if(!w)return;if(action.dataset.action==="speak-word")speak(w.word,.76);if(action.dataset.action==="speak-example")speak(w.example,.86);if(action.dataset.action==="favourite"){w.favourite=!w.favourite;saveState();renderAll();}if(action.dataset.action==="review"){currentPracticeId=w.id;showView("practice");refreshPractice();}if(action.dataset.action==="toggle-status"){w.status=w.status==="mastered"?"learning":"mastered";w.mastered=w.status==="mastered";w.nextReviewAt=w.mastered?addDaysKey(30):localDateKey();saveState();renderAll();}if(action.dataset.action==="delete"&&confirm(`Delete “${w.word}” from this profile?`)){profile().words=profile().words.filter(x=>x.id!==w.id);saveState();renderAll();toast("Word deleted.");}}
+      const pb=event.target.closest("[data-profile-action]");if(pb){const id=pb.dataset.id;if(pb.dataset.profileAction==="switch"){activeProfileId=id;state.activeProfileId=id;currentPracticeId=null;saveState();renderAll();showView("dashboard");toast(`Opened ${profile().name}.`);}if(pb.dataset.profileAction==="delete"){const doomed=state.profiles[id];if(!doomed)return;const answer=prompt(`Type the profile name “${doomed.name}” to permanently delete it and all its saved words.`);if(answer!==doomed.name)return toast("Profile deletion cancelled.");delete state.profiles[id];if(activeProfileId===id){activeProfileId=Object.keys(state.profiles)[0];state.activeProfileId=activeProfileId;}saveState();renderAll();toast("Profile deleted.");}}
+      const chip=event.target.closest("[data-chip]");if(chip){const i=Number(chip.dataset.chip);extractedCandidates[i].selected=!extractedCandidates[i].selected;chip.classList.toggle("selected",extractedCandidates[i].selected);chip.setAttribute("aria-pressed",String(extractedCandidates[i].selected));}const quiz=event.target.closest("[data-quiz]");if(quiz)answerQuiz(Number(quiz.dataset.quiz));
+    });
+
+    document.getElementById("wordForm").addEventListener("submit",e=>{e.preventDefault();const entry={word:wordInput.value,phonetic:phoneticInput.value,part:partInput.value,level:levelInput.value,category:categoryInput.value,difficulty:difficultyInput.value,meaning:meaningInput.value,example:exampleInput.value,source:sourceInput.value,tags:tagsInput.value,notes:notesInput.value,favourite:favouriteInput.checked};if(addWord(entry)){e.target.reset();difficultyInput.value="2";lookupStatus.textContent="";}});
+    wordInput.addEventListener("input",()=>phoneticInput.value="");lookupBtn.addEventListener("click",()=>{const w=cleanDictionaryTerm(wordInput.value);if(!w)return toast("Enter a word first.");dictionaryLookup(w);});
+    const speakDaily=()=>{const w=dailyEntry();speak(`${w.word}. ${w.meaning}. ${w.example}`,.86,[{element:dailyWord,text:w.word},{element:dailyMeaning,text:w.meaning},{element:dailyExample,text:w.example}])};speakDailyBtn.addEventListener("click",speakDaily);dailySpeakerIcon.addEventListener("click",()=>{const w=dailyEntry();speak(w.word,.76,[{element:dailyWord,text:w.word}])});saveDailyBtn.addEventListener("click",()=>addWord(dailyEntry()));practiceDailyBtn.addEventListener("click",()=>{const w=dailyEntry();let saved=profile().words.find(x=>x.word===w.word);if(!saved){addWord(w,true);saved=profile().words.find(x=>x.word===w.word);}currentPracticeId=saved.id;showView("practice");refreshPractice();});
+    voiceWordBtn.addEventListener("click",()=>startRecognition("wordInput",{buttonId:"voiceWordBtn",append:false,prompt:"Say the word clearly."}));voiceSentenceBtn.addEventListener("click",()=>startRecognition("exampleInput",{buttonId:"voiceSentenceBtn",prompt:"Dictate your example sentence."}));dictatePracticeBtn.addEventListener("click",()=>startRecognition("practiceSentence",{buttonId:"dictatePracticeBtn",append:false,prompt:"Say your complete sentence."}));dictateImproveBtn.addEventListener("click",()=>startRecognition("improveSentenceInput",{buttonId:"dictateImproveBtn",append:false,prompt:"Dictate the sentence you want to improve."}));
+    speakPracticeWordBtn.addEventListener("click",()=>{const w=currentPracticeEntry();speak(w?.word,.76,[{element:practiceWord,text:w?.word}])});speakPracticeSentenceBtn.addEventListener("click",()=>{const s=practiceSentence.value.trim();if(!s)return toast("Write or dictate a sentence first.");speak(s,.86);});speakQuizWordBtn.addEventListener("click",()=>currentQuiz&&speak(currentQuiz.correct.word,.76,[{element:quizWord,text:currentQuiz.correct.word}]));newOfficePromptBtn.addEventListener("click",()=>officePrompt.textContent=`“${officePrompts[Math.floor(Math.random()*officePrompts.length)]}”`);
+    checkSentenceBtn.addEventListener("click",checkSentence);nextPracticeBtn.addEventListener("click",()=>{currentPracticeId=null;practiceIndex=(practiceIndex+1)%Math.max(1,getPracticePool().length);practiceSentence.value="";sentenceFeedback.classList.remove("show");refreshPractice();});improveSentenceBtn.addEventListener("click",improveSentence);nextQuizBtn.addEventListener("click",newQuiz);quizMode.addEventListener("change",newQuiz);
+    librarySearch.addEventListener("input",renderLibrary);levelFilter.addEventListener("change",renderLibrary);masteryFilter.addEventListener("change",renderLibrary);categoryFilter.addEventListener("change",renderLibrary);favouriteFilter.addEventListener("change",renderLibrary);
+    const fileInput=document.getElementById("fileInput"),dropZone=document.getElementById("dropZone");fileInput.addEventListener("change",()=>processFile(fileInput.files[0]));["dragenter","dragover"].forEach(t=>dropZone.addEventListener(t,e=>{e.preventDefault();dropZone.classList.add("dragover")}));["dragleave","drop"].forEach(t=>dropZone.addEventListener(t,e=>{e.preventDefault();dropZone.classList.remove("dragover")}));dropZone.addEventListener("drop",e=>processFile(e.dataTransfer.files[0]));selectAllBtn.addEventListener("click",()=>{extractedCandidates.forEach(x=>x.selected=true);renderExtracted()});addSelectedBtn.addEventListener("click",addSelectedExtracted);
+    createProfileBtn.addEventListener("click",()=>{const name=cleanText(newProfileName.value,80);if(!name)return toast("Enter a profile name.");if(Object.keys(state.profiles).length>=MAX_PROFILES)return toast(`You can create up to ${MAX_PROFILES} local profiles.`);const p=defaultProfile(name);state.profiles[p.id]=p;activeProfileId=p.id;state.activeProfileId=p.id;newProfileName.value="";saveState();renderAll();toast(`Created ${name}.`)});
+    exportBtn.addEventListener("click",exportBackup);importInput.addEventListener("change",e=>importBackup(e.target.files[0]));clearAllBtn.addEventListener("click",deleteAllAppData);
+    exportCsvBtn.addEventListener("click",exportCsv);importCsvInput.addEventListener("change",e=>importCsv(e.target.files[0]));weeklyReportBtn.addEventListener("click",weeklyReport);themeSelect.addEventListener("change",previewPreferences);fontSizeSelect.addEventListener("change",previewPreferences);savePreferencesBtn.addEventListener("click",()=>{state.settings.theme=themeSelect.value;state.settings.fontSize=fontSizeSelect.value;state.settings.dailyTargets={newWords:clamp(Number(newTargetInput.value)||5,1,20),reviews:clamp(Number(reviewTargetInput.value)||5,1,30),sentences:clamp(Number(sentenceTargetInput.value)||2,1,10),pronunciation:clamp(Number(pronunciationTargetInput.value)||1,1,10)};saveState();renderAll();toast("Preferences saved.")});
+    reviewDueBtn.addEventListener("click",()=>{const due=dueWords();if(!due.length)return toast("No words are due for review today.");currentPracticeId=due[0].id;showView("practice");refreshPractice();});
+    hearPronunciationTarget.addEventListener("click",()=>{const i=currentPracticeEntry();speak(`${i.word}. ${i.example||""}`,.76,[{element:pronunciationTarget,text:i.word}])});recordPronunciationBtn.addEventListener("click",startAudioRecording);stopRecordingBtn.addEventListener("click",stopAudioRecording);playRecordingBtn.addEventListener("click",playRecording);testPronunciationBtn.addEventListener("click",testPronunciation);
+    coachReplyBtn.addEventListener("click",generateCoachReply);coachSpeakBtn.addEventListener("click",()=>startRecognition("coachInput",{buttonId:"coachSpeakBtn",append:false,prompt:"Ask your question or describe your topic.",onResult:()=>setTimeout(generateCoachReply,150)}));coachPromptBtn.addEventListener("click",()=>{coachInput.value=officePrompts[Math.floor(Math.random()*officePrompts.length)];coachTopic.value="office";});speakCoachReplyBtn.addEventListener("click",()=>speak(lastCoachSpeech||coachReply.textContent,.88));clearCoachHistoryBtn.addEventListener("click",()=>{if(!profile().coachHistory.length)return;profile().coachHistory=[];saveState();renderCoachHistory();toast("Speaking history cleared.")});
+    signInBtn.addEventListener("click",()=>accountAction("signin"));signUpBtn.addEventListener("click",()=>accountAction("signup"));resetPasswordBtn.addEventListener("click",resetPassword);syncNowBtn.addEventListener("click",()=>syncCloud(false));signOutBtn.addEventListener("click",async()=>{if(cloudClient)await cloudClient.auth.signOut();cloudUser=null;renderCloudAccount();setCloudStatus("Signed out. Changes are saved locally.");});
+
+    if("speechSynthesis" in window){refreshSpeechVoices();speechSynthesis.addEventListener?.("voiceschanged",refreshSpeechVoices);}
+    matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",()=>{if(state.settings.theme==="system")applyPreferences()});
+    renderAll();
+    initCloud();
+    if("serviceWorker" in navigator&&location.protocol.startsWith("http"))window.addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js").catch(error=>console.warn("Offline support could not start",error)));
+
+  </script>
+</body>
+</html>

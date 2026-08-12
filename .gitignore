@@ -1,0 +1,19 @@
+# Local dependencies and generated files
+node_modules/
+work/
+coverage/
+playwright-report/
+test-results/
+*.log
+
+# Local environment overrides and secrets
+.env
+.env.*
+!.env.example
+config.local.js
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Articulate Daily</title>
+  <rect width="512" height="512" rx="112" fill="#0f766e"/>
+  <path d="M150 378 229 130h58l77 248h-62l-14-52h-68l-14 52Zm84-108h40l-20-76Z" fill="#fff"/>
+  <circle cx="367" cy="145" r="35" fill="#f0a83b"/>
+</svg>
