@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
@@ -800,13 +800,13 @@
       </div>
 
       <nav class="nav" aria-label="Main navigation">
-        <button class="active" data-view="dashboard"><span class="nav-icon">âŒ‚</span>Today</button>
-        <button data-view="add"><span class="nav-icon">ï¼‹</span>Add a word</button>
-        <button data-view="extract"><span class="nav-icon">â‡§</span>Extract words</button>
-        <button data-view="practice"><span class="nav-icon">âœŽ</span>Practice</button>
-        <button data-view="coach"><span class="nav-icon">â—‰</span>UK speaking coach</button>
-        <button data-view="library"><span class="nav-icon">â–¤</span>My library</button>
-        <button data-view="settings"><span class="nav-icon">âš™</span>Profiles & backup</button>
+        <button class="active" data-view="dashboard"><span class="nav-icon">⌂</span>Today</button>
+        <button data-view="add"><span class="nav-icon">＋</span>Add a word</button>
+        <button data-view="extract"><span class="nav-icon">⇧</span>Extract words</button>
+        <button data-view="practice"><span class="nav-icon">✎</span>Practice</button>
+        <button data-view="coach"><span class="nav-icon">◉</span>UK speaking coach</button>
+        <button data-view="library"><span class="nav-icon">▤</span>My library</button>
+        <button data-view="settings"><span class="nav-icon">⚙</span>Profiles & backup</button>
       </nav>
 
       <div class="sidebar-bottom">
@@ -824,7 +824,7 @@
           <p id="pageSubtitle">Build confident, precise English for work and everyday life.</p>
         </div>
         <div class="top-actions">
-          <div class="streak-pill">ðŸ”¥ <span id="streakCount">0</span> day streak</div>
+          <div class="streak-pill">🔥 <span id="streakCount">0</span> day streak</div>
         </div>
       </header>
 
@@ -834,15 +834,15 @@
             <span class="eyebrow">Word of the day</span>
             <div class="daily-word-line">
               <div class="daily-word" id="dailyWord">Pragmatic</div>
-              <div class="phonetic" id="dailyPhonetic">/prÃ¦É¡ËˆmÃ¦tÉªk/ Â· adjective</div>
-              <button class="icon-button daily-speaker" id="dailySpeakerIcon" type="button" aria-label="Hear the word in a UK accent" title="Hear the word in a UK accent">ðŸ”Š</button>
+              <div class="phonetic" id="dailyPhonetic">/præɡˈmætɪk/ · adjective</div>
+              <button class="icon-button daily-speaker" id="dailySpeakerIcon" type="button" aria-label="Hear the word in a UK accent" title="Hear the word in a UK accent">🔊</button>
             </div>
             <p class="daily-meaning" id="dailyMeaning">Dealing with problems in a practical way rather than relying only on theory.</p>
-            <p class="daily-example" id="dailyExample">â€œWe need a pragmatic plan that the team can deliver within this quarter.â€</p>
+            <p class="daily-example" id="dailyExample">“We need a pragmatic plan that the team can deliver within this quarter.”</p>
             <div class="button-row">
-              <button class="btn btn-light" id="speakDailyBtn">ðŸ”Š Hear it</button>
-              <button class="btn btn-outline" id="saveDailyBtn">ï¼‹ Save word</button>
-              <button class="btn btn-outline" id="practiceDailyBtn">âœŽ Use in a sentence</button>
+              <button class="btn btn-light" id="speakDailyBtn">🔊 Hear it</button>
+              <button class="btn btn-outline" id="saveDailyBtn">＋ Save word</button>
+              <button class="btn btn-outline" id="practiceDailyBtn">✎ Use in a sentence</button>
             </div>
           </article>
 
@@ -865,7 +865,7 @@
         <div class="grid grid-2" style="margin-top:18px">
           <article class="card">
             <div class="card-header">
-              <div><span class="section-kicker">Daily routine</span><h3>Todayâ€™s learning plan</h3><p class="card-sub">A balanced plan for vocabulary, recall, writing and pronunciation.</p></div>
+              <div><span class="section-kicker">Daily routine</span><h3>Today’s learning plan</h3><p class="card-sub">A balanced plan for vocabulary, recall, writing and pronunciation.</p></div>
               <span class="status-pill" id="planCompletion">0% complete</span>
             </div>
             <div class="plan-list" id="dailyPlanList"></div>
@@ -892,7 +892,7 @@
 
           <article class="card badge-card">
             <div class="badge-mark" id="badgeMark">A</div>
-            <div><span class="section-kicker">Achievement</span><h3 id="badgeTitle">Getting started</h3><p class="card-sub" id="badgeText">Save your first word to begin your learning record.</p><div class="small muted" id="dailyChallenge">Todayâ€™s challenge will appear here.</div></div>
+            <div><span class="section-kicker">Achievement</span><h3 id="badgeTitle">Getting started</h3><p class="card-sub" id="badgeText">Save your first word to begin your learning record.</p><div class="small muted" id="dailyChallenge">Today’s challenge will appear here.</div></div>
           </article>
         </div>
 
@@ -973,13 +973,13 @@
             <h3>Voice capture</h3>
             <p class="card-sub">Say a word or sentence in UK English. Voice recognition depends on browser support and works best in Chrome or Edge.</p>
             <div class="button-row">
-              <button class="btn btn-primary" id="voiceWordBtn">ðŸŽ™ Speak a word</button>
-              <button class="btn btn-soft" id="voiceSentenceBtn">ðŸŽ™ Dictate example</button>
+              <button class="btn btn-primary" id="voiceWordBtn">🎙 Speak a word</button>
+              <button class="btn btn-soft" id="voiceSentenceBtn">🎙 Dictate example</button>
             </div>
             <hr class="divider" />
             <h3>Office English prompt</h3>
             <p class="card-sub">Try converting this plain sentence into more precise professional English:</p>
-            <div class="practice-prompt" id="officePrompt">â€œWe need to look at this problem carefully before deciding.â€</div>
+            <div class="practice-prompt" id="officePrompt">“We need to look at this problem carefully before deciding.”</div>
             <button class="btn btn-soft" id="newOfficePromptBtn">Show another prompt</button>
           </article>
         </div>
@@ -990,13 +990,11 @@
           <div class="upload-intro"><span class="section-kicker">Your material, your vocabulary</span><h3>Turn something you read into words you can use</h3><p class="card-sub">Bring a document, screenshot or note. The app finds useful English vocabulary and lets you choose what to practise.</p></div>
           <div class="upload-steps"><div class="upload-step"><div class="upload-step-icon">1</div><strong>Choose material</strong><small>Document, image or note</small></div><div class="upload-step"><div class="upload-step-icon">2</div><strong>Find useful words</strong><small>Review vocabulary suggestions</small></div><div class="upload-step"><div class="upload-step-icon">3</div><strong>Practise your picks</strong><small>Add them to your library</small></div></div>
           <label class="drop-zone upload-zone" id="dropZone" for="fileInput">
-            <input type="file" id="fileInput" accept=".txt,.md,.csv,.json,.pdf,.docx,image/*" capture="environment" />
-            <div class="drop-icon">ðŸ“„</div>
+            <input type="file" id="fileInput" accept=".txt,.md,.csv,.json,.pdf,.docx,image/*" />
+            <div class="drop-icon">📄</div>
             <strong>Choose a file or drop it here</strong>
             <p class="file-note">PDF, DOCX, image, text, Markdown, CSV and JSON are supported.</p><p class="upload-privacy">Your selected file is processed on this device and is not uploaded by the vocabulary extractor. File limits protect your browser from very large documents.</p>
           </label>
-          <div class="button-row" style="justify-content:center"><button class="btn btn-soft" id="cloudOcrBtn" type="button">☁ Use cloud handwriting OCR</button></div>
-          <p class="small muted" style="text-align:center">Cloud handwriting OCR sends the selected image to OCR.space Engine 3. Local OCR remains available for private/offline use.</p>
           <div class="status" id="fileStatus"></div>
 
           <div class="extract-result" id="extractResult">
@@ -1005,7 +1003,6 @@
               <div class="button-row" style="margin:0"><button class="btn btn-small btn-soft" id="selectAllBtn">Select all</button><button class="btn btn-small btn-primary" id="addSelectedBtn">Add selected</button></div>
             </div>
             <div class="word-chips" id="wordChips"></div>
-            <details class="ocr-preview" id="ocrPreviewWrap"><summary>Review detected text</summary><textarea id="ocrTextPreview" rows="6" aria-label="Detected text from uploaded material" placeholder="Detected text will appear here"></textarea><p class="small muted">For handwriting, correct any unclear words here before reviewing the vocabulary suggestions.</p></details>
           </div>
         </article>
       </section>
@@ -1020,7 +1017,7 @@
               <div class="practice-word-line">
                 <p class="practice-word" id="practiceWord">Add words first</p>
                 <span class="inline-phonetic" id="practicePhonetic"></span>
-                <button class="pronounce-btn" id="speakPracticeWordBtn" type="button" aria-label="Hear the word in a UK accent" title="Hear the word in a UK accent">ðŸ”Š</button>
+                <button class="pronounce-btn" id="speakPracticeWordBtn" type="button" aria-label="Hear the word in a UK accent" title="Hear the word in a UK accent">🔊</button>
               </div>
               <p id="practiceMeaning" class="muted">Your saved words will appear here.</p>
             </div>
@@ -1028,16 +1025,16 @@
             <textarea id="practiceSentence" placeholder="Write a complete sentence with the word..."></textarea>
             <div class="button-row">
               <button class="btn btn-primary" id="checkSentenceBtn">Check sentence</button>
-              <button class="btn btn-soft" id="dictatePracticeBtn">ðŸŽ™ Dictate</button>
-              <button class="btn btn-soft" id="speakPracticeSentenceBtn">ðŸ”Š Hear sentence</button>
+              <button class="btn btn-soft" id="dictatePracticeBtn">🎙 Dictate</button>
+              <button class="btn btn-soft" id="speakPracticeSentenceBtn">🔊 Hear sentence</button>
               <button class="btn btn-soft" id="nextPracticeBtn">Next word</button>
             </div>
             <div class="feedback-box" id="sentenceFeedback"></div>
             <div class="review-actions" aria-label="Spaced repetition rating">
-              <button class="review-btn again" data-review-rating="again">Again Â· 1 day</button>
-              <button class="review-btn" data-review-rating="hard">Hard Â· 3 days</button>
-              <button class="review-btn" data-review-rating="good">Good Â· 7 days</button>
-              <button class="review-btn easy" data-review-rating="easy">Easy Â· 14 days</button>
+              <button class="review-btn again" data-review-rating="again">Again · 1 day</button>
+              <button class="review-btn" data-review-rating="hard">Hard · 3 days</button>
+              <button class="review-btn" data-review-rating="good">Good · 7 days</button>
+              <button class="review-btn easy" data-review-rating="easy">Easy · 14 days</button>
             </div>
           </article>
 
@@ -1047,7 +1044,7 @@
               <div class="practice-word-line">
                 <p class="practice-word" id="quizWord">Pragmatic</p>
                 <span class="inline-phonetic" id="quizPhonetic"></span>
-                <button class="pronounce-btn" id="speakQuizWordBtn" type="button" aria-label="Hear the quiz word in a UK accent" title="Hear the quiz word in a UK accent">ðŸ”Š</button>
+                <button class="pronounce-btn" id="speakQuizWordBtn" type="button" aria-label="Hear the quiz word in a UK accent" title="Hear the quiz word in a UK accent">🔊</button>
               </div>
               <p class="muted" id="quizQuestion">Which meaning is correct?</p>
             </div>
@@ -1064,7 +1061,7 @@
           <article class="card">
             <div class="card-header"><div><span class="section-kicker">Writing coach</span><h3>Improve your sentence</h3><p class="card-sub">Create clear, professional and advanced versions in your browser.</p></div></div>
             <textarea id="improveSentenceInput" placeholder="Write or paste a sentence you want to improve..."></textarea>
-            <div class="button-row"><button class="btn btn-primary" id="improveSentenceBtn">Improve sentence</button><button class="btn btn-soft" id="dictateImproveBtn">ðŸŽ™ Dictate</button></div>
+            <div class="button-row"><button class="btn btn-primary" id="improveSentenceBtn">Improve sentence</button><button class="btn btn-soft" id="dictateImproveBtn">🎙 Dictate</button></div>
             <div class="result-grid" id="improvementResults"></div>
           </article>
         </div>
@@ -1072,8 +1069,8 @@
         <article class="card" style="margin-top:18px">
           <div class="card-header"><div><span class="section-kicker">UK pronunciation</span><h3>Listen, record and compare</h3><p class="card-sub">Hear a British English voice, record yourself and test what the browser recognises.</p></div></div>
           <div class="pronunciation-console">
-            <div class="pronunciation-target"><div><strong id="pronunciationTarget">Word</strong><div class="inline-phonetic" id="pronunciationPhonetic"></div></div><button class="icon-button" id="hearPronunciationTarget" aria-label="Hear the pronunciation target in UK English" title="Hear UK pronunciation">ðŸ”Š</button></div>
-            <div class="button-row"><button class="btn btn-primary" id="recordPronunciationBtn">â— Record voice</button><button class="btn btn-soft" id="stopRecordingBtn" disabled>â–  Stop</button><button class="btn btn-soft" id="playRecordingBtn" disabled>â–¶ Replay</button><button class="btn btn-soft" id="testPronunciationBtn">ðŸŽ™ Test pronunciation</button></div>
+            <div class="pronunciation-target"><div><strong id="pronunciationTarget">Word</strong><div class="inline-phonetic" id="pronunciationPhonetic"></div></div><button class="icon-button" id="hearPronunciationTarget" aria-label="Hear the pronunciation target in UK English" title="Hear UK pronunciation">🔊</button></div>
+            <div class="button-row"><button class="btn btn-primary" id="recordPronunciationBtn">● Record voice</button><button class="btn btn-soft" id="stopRecordingBtn" disabled>■ Stop</button><button class="btn btn-soft" id="playRecordingBtn" disabled>▶ Replay</button><button class="btn btn-soft" id="testPronunciationBtn">🎙 Test pronunciation</button></div>
             <div class="status" id="pronunciationStatus">Listen first, then record or test your pronunciation.</div>
             <div class="score-meter"><div class="score-fill" id="pronunciationScoreFill"></div></div>
           </div>
@@ -1097,12 +1094,12 @@
               <textarea id="coachInput" placeholder="For example: How should I explain a delay in a project meeting?"></textarea>
             </div>
           </div>
-          <div class="button-row"><button class="btn btn-light" id="coachReplyBtn">Create UK English reply</button><button class="btn btn-outline" id="coachSpeakBtn">ðŸŽ™ Ask by voice</button><button class="btn btn-outline" id="coachPromptBtn">Give me a practice topic</button></div>
+          <div class="button-row"><button class="btn btn-light" id="coachReplyBtn">Create UK English reply</button><button class="btn btn-outline" id="coachSpeakBtn">🎙 Ask by voice</button><button class="btn btn-outline" id="coachPromptBtn">Give me a practice topic</button></div>
         </article>
 
         <div class="grid grid-2" style="margin-top:18px">
           <article class="card">
-            <div class="card-header"><div><span class="section-kicker">Suggested response</span><h3>Coach reply</h3></div><button class="icon-button" id="speakCoachReplyBtn" aria-label="Hear the coach response in a UK accent" title="Hear the response in a UK accent">ðŸ”Š</button></div>
+            <div class="card-header"><div><span class="section-kicker">Suggested response</span><h3>Coach reply</h3></div><button class="icon-button" id="speakCoachReplyBtn" aria-label="Hear the coach response in a UK accent" title="Hear the response in a UK accent">🔊</button></div>
             <div class="coach-reply coach-placeholder" id="coachReply">Your tailored response will appear here.</div>
             <div class="learning-block" style="margin-top:14px"><h4>Pronunciation focus</h4><div id="coachPronunciation" class="distinction">Key words and pronunciation guidance will appear here.</div></div>
             <div class="check-row"><input type="checkbox" id="coachAutoSpeak" checked><label for="coachAutoSpeak">Read the reply aloud automatically</label></div>
@@ -1119,7 +1116,7 @@
         <article class="card">
           <div class="toolbar">
             <div><h3 style="margin:0">My vocabulary library</h3><p class="small muted" style="margin:4px 0 0">Search, review, pronounce and manage your saved words.</p></div>
-            <button class="btn btn-primary" data-go="add">ï¼‹ Add word</button>
+            <button class="btn btn-primary" data-go="add">＋ Add word</button>
           </div>
           <div class="toolbar">
             <label class="sr-only" for="librarySearch">Search vocabulary library</label><input class="search" id="librarySearch" type="search" placeholder="Search words, meanings or tags" />
@@ -1198,19 +1195,19 @@
           </article>
         </div>
 
-        <footer class="card" style="margin-top:18px"><p class="card-sub" style="margin:0">Every word you practise is a small step towards clearer, more confident communication. Keep goingâ€”your progress adds up.</p></footer>
+        <footer class="card" style="margin-top:18px"><p class="card-sub" style="margin:0">Every word you practise is a small step towards clearer, more confident communication. Keep going—your progress adds up.</p></footer>
       </section>
     </main>
   </div>
 
   <nav class="mobile-nav" aria-label="Mobile navigation">
-    <button class="active" data-view="dashboard"><span>âŒ‚</span><span>Today</span></button>
-    <button data-view="add"><span>ï¼‹</span><span>Add</span></button>
-    <button data-view="extract"><span>â‡§</span><span>Extract</span></button>
-    <button data-view="practice"><span>âœŽ</span><span>Practice</span></button>
-    <button data-view="coach"><span>â—‰</span><span>Coach</span></button>
-    <button data-view="library"><span>â–¤</span><span>Library</span></button>
-    <button data-view="settings"><span>âš™</span><span>Settings</span></button>
+    <button class="active" data-view="dashboard"><span>⌂</span><span>Today</span></button>
+    <button data-view="add"><span>＋</span><span>Add</span></button>
+    <button data-view="extract"><span>⇧</span><span>Extract</span></button>
+    <button data-view="practice"><span>✎</span><span>Practice</span></button>
+    <button data-view="coach"><span>◉</span><span>Coach</span></button>
+    <button data-view="library"><span>▤</span><span>Library</span></button>
+    <button data-view="settings"><span>⚙</span><span>Settings</span></button>
   </nav>
 
   <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
@@ -1245,46 +1242,46 @@
     };
 
     const wordBank = [
-      {word:"pragmatic", phonetic:"/prÃ¦É¡ËˆmÃ¦tÉªk/", part:"adjective", meaning:"Dealing with a situation in a practical and realistic way.", example:"We need a pragmatic plan that the team can deliver within this quarter.", level:"Professional", tags:["office","decision-making"]},
-      {word:"articulate", phonetic:"/É‘ËËˆtÉªkjÉ™lÉ™t/", part:"adjective", meaning:"Able to express ideas clearly and effectively.", example:"She gave an articulate explanation of the proposed data strategy.", level:"Advanced", tags:["communication","office"]},
-      {word:"nuanced", phonetic:"/ËˆnjuËÉ‘Ënst/", part:"adjective", meaning:"Showing subtle differences or careful distinctions.", example:"The report provides a nuanced view of student engagement.", level:"Advanced", tags:["analysis","writing"]},
-      {word:"cogent", phonetic:"/ËˆkÉ™ÊŠdÊ’É™nt/", part:"adjective", meaning:"Clear, logical and convincing.", example:"He presented a cogent argument for changing the delivery model.", level:"Advanced", tags:["persuasion","office"]},
-      {word:"salient", phonetic:"/ËˆseÉªliÉ™nt/", part:"adjective", meaning:"Most noticeable, important or relevant.", example:"Please summarise the salient points before the steering group meeting.", level:"Professional", tags:["meetings","reports"]},
-      {word:"meticulous", phonetic:"/mÉ™ËˆtÉªkjÉ™lÉ™s/", part:"adjective", meaning:"Very careful and precise about small details.", example:"Her meticulous validation prevented errors in the final dashboard.", level:"Advanced", tags:["quality","work"]},
-      {word:"discerning", phonetic:"/dÉªËˆsÉœËnÉªÅ‹/", part:"adjective", meaning:"Showing good judgement and the ability to notice quality.", example:"A discerning reader will question the assumptions behind the figures.", level:"Advanced", tags:["judgement","analysis"]},
-      {word:"consolidate", phonetic:"/kÉ™nËˆsÉ’lÉªdeÉªt/", part:"verb", meaning:"To combine several things into one stronger or more effective whole.", example:"We should consolidate the separate reports into a single trusted view.", level:"Professional", tags:["data","office"]},
-      {word:"mitigate", phonetic:"/ËˆmÉªtÉªÉ¡eÉªt/", part:"verb", meaning:"To make a risk, problem or harmful effect less serious.", example:"The controls will mitigate the risk of unauthorised access.", level:"Professional", tags:["risk","governance"]},
-      {word:"substantiate", phonetic:"/sÉ™bËˆstÃ¦nÊƒieÉªt/", part:"verb", meaning:"To support a claim with evidence or proof.", example:"The team must substantiate the recommendation with reliable data.", level:"Advanced", tags:["evidence","writing"]},
-      {word:"ambiguous", phonetic:"/Ã¦mËˆbÉªÉ¡juÉ™s/", part:"adjective", meaning:"Open to more than one interpretation; not completely clear.", example:"The current definition is ambiguous and may produce inconsistent results.", level:"Professional", tags:["clarity","requirements"]},
-      {word:"proactive", phonetic:"/prÉ™ÊŠËˆÃ¦ktÉªv/", part:"adjective", meaning:"Taking action before a problem occurs rather than only reacting later.", example:"A proactive communication plan will reduce avoidable escalations.", level:"Professional", tags:["leadership","office"]},
-      {word:"scrutinise", phonetic:"/ËˆskruËtÉ™naÉªz/", part:"verb", meaning:"To examine something very carefully.", example:"The committee will scrutinise the evidence before approving the proposal.", level:"Advanced", tags:["analysis","governance"]},
-      {word:"coherent", phonetic:"/kÉ™ÊŠËˆhÉªÉ™rÉ™nt/", part:"adjective", meaning:"Logical, consistent and easy to understand as a whole.", example:"The paper needs a more coherent structure and a clearer conclusion.", level:"Professional", tags:["writing","communication"]},
-      {word:"feasible", phonetic:"/ËˆfiËzÉ™bÉ™l/", part:"adjective", meaning:"Possible and practical to do successfully.", example:"The proposed timeline is ambitious but still feasible.", level:"Professional", tags:["planning","delivery"]},
-      {word:"intrinsic", phonetic:"/ÉªnËˆtrÉªnzÉªk/", part:"adjective", meaning:"Belonging naturally to something as an essential quality.", example:"Trust is intrinsic to effective data governance.", level:"Advanced", tags:["concepts","writing"]},
-      {word:"pervasive", phonetic:"/pÉ™ËˆveÉªsÉªv/", part:"adjective", meaning:"Spreading widely throughout an area or group.", example:"AI is becoming pervasive across modern workplace tools.", level:"Advanced", tags:["technology","trends"]},
-      {word:"resilient", phonetic:"/rÉªËˆzÉªliÉ™nt/", part:"adjective", meaning:"Able to recover quickly from difficulty or change.", example:"We need a resilient service that remains stable during peak demand.", level:"Professional", tags:["systems","leadership"]},
-      {word:"tenable", phonetic:"/ËˆtenÉ™bÉ™l/", part:"adjective", meaning:"Able to be defended, maintained or justified.", example:"That position is no longer tenable given the new evidence.", level:"Advanced", tags:["argument","decision-making"]},
-      {word:"exemplify", phonetic:"/ÉªÉ¡ËˆzemplÉªfaÉª/", part:"verb", meaning:"To be a clear or typical example of something.", example:"This project exemplifies effective collaboration between data and academic teams.", level:"Advanced", tags:["writing","examples"]},
-      {word:"conducive", phonetic:"/kÉ™nËˆdjuËsÉªv/", part:"adjective", meaning:"Making a particular outcome likely or easier to achieve.", example:"A calm environment is conducive to thoughtful discussion.", level:"Advanced", tags:["workplace","conditions"]},
-      {word:"delineate", phonetic:"/dÉªËˆlÉªnieÉªt/", part:"verb", meaning:"To describe or mark the boundaries of something precisely.", example:"The proposal should delineate responsibilities across all teams.", level:"Advanced", tags:["governance","writing"]},
-      {word:"judicious", phonetic:"/dÊ’uËËˆdÉªÊƒÉ™s/", part:"adjective", meaning:"Showing careful thought and good judgement.", example:"A judicious use of automation can improve quality without removing oversight.", level:"Advanced", tags:["judgement","leadership"]},
-      {word:"rectify", phonetic:"/ËˆrektÉªfaÉª/", part:"verb", meaning:"To correct something that is wrong.", example:"We must rectify the data quality issue before publication.", level:"Professional", tags:["quality","action"]},
-      {word:"succinct", phonetic:"/sÉ™kËˆsÉªÅ‹kt/", part:"adjective", meaning:"Expressed clearly in a few words.", example:"Please provide a succinct summary for senior leaders.", level:"Professional", tags:["communication","reports"]},
-      {word:"corroborate", phonetic:"/kÉ™ËˆrÉ’bÉ™reÉªt/", part:"verb", meaning:"To confirm or support a statement with additional evidence.", example:"We used a second source to corroborate the reported figures.", level:"Advanced", tags:["evidence","analysis"]},
-      {word:"inadvertent", phonetic:"/ËŒÉªnÉ™dËˆvÉœËtÉ™nt/", part:"adjective", meaning:"Not intentional; happening by accident.", example:"The change caused an inadvertent delay in the reporting cycle.", level:"Advanced", tags:["risk","communication"]},
-      {word:"transient", phonetic:"/ËˆtrÃ¦nziÉ™nt/", part:"adjective", meaning:"Temporary and not likely to last for long.", example:"The increase may be transient rather than a sustained trend.", level:"Advanced", tags:["analysis","trends"]},
-      {word:"pertinent", phonetic:"/ËˆpÉœËtÉªnÉ™nt/", part:"adjective", meaning:"Directly relevant to the matter being considered.", example:"Please include only the most pertinent evidence in the briefing.", level:"Advanced", tags:["relevance","writing"]},
-      {word:"unprecedented", phonetic:"/ÊŒnËˆpresÉªdentÉªd/", part:"adjective", meaning:"Never having happened or existed before.", example:"The university experienced unprecedented demand for the new service.", level:"Professional", tags:["change","reports"]},
-      {word:"viable", phonetic:"/ËˆvaÉªÉ™bÉ™l/", part:"adjective", meaning:"Capable of working successfully over time.", example:"We are assessing whether the proposed platform is financially viable.", level:"Professional", tags:["planning","strategy"]},
-      {word:"empirical", phonetic:"/ÉªmËˆpÉªrÉªkÉ™l/", part:"adjective", meaning:"Based on observation, experience or evidence rather than theory alone.", example:"The recommendation should be grounded in empirical evidence.", level:"Advanced", tags:["research","evidence"]},
-      {word:"disparate", phonetic:"/ËˆdÉªspÉ™rÉ™t/", part:"adjective", meaning:"Fundamentally different or difficult to compare.", example:"The platform brings together disparate data sources.", level:"Advanced", tags:["data","comparison"]},
-      {word:"conjecture", phonetic:"/kÉ™nËˆdÊ’ektÊƒÉ™/", part:"noun", meaning:"An opinion or conclusion formed without complete evidence.", example:"At this stage, the explanation remains conjecture rather than fact.", level:"Advanced", tags:["reasoning","evidence"]},
-      {word:"impetus", phonetic:"/ËˆÉªmpÉªtÉ™s/", part:"noun", meaning:"A force or reason that makes something happen more quickly.", example:"The audit provided the impetus for a wider governance review.", level:"Advanced", tags:["change","strategy"]},
-      {word:"reconcile", phonetic:"/ËˆrekÉ™nsaÉªl/", part:"verb", meaning:"To make two apparently conflicting things consistent, or to compare records and resolve differences.", example:"The team must reconcile the dashboard totals with the source system.", level:"Professional", tags:["data","quality"]},
-      {word:"prescient", phonetic:"/ËˆpresiÉ™nt/", part:"adjective", meaning:"Showing knowledge of events before they happen.", example:"Her prescient warning helped the team prepare for the demand surge.", level:"Advanced", tags:["foresight","leadership"]},
-      {word:"equivocal", phonetic:"/ÉªËˆkwÉªvÉ™kÉ™l/", part:"adjective", meaning:"Open to different interpretations or deliberately unclear.", example:"The response was equivocal and did not confirm a clear decision.", level:"Advanced", tags:["clarity","communication"]},
-      {word:"granular", phonetic:"/ËˆÉ¡rÃ¦njÉ™lÉ™/", part:"adjective", meaning:"Containing or examining very small levels of detail.", example:"Managers need a more granular breakdown by course and cohort.", level:"Professional", tags:["data","analysis"]},
-      {word:"holistic", phonetic:"/hÉ™ÊŠËˆlÉªstÉªk/", part:"adjective", meaning:"Considering a whole system rather than only separate parts.", example:"We need a holistic view of student experience across the full journey.", level:"Professional", tags:["strategy","analysis"]}
+      {word:"pragmatic", phonetic:"/præɡˈmætɪk/", part:"adjective", meaning:"Dealing with a situation in a practical and realistic way.", example:"We need a pragmatic plan that the team can deliver within this quarter.", level:"Professional", tags:["office","decision-making"]},
+      {word:"articulate", phonetic:"/ɑːˈtɪkjələt/", part:"adjective", meaning:"Able to express ideas clearly and effectively.", example:"She gave an articulate explanation of the proposed data strategy.", level:"Advanced", tags:["communication","office"]},
+      {word:"nuanced", phonetic:"/ˈnjuːɑːnst/", part:"adjective", meaning:"Showing subtle differences or careful distinctions.", example:"The report provides a nuanced view of student engagement.", level:"Advanced", tags:["analysis","writing"]},
+      {word:"cogent", phonetic:"/ˈkəʊdʒənt/", part:"adjective", meaning:"Clear, logical and convincing.", example:"He presented a cogent argument for changing the delivery model.", level:"Advanced", tags:["persuasion","office"]},
+      {word:"salient", phonetic:"/ˈseɪliənt/", part:"adjective", meaning:"Most noticeable, important or relevant.", example:"Please summarise the salient points before the steering group meeting.", level:"Professional", tags:["meetings","reports"]},
+      {word:"meticulous", phonetic:"/məˈtɪkjələs/", part:"adjective", meaning:"Very careful and precise about small details.", example:"Her meticulous validation prevented errors in the final dashboard.", level:"Advanced", tags:["quality","work"]},
+      {word:"discerning", phonetic:"/dɪˈsɜːnɪŋ/", part:"adjective", meaning:"Showing good judgement and the ability to notice quality.", example:"A discerning reader will question the assumptions behind the figures.", level:"Advanced", tags:["judgement","analysis"]},
+      {word:"consolidate", phonetic:"/kənˈsɒlɪdeɪt/", part:"verb", meaning:"To combine several things into one stronger or more effective whole.", example:"We should consolidate the separate reports into a single trusted view.", level:"Professional", tags:["data","office"]},
+      {word:"mitigate", phonetic:"/ˈmɪtɪɡeɪt/", part:"verb", meaning:"To make a risk, problem or harmful effect less serious.", example:"The controls will mitigate the risk of unauthorised access.", level:"Professional", tags:["risk","governance"]},
+      {word:"substantiate", phonetic:"/səbˈstænʃieɪt/", part:"verb", meaning:"To support a claim with evidence or proof.", example:"The team must substantiate the recommendation with reliable data.", level:"Advanced", tags:["evidence","writing"]},
+      {word:"ambiguous", phonetic:"/æmˈbɪɡjuəs/", part:"adjective", meaning:"Open to more than one interpretation; not completely clear.", example:"The current definition is ambiguous and may produce inconsistent results.", level:"Professional", tags:["clarity","requirements"]},
+      {word:"proactive", phonetic:"/prəʊˈæktɪv/", part:"adjective", meaning:"Taking action before a problem occurs rather than only reacting later.", example:"A proactive communication plan will reduce avoidable escalations.", level:"Professional", tags:["leadership","office"]},
+      {word:"scrutinise", phonetic:"/ˈskruːtənaɪz/", part:"verb", meaning:"To examine something very carefully.", example:"The committee will scrutinise the evidence before approving the proposal.", level:"Advanced", tags:["analysis","governance"]},
+      {word:"coherent", phonetic:"/kəʊˈhɪərənt/", part:"adjective", meaning:"Logical, consistent and easy to understand as a whole.", example:"The paper needs a more coherent structure and a clearer conclusion.", level:"Professional", tags:["writing","communication"]},
+      {word:"feasible", phonetic:"/ˈfiːzəbəl/", part:"adjective", meaning:"Possible and practical to do successfully.", example:"The proposed timeline is ambitious but still feasible.", level:"Professional", tags:["planning","delivery"]},
+      {word:"intrinsic", phonetic:"/ɪnˈtrɪnzɪk/", part:"adjective", meaning:"Belonging naturally to something as an essential quality.", example:"Trust is intrinsic to effective data governance.", level:"Advanced", tags:["concepts","writing"]},
+      {word:"pervasive", phonetic:"/pəˈveɪsɪv/", part:"adjective", meaning:"Spreading widely throughout an area or group.", example:"AI is becoming pervasive across modern workplace tools.", level:"Advanced", tags:["technology","trends"]},
+      {word:"resilient", phonetic:"/rɪˈzɪliənt/", part:"adjective", meaning:"Able to recover quickly from difficulty or change.", example:"We need a resilient service that remains stable during peak demand.", level:"Professional", tags:["systems","leadership"]},
+      {word:"tenable", phonetic:"/ˈtenəbəl/", part:"adjective", meaning:"Able to be defended, maintained or justified.", example:"That position is no longer tenable given the new evidence.", level:"Advanced", tags:["argument","decision-making"]},
+      {word:"exemplify", phonetic:"/ɪɡˈzemplɪfaɪ/", part:"verb", meaning:"To be a clear or typical example of something.", example:"This project exemplifies effective collaboration between data and academic teams.", level:"Advanced", tags:["writing","examples"]},
+      {word:"conducive", phonetic:"/kənˈdjuːsɪv/", part:"adjective", meaning:"Making a particular outcome likely or easier to achieve.", example:"A calm environment is conducive to thoughtful discussion.", level:"Advanced", tags:["workplace","conditions"]},
+      {word:"delineate", phonetic:"/dɪˈlɪnieɪt/", part:"verb", meaning:"To describe or mark the boundaries of something precisely.", example:"The proposal should delineate responsibilities across all teams.", level:"Advanced", tags:["governance","writing"]},
+      {word:"judicious", phonetic:"/dʒuːˈdɪʃəs/", part:"adjective", meaning:"Showing careful thought and good judgement.", example:"A judicious use of automation can improve quality without removing oversight.", level:"Advanced", tags:["judgement","leadership"]},
+      {word:"rectify", phonetic:"/ˈrektɪfaɪ/", part:"verb", meaning:"To correct something that is wrong.", example:"We must rectify the data quality issue before publication.", level:"Professional", tags:["quality","action"]},
+      {word:"succinct", phonetic:"/səkˈsɪŋkt/", part:"adjective", meaning:"Expressed clearly in a few words.", example:"Please provide a succinct summary for senior leaders.", level:"Professional", tags:["communication","reports"]},
+      {word:"corroborate", phonetic:"/kəˈrɒbəreɪt/", part:"verb", meaning:"To confirm or support a statement with additional evidence.", example:"We used a second source to corroborate the reported figures.", level:"Advanced", tags:["evidence","analysis"]},
+      {word:"inadvertent", phonetic:"/ˌɪnədˈvɜːtənt/", part:"adjective", meaning:"Not intentional; happening by accident.", example:"The change caused an inadvertent delay in the reporting cycle.", level:"Advanced", tags:["risk","communication"]},
+      {word:"transient", phonetic:"/ˈtrænziənt/", part:"adjective", meaning:"Temporary and not likely to last for long.", example:"The increase may be transient rather than a sustained trend.", level:"Advanced", tags:["analysis","trends"]},
+      {word:"pertinent", phonetic:"/ˈpɜːtɪnənt/", part:"adjective", meaning:"Directly relevant to the matter being considered.", example:"Please include only the most pertinent evidence in the briefing.", level:"Advanced", tags:["relevance","writing"]},
+      {word:"unprecedented", phonetic:"/ʌnˈpresɪdentɪd/", part:"adjective", meaning:"Never having happened or existed before.", example:"The university experienced unprecedented demand for the new service.", level:"Professional", tags:["change","reports"]},
+      {word:"viable", phonetic:"/ˈvaɪəbəl/", part:"adjective", meaning:"Capable of working successfully over time.", example:"We are assessing whether the proposed platform is financially viable.", level:"Professional", tags:["planning","strategy"]},
+      {word:"empirical", phonetic:"/ɪmˈpɪrɪkəl/", part:"adjective", meaning:"Based on observation, experience or evidence rather than theory alone.", example:"The recommendation should be grounded in empirical evidence.", level:"Advanced", tags:["research","evidence"]},
+      {word:"disparate", phonetic:"/ˈdɪspərət/", part:"adjective", meaning:"Fundamentally different or difficult to compare.", example:"The platform brings together disparate data sources.", level:"Advanced", tags:["data","comparison"]},
+      {word:"conjecture", phonetic:"/kənˈdʒektʃə/", part:"noun", meaning:"An opinion or conclusion formed without complete evidence.", example:"At this stage, the explanation remains conjecture rather than fact.", level:"Advanced", tags:["reasoning","evidence"]},
+      {word:"impetus", phonetic:"/ˈɪmpɪtəs/", part:"noun", meaning:"A force or reason that makes something happen more quickly.", example:"The audit provided the impetus for a wider governance review.", level:"Advanced", tags:["change","strategy"]},
+      {word:"reconcile", phonetic:"/ˈrekənsaɪl/", part:"verb", meaning:"To make two apparently conflicting things consistent, or to compare records and resolve differences.", example:"The team must reconcile the dashboard totals with the source system.", level:"Professional", tags:["data","quality"]},
+      {word:"prescient", phonetic:"/ˈpresiənt/", part:"adjective", meaning:"Showing knowledge of events before they happen.", example:"Her prescient warning helped the team prepare for the demand surge.", level:"Advanced", tags:["foresight","leadership"]},
+      {word:"equivocal", phonetic:"/ɪˈkwɪvəkəl/", part:"adjective", meaning:"Open to different interpretations or deliberately unclear.", example:"The response was equivocal and did not confirm a clear decision.", level:"Advanced", tags:["clarity","communication"]},
+      {word:"granular", phonetic:"/ˈɡrænjələ/", part:"adjective", meaning:"Containing or examining very small levels of detail.", example:"Managers need a more granular breakdown by course and cohort.", level:"Professional", tags:["data","analysis"]},
+      {word:"holistic", phonetic:"/həʊˈlɪstɪk/", part:"adjective", meaning:"Considering a whole system rather than only separate parts.", example:"We need a holistic view of student experience across the full journey.", level:"Professional", tags:["strategy","analysis"]}
     ];
 
     const languageExtras = {
@@ -1459,10 +1456,10 @@
     function cloudConfig() { const c=window.ARTICULATE_CONFIG||{};return {url:String(c.supabaseUrl||""),key:String(c.supabaseAnonKey||"")}; }
     async function initCloud() { const config=cloudConfig();if(!config.url||!config.key){setCloudStatus("Cloud sync is not configured yet. Local saving is active.");renderCloudAccount();return;}try{await loadLibrary("supabase");cloudClient=window.supabase.createClient(config.url,config.key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});const {data}=await cloudClient.auth.getSession();cloudUser=data.session?.user||null;cloudClient.auth.onAuthStateChange((_event,session)=>{if(!cloudAuthReady)return;const previousId=cloudUser?.id||null;cloudUser=session?.user||null;renderCloudAccount();if(cloudUser&&cloudUser.id!==previousId)setTimeout(()=>syncCloud(true),0);else if(!cloudUser)setCloudStatus("Signed out. Changes are saved locally.");});renderCloudAccount();if(cloudUser)await syncCloud(true);else setCloudStatus("Sign in to sync this device, or continue using local saving.");cloudAuthReady=true;}catch(error){console.error(error);setCloudStatus("Cloud sync could not start. Local saving is still active.","error");} }
     function scheduleCloudSync(){if(!cloudClient||!cloudUser)return;clearTimeout(cloudSyncTimer);cloudSyncTimer=setTimeout(()=>syncCloud(false),1200);}
-    async function syncCloud(checkRemote=false){if(!cloudClient||!cloudUser)return;setCloudStatus("Syncingâ€¦");try{if(checkRemote){const {data,error}=await cloudClient.from("user_app_state").select("app_state,updated_at").eq("user_id",cloudUser.id).maybeSingle();if(error)throw error;if(data?.app_state){const remote=migrateState(data.app_state);if(JSON.stringify(remote)===JSON.stringify(migrateState(state))){setCloudStatus("Cloud and device data are already in sync.","success");return;}const choice=String(prompt("Cloud and device data are different. Type CLOUD to use the cloud copy, DEVICE to upload this device's copy, or BACKUP to download this device's data before deciding.","BACKUP")||"").trim().toUpperCase();if(choice==="BACKUP"){exportBackup();setCloudStatus("Backup downloaded. Sync is paused until you choose Sync now.");return;}if(choice==="CLOUD"){cloudApplying=true;state=remote;activeProfileId=state.activeProfileId;localStorage.setItem(STORAGE_KEY,JSON.stringify(state));renderAll();cloudApplying=false;setCloudStatus("Cloud data downloaded.","success");return;}if(choice!=="DEVICE"){setCloudStatus("Sync cancelled. Local data is unchanged.");return;}}}const {error}=await cloudClient.from("user_app_state").upsert({user_id:cloudUser.id,app_state:state,updated_at:new Date().toISOString()},{onConflict:"user_id"});if(error)throw error;setCloudStatus(`Synced at ${new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"})}.`,"success");}catch(error){console.error(error);setCloudStatus("Sync failed. Your latest changes remain safely stored on this device.","error");}}
-    async function accountAction(mode){if(!cloudClient)return setCloudStatus("Cloud sync must be configured before you can create an account.","error");const email=document.getElementById("accountEmail").value.trim();const password=document.getElementById("accountPassword").value;if(!/^\S+@\S+\.\S+$/.test(email)||password.length<8)return setCloudStatus("Enter a valid email and a password of at least 8 characters.","error");setCloudStatus(mode==="signup"?"Creating accountâ€¦":"Signing inâ€¦");const result=mode==="signup"?await cloudClient.auth.signUp({email,password}):await cloudClient.auth.signInWithPassword({email,password});if(result.error)return setCloudStatus(result.error.message,"error");setCloudStatus(mode==="signup"&&!result.data.session?"Check your email to confirm the account.":"Signed in successfully.","success");}
-    async function resetPassword(){if(!cloudClient)return setCloudStatus("Cloud sync must be configured before password recovery is available.","error");const email=document.getElementById("accountEmail").value.trim();if(!/^\S+@\S+\.\S+$/.test(email))return setCloudStatus("Enter your account email first, then choose Forgot password.","error");setCloudStatus("Sending password-reset emailâ€¦");const {error}=await cloudClient.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});if(error)return setCloudStatus(error.message,"error");setCloudStatus("Check your email for a secure password-reset link.","success");}
-    async function deleteAllAppData(){const scope=cloudUser?"this device and your cloud account":"this device";if(!confirm(`First confirmation: permanently delete every profile, saved word and progress item from ${scope}?`))return toast("Data deletion cancelled.");if(prompt("Second confirmation: type DELETE ALL exactly to continue.")!=="DELETE ALL")return toast("Data deletion cancelled.");if(cloudClient&&cloudUser){setCloudStatus("Deleting cloud dataâ€¦");const {error}=await cloudClient.from("user_app_state").delete().eq("user_id",cloudUser.id);if(error){setCloudStatus("Cloud deletion failed. No local data was deleted.","error");return toast("Cloud deletion failed; your data was left unchanged.");}}cloudApplying=true;try{localStorage.removeItem(STORAGE_KEY)}catch{}state=defaultState();activeProfileId=state.activeProfileId;localStorage.setItem(STORAGE_KEY,JSON.stringify(state));cloudApplying=false;renderAll();setCloudStatus(cloudUser?"All saved app data was deleted. Your account remains signed in.":"All local app data was deleted.","success");toast("All app data has been deleted.");}
+    async function syncCloud(checkRemote=false){if(!cloudClient||!cloudUser)return;setCloudStatus("Syncing…");try{if(checkRemote){const {data,error}=await cloudClient.from("user_app_state").select("app_state,updated_at").eq("user_id",cloudUser.id).maybeSingle();if(error)throw error;if(data?.app_state){const remote=migrateState(data.app_state);if(JSON.stringify(remote)===JSON.stringify(migrateState(state))){setCloudStatus("Cloud and device data are already in sync.","success");return;}const choice=String(prompt("Cloud and device data are different. Type CLOUD to use the cloud copy, DEVICE to upload this device's copy, or BACKUP to download this device's data before deciding.","BACKUP")||"").trim().toUpperCase();if(choice==="BACKUP"){exportBackup();setCloudStatus("Backup downloaded. Sync is paused until you choose Sync now.");return;}if(choice==="CLOUD"){cloudApplying=true;state=remote;activeProfileId=state.activeProfileId;localStorage.setItem(STORAGE_KEY,JSON.stringify(state));renderAll();cloudApplying=false;setCloudStatus("Cloud data downloaded.","success");return;}if(choice!=="DEVICE"){setCloudStatus("Sync cancelled. Local data is unchanged.");return;}}}const {error}=await cloudClient.from("user_app_state").upsert({user_id:cloudUser.id,app_state:state,updated_at:new Date().toISOString()},{onConflict:"user_id"});if(error)throw error;setCloudStatus(`Synced at ${new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"})}.`,"success");}catch(error){console.error(error);setCloudStatus("Sync failed. Your latest changes remain safely stored on this device.","error");}}
+    async function accountAction(mode){if(!cloudClient)return setCloudStatus("Cloud sync must be configured before you can create an account.","error");const email=document.getElementById("accountEmail").value.trim();const password=document.getElementById("accountPassword").value;if(!/^\S+@\S+\.\S+$/.test(email)||password.length<8)return setCloudStatus("Enter a valid email and a password of at least 8 characters.","error");setCloudStatus(mode==="signup"?"Creating account…":"Signing in…");const result=mode==="signup"?await cloudClient.auth.signUp({email,password}):await cloudClient.auth.signInWithPassword({email,password});if(result.error)return setCloudStatus(result.error.message,"error");setCloudStatus(mode==="signup"&&!result.data.session?"Check your email to confirm the account.":"Signed in successfully.","success");}
+    async function resetPassword(){if(!cloudClient)return setCloudStatus("Cloud sync must be configured before password recovery is available.","error");const email=document.getElementById("accountEmail").value.trim();if(!/^\S+@\S+\.\S+$/.test(email))return setCloudStatus("Enter your account email first, then choose Forgot password.","error");setCloudStatus("Sending password-reset email…");const {error}=await cloudClient.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});if(error)return setCloudStatus(error.message,"error");setCloudStatus("Check your email for a secure password-reset link.","success");}
+    async function deleteAllAppData(){const scope=cloudUser?"this device and your cloud account":"this device";if(!confirm(`First confirmation: permanently delete every profile, saved word and progress item from ${scope}?`))return toast("Data deletion cancelled.");if(prompt("Second confirmation: type DELETE ALL exactly to continue.")!=="DELETE ALL")return toast("Data deletion cancelled.");if(cloudClient&&cloudUser){setCloudStatus("Deleting cloud data…");const {error}=await cloudClient.from("user_app_state").delete().eq("user_id",cloudUser.id);if(error){setCloudStatus("Cloud deletion failed. No local data was deleted.","error");return toast("Cloud deletion failed; your data was left unchanged.");}}cloudApplying=true;try{localStorage.removeItem(STORAGE_KEY)}catch{}state=defaultState();activeProfileId=state.activeProfileId;localStorage.setItem(STORAGE_KEY,JSON.stringify(state));cloudApplying=false;renderAll();setCloudStatus(cloudUser?"All saved app data was deleted. Your account remains signed in.":"All local app data was deleted.","success");toast("All app data has been deleted.");}
     function profile() { return state.profiles[activeProfileId]; }
     function ensureDailyStats(date = localDateKey()) {
       const p = profile();
@@ -1558,9 +1555,9 @@
       const p = profile();
       const today = dailyEntry();
       document.getElementById("dailyWord").textContent = capitalise(today.word);
-      document.getElementById("dailyPhonetic").textContent = `${today.phonetic} Â· ${today.part}`;
+      document.getElementById("dailyPhonetic").textContent = `${today.phonetic} · ${today.part}`;
       document.getElementById("dailyMeaning").textContent = today.meaning;
-      document.getElementById("dailyExample").textContent = `â€œ${today.example}â€`;
+      document.getElementById("dailyExample").textContent = `“${today.example}”`;
       const stats = ensureDailyStats();
       const mastered = p.words.filter(w => w.status === "mastered").length;
       document.getElementById("statWords").textContent = p.words.length;
@@ -1591,15 +1588,15 @@
       const stats = ensureDailyStats();
       const t = state.settings.dailyTargets;
       const items = [
-        {icon:"ï¼‹", title:"Learn new words", detail:"Meaning, context and professional category", key:"newWords", value:stats.newWords || 0, target:t.newWords, go:"add"},
-        {icon:"â†»", title:"Review scheduled words", detail:"Spaced repetition strengthens long-term recall", key:"reviews", value:stats.reviews || 0, target:t.reviews, go:"practice"},
-        {icon:"âœŽ", title:"Write useful sentences", detail:"Use vocabulary in realistic office situations", key:"sentences", value:stats.sentences || 0, target:t.sentences, go:"practice"},
-        {icon:"ðŸ”Š", title:"Practise UK pronunciation", detail:"Listen, record and compare your speech", key:"pronunciation", value:stats.pronunciation || 0, target:t.pronunciation, go:"practice"}
+        {icon:"＋", title:"Learn new words", detail:"Meaning, context and professional category", key:"newWords", value:stats.newWords || 0, target:t.newWords, go:"add"},
+        {icon:"↻", title:"Review scheduled words", detail:"Spaced repetition strengthens long-term recall", key:"reviews", value:stats.reviews || 0, target:t.reviews, go:"practice"},
+        {icon:"✎", title:"Write useful sentences", detail:"Use vocabulary in realistic office situations", key:"sentences", value:stats.sentences || 0, target:t.sentences, go:"practice"},
+        {icon:"🔊", title:"Practise UK pronunciation", detail:"Listen, record and compare your speech", key:"pronunciation", value:stats.pronunciation || 0, target:t.pronunciation, go:"practice"}
       ];
       const total = items.reduce((s,i) => s + Math.min(i.value,i.target),0);
       const target = items.reduce((s,i) => s + i.target,0);
       document.getElementById("planCompletion").textContent = `${target ? Math.round(total/target*100) : 0}% complete`;
-      document.getElementById("dailyPlanList").innerHTML = items.map(i => `<button class="plan-item ${i.value >= i.target ? "complete" : ""}" data-go="${i.go}" style="width:100%;text-align:left;color:inherit"><span class="plan-icon">${i.value >= i.target ? "âœ“" : i.icon}</span><span class="plan-copy"><strong>${i.title}</strong><small>${i.detail}</small></span><span class="plan-count">${Math.min(i.value,i.target)}/${i.target}</span></button>`).join("");
+      document.getElementById("dailyPlanList").innerHTML = items.map(i => `<button class="plan-item ${i.value >= i.target ? "complete" : ""}" data-go="${i.go}" style="width:100%;text-align:left;color:inherit"><span class="plan-icon">${i.value >= i.target ? "✓" : i.icon}</span><span class="plan-copy"><strong>${i.title}</strong><small>${i.detail}</small></span><span class="plan-count">${Math.min(i.value,i.target)}/${i.target}</span></button>`).join("");
     }
     function weeklyData() {
       const result = [];
@@ -1629,24 +1626,24 @@
       if (p.words.length >= 1) badge = {mark:"1",title:"First word saved",text:"Your personal vocabulary library has begun."};
       if (p.words.length >= 10) badge = {mark:"10",title:"Vocabulary builder",text:"You have saved ten useful words."};
       if (streak >= 7) badge = {mark:"7",title:"Consistent learner",text:"You have maintained a seven-day learning streak."};
-      if (mastered >= 10) badge = {mark:"â˜…",title:"Recall specialist",text:"Ten words have reached mastered status."};
+      if (mastered >= 10) badge = {mark:"★",title:"Recall specialist",text:"Ten words have reached mastered status."};
       if (p.words.length >= 50) badge = {mark:"50",title:"Articulate explorer",text:"Your library now contains fifty words."};
       document.getElementById("badgeMark").textContent = badge.mark;
       document.getElementById("badgeTitle").textContent = badge.title;
       document.getElementById("badgeText").textContent = badge.text;
       const challenge = dailyEntry();
-      document.getElementById("dailyChallenge").textContent = `Todayâ€™s challenge: use â€œ${challenge.word}â€ naturally in one spoken sentence.`;
+      document.getElementById("dailyChallenge").textContent = `Today’s challenge: use “${challenge.word}” naturally in one spoken sentence.`;
     }
     function renderRecent() {
       const el = document.getElementById("recentWords");
       const recent = [...profile().words].sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt)).slice(0,4);
-      el.innerHTML = recent.length ? recent.map(w => `<div class="quick-item"><span class="quick-dot"></span><div style="min-width:0;flex:1"><div class="word-heading-line"><strong>${escapeHtml(capitalise(w.word))}</strong>${phoneticFor(w)?`<span class="inline-phonetic">${escapeHtml(phoneticFor(w))}</span>`:""}</div><small>${escapeHtml(w.meaning)}</small></div><button class="icon-button" data-action="speak-word" data-id="${w.id}" title="Hear UK pronunciation">ðŸ”Š</button></div>`).join("") : `<div class="empty">No saved words yet. Add todayâ€™s word or enter one you recently learned.</div>`;
+      el.innerHTML = recent.length ? recent.map(w => `<div class="quick-item"><span class="quick-dot"></span><div style="min-width:0;flex:1"><div class="word-heading-line"><strong>${escapeHtml(capitalise(w.word))}</strong>${phoneticFor(w)?`<span class="inline-phonetic">${escapeHtml(phoneticFor(w))}</span>`:""}</div><small>${escapeHtml(w.meaning)}</small></div><button class="icon-button" data-action="speak-word" data-id="${w.id}" title="Hear UK pronunciation">🔊</button></div>`).join("") : `<div class="empty">No saved words yet. Add today’s word or enter one you recently learned.</div>`;
     }
 
     function addWord(entry, silent = false) {
       const p = profile(); const word = normaliseWord(entry.word);
       if (!word) return false;
-      if (p.words.some(w => normaliseWord(w.word) === word)) { if (!silent) toast(`â€œ${capitalise(word)}â€ is already in your library.`); return false; }
+      if (p.words.some(w => normaliseWord(w.word) === word)) { if (!silent) toast(`“${capitalise(word)}” is already in your library.`); return false; }
       const item = migrateWord({
         id:uid("w"), word, meaning:entry.meaning || "Meaning to be added", example:entry.example || "", example2:entry.example2 || "", part:entry.part || "other", level:entry.level || "Advanced",
         source:entry.source || "", tags:Array.isArray(entry.tags)?entry.tags:String(entry.tags||"").split(",").map(t=>t.trim()).filter(Boolean), phonetic:entry.phonetic || "",
@@ -1654,13 +1651,13 @@
         intervalDays:1, nextReviewAt:localDateKey(), reviewCount:0, createdAt:new Date().toISOString()
       });
       p.words.push(item); recordActivity("newWords"); saveState();
-      if (!silent) toast(`Saved â€œ${capitalise(word)}â€.`);
+      if (!silent) toast(`Saved “${capitalise(word)}”.`);
       renderAll(); return true;
     }
     function cleanDictionaryTerm(value) {
       return String(value || "")
         .trim()
-        .replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}'â€™\-]+$/gu, "")
+        .replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}'’\-]+$/gu, "")
         .replace(/\s+/g, " ");
     }
     async function dictionaryLookup(word, setForm = true) {
@@ -1675,7 +1672,7 @@
       }
       if (setForm) {
         document.getElementById("wordInput").value = lookupWord;
-        status.textContent = `Looking up â€œ${lookupWord}â€â€¦`;
+        status.textContent = `Looking up “${lookupWord}”…`;
         status.className = "status";
       }
       try {
@@ -1708,14 +1705,14 @@
           document.getElementById("categoryInput").value = inferCategory(bank?.tags || [], lookupWord);
           status.textContent = "Meaning found. Review it, then save the word.";
           status.className = "status success";
-          toast(`Meaning found for â€œ${capitalise(lookupWord)}â€.`);
+          toast(`Meaning found for “${capitalise(lookupWord)}”.`);
         }
         return result;
       } catch (error) {
         if (setForm) {
           status.textContent = error?.name === "AbortError"
             ? "The dictionary took too long to respond. Check your connection and try again."
-            : `No online definition was found for â€œ${lookupWord}â€. Check the spelling or enter the meaning manually.`;
+            : `No online definition was found for “${lookupWord}”. Check the spelling or enter the meaning manually.`;
           status.className = "status error";
         }
         return null;
@@ -1759,7 +1756,7 @@
       catch (error) { return toast(error.message === "secure" ? "Open the app through HTTPS to use the microphone." : "Microphone permission is blocked or unavailable."); }
       const recognition = new Recognition(); activeRecognition=recognition; recognition.lang="en-GB"; recognition.continuous=false; recognition.interimResults=false; recognition.maxAlternatives=1;
       const button = options.buttonId ? document.getElementById(options.buttonId) : null; const original=button?.textContent || ""; let heard=false; let failed=false; let timer;
-      recognition.onstart=()=>{ if(button){button.disabled=true;button.textContent="ðŸŽ™ Listeningâ€¦";} toast(options.prompt || "Listeningâ€¦ Speak now."); timer=setTimeout(()=>{try{recognition.stop()}catch{}},20000); };
+      recognition.onstart=()=>{ if(button){button.disabled=true;button.textContent="🎙 Listening…";} toast(options.prompt || "Listening… Speak now."); timer=setTimeout(()=>{try{recognition.stop()}catch{}},20000); };
       recognition.onresult=e=>{ const transcript=Array.from(e.results).map(r=>r[0]?.transcript||"").join(" ").trim(); if(!transcript)return; heard=true;
         if(target){ target.value = options.append === false ? transcript : (target.value.trim()?`${target.value.trim()} ${transcript}`:transcript); target.dispatchEvent(new Event("input",{bubbles:true})); target.focus(); }
         options.onResult?.(transcript); toast("Voice captured in UK English mode."); };
@@ -1776,24 +1773,24 @@
         .filter(w=>mastery==="all"||(mastery==="due"?isDue(w):w.status===mastery)).sort((a,b)=>a.word.localeCompare(b.word));
       if(!words.length){list.innerHTML=`<div class="empty">No matching words. Add a word or change the filters.</div>`;return;}
       list.innerHTML=words.map(w=>{const insight=getInsights(w);return `<article class="word-card"><div class="word-main">
-        <div class="word-top-row"><div class="word-title-group"><div class="word-heading-line"><h4>${escapeHtml(capitalise(w.word))}</h4>${phoneticFor(w)?`<span class="inline-phonetic">${escapeHtml(phoneticFor(w))}</span>`:""}</div><div class="word-meta">${escapeHtml(w.part)} Â· ${escapeHtml(w.level)} Â· ${escapeHtml(w.category)}</div></div>
-        <div class="word-icon-actions"><button class="icon-button" data-action="speak-word" data-id="${w.id}" title="Hear word in a UK accent">ðŸ”Š</button><button class="icon-button ${w.favourite?"favourite-active":""}" data-action="favourite" data-id="${w.id}" title="Favourite">â˜…</button></div></div>
-        <p class="word-meaning">${escapeHtml(w.meaning)}</p>${w.example?`<p class="word-example"><b>Example 1:</b> â€œ${escapeHtml(w.example)}â€</p>`:""}${w.example2?`<p class="word-example"><b>Example 2:</b> â€œ${escapeHtml(w.example2)}â€</p>`:""}
-        <div class="word-details"><div class="detail-box"><strong>Useful phrases</strong>${escapeHtml(insight.collocations.slice(0,2).join(" Â· "))}</div><div class="detail-box"><strong>Progress</strong><span class="status-pill ${w.status}">${statusLabel(w.status)}</span><div class="due-text">${humanDue(w)} Â· ${w.reviewCount} reviews</div></div></div>
+        <div class="word-top-row"><div class="word-title-group"><div class="word-heading-line"><h4>${escapeHtml(capitalise(w.word))}</h4>${phoneticFor(w)?`<span class="inline-phonetic">${escapeHtml(phoneticFor(w))}</span>`:""}</div><div class="word-meta">${escapeHtml(w.part)} · ${escapeHtml(w.level)} · ${escapeHtml(w.category)}</div></div>
+        <div class="word-icon-actions"><button class="icon-button" data-action="speak-word" data-id="${w.id}" title="Hear word in a UK accent">🔊</button><button class="icon-button ${w.favourite?"favourite-active":""}" data-action="favourite" data-id="${w.id}" title="Favourite">★</button></div></div>
+        <p class="word-meaning">${escapeHtml(w.meaning)}</p>${w.example?`<p class="word-example"><b>Example 1:</b> “${escapeHtml(w.example)}”</p>`:""}${w.example2?`<p class="word-example"><b>Example 2:</b> “${escapeHtml(w.example2)}”</p>`:""}
+        <div class="word-details"><div class="detail-box"><strong>Useful phrases</strong>${escapeHtml(insight.collocations.slice(0,2).join(" · "))}</div><div class="detail-box"><strong>Progress</strong><span class="status-pill ${w.status}">${statusLabel(w.status)}</span><div class="due-text">${humanDue(w)} · ${w.reviewCount} reviews</div></div></div>
         ${w.notes?`<p class="small muted"><strong>Note:</strong> ${escapeHtml(w.notes)}</p>`:""}${(w.tags||[]).length?`<p class="small muted">${w.tags.map(t=>`#${escapeHtml(t)}`).join(" ")}</p>`:""}
-        </div><div class="word-actions"><button class="btn btn-small btn-soft" data-action="speak-example" data-id="${w.id}" ${w.example?"":"disabled"}>ðŸ”Š Sentence</button><button class="btn btn-small btn-soft" data-action="review" data-id="${w.id}">Review now</button><button class="btn btn-small btn-soft" data-action="toggle-status" data-id="${w.id}">${w.status==="mastered"?"Set learning":"Mark mastered"}</button><button class="btn btn-small btn-danger" data-action="delete" data-id="${w.id}">Delete</button></div></article>`}).join("");
+        </div><div class="word-actions"><button class="btn btn-small btn-soft" data-action="speak-example" data-id="${w.id}" ${w.example?"":"disabled"}>🔊 Sentence</button><button class="btn btn-small btn-soft" data-action="review" data-id="${w.id}">Review now</button><button class="btn btn-small btn-soft" data-action="toggle-status" data-id="${w.id}">${w.status==="mastered"?"Set learning":"Mark mastered"}</button><button class="btn btn-small btn-danger" data-action="delete" data-id="${w.id}">Delete</button></div></article>`}).join("");
     }
 
     function refreshPractice() {
       const item=currentPracticeEntry(); if(!item)return;
-      document.getElementById("practiceWord").textContent=capitalise(item.word); document.getElementById("practicePhonetic").textContent=[phoneticFor(item),item.part].filter(Boolean).join(" Â· "); document.getElementById("practiceMeaning").textContent=item.meaning;
+      document.getElementById("practiceWord").textContent=capitalise(item.word); document.getElementById("practicePhonetic").textContent=[phoneticFor(item),item.part].filter(Boolean).join(" · "); document.getElementById("practiceMeaning").textContent=item.meaning;
       const status=item.status||"new"; const pill=document.getElementById("practiceStatus"); pill.textContent=statusLabel(status); pill.className=`status-pill ${status}`; document.getElementById("practiceDue").textContent=item.id?.startsWith("bank_")?"Save it to begin reviews":humanDue(item);
-      document.getElementById("pronunciationTarget").textContent=capitalise(item.word); document.getElementById("pronunciationPhonetic").textContent=[phoneticFor(item),item.part].filter(Boolean).join(" Â· ");
+      document.getElementById("pronunciationTarget").textContent=capitalise(item.word); document.getElementById("pronunciationPhonetic").textContent=[phoneticFor(item),item.part].filter(Boolean).join(" · ");
       renderPracticeInsights(item);
     }
     function renderPracticeInsights(item) {
       const insight=getInsights(item); const el=document.getElementById("practiceInsights"); if(!el)return;
-      el.innerHTML=`<div class="learning-block"><h4>Common collocations</h4><div class="tag-list">${insight.collocations.map(x=>`<button class="tag-token" data-speak-text="${escapeHtml(x)}">ðŸ”Š ${escapeHtml(x)}</button>`).join("")}</div></div>
+      el.innerHTML=`<div class="learning-block"><h4>Common collocations</h4><div class="tag-list">${insight.collocations.map(x=>`<button class="tag-token" data-speak-text="${escapeHtml(x)}">🔊 ${escapeHtml(x)}</button>`).join("")}</div></div>
       <div class="learning-block"><h4>Word family</h4><div class="tag-list">${insight.family.map(x=>`<span class="tag-token">${escapeHtml(x)}</span>`).join("")}</div></div>
       <div class="learning-block"><h4>Synonyms and difference</h4><div class="tag-list">${insight.synonyms.map(x=>`<span class="tag-token">${escapeHtml(x)}</span>`).join("")}</div><p class="distinction">${escapeHtml(insight.distinction)}</p></div>`;
     }
@@ -1813,7 +1810,7 @@
       const item=currentPracticeEntry(); const value=document.getElementById("practiceSentence").value.trim(); const feedback=document.getElementById("sentenceFeedback");
       if(!value){feedback.textContent="Write or dictate a sentence first.";feedback.classList.add("show");return;}
       const contains=value.toLowerCase().includes(item.word.toLowerCase()); const words=value.split(/\s+/).length; const complete=/^[A-Z]/.test(value)&&/[.!?]$/.test(value);
-      const checks=[contains?"âœ“ The target word is included.":"â€¢ Include the target word exactly.",words>=7?"âœ“ The sentence has enough context.":"â€¢ Add more context so the meaning is clear.",complete?"âœ“ Capitalisation and punctuation look complete.":"â€¢ Start with a capital letter and finish with punctuation.",`Model: â€œ${item.example||`The team used ${item.word} language to explain the recommendation clearly.`}â€`];
+      const checks=[contains?"✓ The target word is included.":"• Include the target word exactly.",words>=7?"✓ The sentence has enough context.":"• Add more context so the meaning is clear.",complete?"✓ Capitalisation and punctuation look complete.":"• Start with a capital letter and finish with punctuation.",`Model: “${item.example||`The team used ${item.word} language to explain the recommendation clearly.`}”`];
       feedback.innerHTML=checks.map(c=>`<div>${escapeHtml(c)}</div>`).join(""); feedback.classList.add("show");
       if(contains&&words>=7){profile().sentenceCount++;recordActivity("sentences");saveState();renderDailyPlan();renderDashboardIntelligence();toast("Sentence practice recorded.");}
     }
@@ -1825,15 +1822,15 @@
     }
     function improveSentence() {
       const input=document.getElementById("improveSentenceInput").value; if(!input.trim())return toast("Write or dictate a sentence first."); const clear=cleanSentence(input); const professional=transformSentence(input,false); const advanced=transformSentence(input,true);
-      const results=[{label:"Clear",text:clear},{label:"Professional",text:professional},{label:"Advanced",text:advanced}]; document.getElementById("improvementResults").innerHTML=results.map((r,i)=>`<div class="result-option"><header><strong>${r.label}</strong><button class="icon-button" data-speak-text="${escapeHtml(r.text)}" title="Hear in UK English">ðŸ”Š</button></header><div>${escapeHtml(r.text)}</div></div>`).join("");
+      const results=[{label:"Clear",text:clear},{label:"Professional",text:professional},{label:"Advanced",text:advanced}]; document.getElementById("improvementResults").innerHTML=results.map((r,i)=>`<div class="result-option"><header><strong>${r.label}</strong><button class="icon-button" data-speak-text="${escapeHtml(r.text)}" title="Hear in UK English">🔊</button></header><div>${escapeHtml(r.text)}</div></div>`).join("");
     }
 
     function newQuiz() {
       const mode=document.getElementById("quizMode")?.value||"meaning"; const pool=[]; const seen=new Set(); [...profile().words,...wordBank].forEach(i=>{if(!seen.has(i.word)){seen.add(i.word);pool.push(i)}}); const correct=pool[Math.floor(Math.random()*pool.length)]; const others=pool.filter(w=>w.word!==correct.word).sort(()=>Math.random()-.5).slice(0,3); let options,question;
       if(mode==="meaning"){options=[...others.map(o=>({label:o.meaning,word:o.word})),{label:correct.meaning,word:correct.word}];question="Which meaning is correct?";}
-      else if(mode==="collocation"){const correctLabel=getInsights(correct).collocations[0];options=[...others.map(o=>({label:getInsights(o).collocations[0],word:o.word})),{label:correctLabel,word:correct.word}];question=`Which phrase naturally uses â€œ${correct.word}â€?`;}
+      else if(mode==="collocation"){const correctLabel=getInsights(correct).collocations[0];options=[...others.map(o=>({label:getInsights(o).collocations[0],word:o.word})),{label:correctLabel,word:correct.word}];question=`Which phrase naturally uses “${correct.word}”?`;}
       else {const sentence=(correct.example||`The team used ${correct.word} to explain the decision.`).replace(new RegExp(correct.word,"i"),"________");options=[...others.map(o=>({label:o.word,word:o.word})),{label:correct.word,word:correct.word}];question=sentence;}
-      options.sort(()=>Math.random()-.5); currentQuiz={correct,options,answered:false,mode}; document.getElementById("quizWord").textContent=capitalise(correct.word); document.getElementById("quizPhonetic").textContent=[phoneticFor(correct),correct.part].filter(Boolean).join(" Â· "); document.getElementById("quizQuestion").textContent=question; document.getElementById("quizOptions").innerHTML=options.map((o,i)=>`<button class="quiz-option" data-quiz="${i}">${escapeHtml(o.label)}</button>`).join("");
+      options.sort(()=>Math.random()-.5); currentQuiz={correct,options,answered:false,mode}; document.getElementById("quizWord").textContent=capitalise(correct.word); document.getElementById("quizPhonetic").textContent=[phoneticFor(correct),correct.part].filter(Boolean).join(" · "); document.getElementById("quizQuestion").textContent=question; document.getElementById("quizOptions").innerHTML=options.map((o,i)=>`<button class="quiz-option" data-quiz="${i}">${escapeHtml(o.label)}</button>`).join("");
     }
     function answerQuiz(index) {
       if(!currentQuiz||currentQuiz.answered)return; currentQuiz.answered=true; const buttons=[...document.querySelectorAll("[data-quiz]")]; buttons.forEach((btn,i)=>{const item=currentQuiz.options[i];if(item.word===currentQuiz.correct.word)btn.classList.add("correct");else if(i===index)btn.classList.add("wrong");btn.disabled=true;}); if(currentQuiz.options[index].word===currentQuiz.correct.word){recordActivity("quizzes");saveState();toast("Correct answer.");}else toast("Review the answer highlighted in green.");
@@ -1841,13 +1838,13 @@
 
     async function startAudioRecording() {
       if(!window.MediaRecorder)return toast("Audio recording is not supported in this browser.");
-      try { mediaStream=await requestMicrophone(); if(!mediaStream)return; audioChunks=[]; mediaRecorder=new MediaRecorder(mediaStream); mediaRecorder.ondataavailable=e=>{if(e.data.size)audioChunks.push(e.data)}; mediaRecorder.onstop=()=>{const blob=new Blob(audioChunks,{type:mediaRecorder.mimeType||"audio/webm"}); if(recordedAudioUrl)URL.revokeObjectURL(recordedAudioUrl); recordedAudioUrl=URL.createObjectURL(blob); document.getElementById("playRecordingBtn").disabled=false; document.getElementById("pronunciationStatus").textContent="Recording saved. Replay it or test pronunciation."; mediaStream?.getTracks().forEach(t=>t.stop()); mediaStream=null;}; mediaRecorder.start(); document.getElementById("recordPronunciationBtn").disabled=true; document.getElementById("stopRecordingBtn").disabled=false; document.getElementById("pronunciationStatus").textContent="Recordingâ€¦ Say the word and a complete sentence."; }
+      try { mediaStream=await requestMicrophone(); if(!mediaStream)return; audioChunks=[]; mediaRecorder=new MediaRecorder(mediaStream); mediaRecorder.ondataavailable=e=>{if(e.data.size)audioChunks.push(e.data)}; mediaRecorder.onstop=()=>{const blob=new Blob(audioChunks,{type:mediaRecorder.mimeType||"audio/webm"}); if(recordedAudioUrl)URL.revokeObjectURL(recordedAudioUrl); recordedAudioUrl=URL.createObjectURL(blob); document.getElementById("playRecordingBtn").disabled=false; document.getElementById("pronunciationStatus").textContent="Recording saved. Replay it or test pronunciation."; mediaStream?.getTracks().forEach(t=>t.stop()); mediaStream=null;}; mediaRecorder.start(); document.getElementById("recordPronunciationBtn").disabled=true; document.getElementById("stopRecordingBtn").disabled=false; document.getElementById("pronunciationStatus").textContent="Recording… Say the word and a complete sentence."; }
       catch{toast("Microphone permission is blocked or unavailable.");}
     }
     function stopAudioRecording(){if(mediaRecorder&&mediaRecorder.state!=="inactive")mediaRecorder.stop();document.getElementById("recordPronunciationBtn").disabled=false;document.getElementById("stopRecordingBtn").disabled=true;}
     function playRecording(){if(!recordedAudioUrl)return toast("Record your voice first.");new Audio(recordedAudioUrl).play();}
     function similarity(a,b){a=normaliseWord(a).replace(/[^a-z ]/g,"");b=normaliseWord(b).replace(/[^a-z ]/g,"");const m=a.length,n=b.length;if(!m&&!n)return 1;const dp=Array.from({length:m+1},()=>Array(n+1).fill(0));for(let i=0;i<=m;i++)dp[i][0]=i;for(let j=0;j<=n;j++)dp[0][j]=j;for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)dp[i][j]=Math.min(dp[i-1][j]+1,dp[i][j-1]+1,dp[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return 1-dp[m][n]/Math.max(m,n,1);}
-    function testPronunciation(){const item=currentPracticeEntry();startRecognition(null,{buttonId:"testPronunciationBtn",prompt:`Say ${item.word} clearly.`,onResult:t=>{const score=Math.round(similarity(item.word,t)*100);document.getElementById("pronunciationScoreFill").style.width=`${score}%`;document.getElementById("pronunciationStatus").textContent=`The browser heard â€œ${t}â€. Recognition match: ${score}%. Focus on clear syllables and natural stress.`;recordActivity("pronunciation");saveState();renderDailyPlan();renderDashboardIntelligence();}});}
+    function testPronunciation(){const item=currentPracticeEntry();startRecognition(null,{buttonId:"testPronunciationBtn",prompt:`Say ${item.word} clearly.`,onResult:t=>{const score=Math.round(similarity(item.word,t)*100);document.getElementById("pronunciationScoreFill").style.width=`${score}%`;document.getElementById("pronunciationStatus").textContent=`The browser heard “${t}”. Recognition match: ${score}%. Focus on clear syllables and natural stress.`;recordActivity("pronunciation");saveState();renderDailyPlan();renderDashboardIntelligence();}});}
 
     function buildCoachReply(input,topic,style) {
       const clean=cleanSentence(input); const lower=clean.toLowerCase(); let body="";
@@ -1867,11 +1864,11 @@
       if(style==="concise") { body=body.split(". ").slice(0,2).join(". "); if(!/[.!?]$/.test(body))body+="."; opening=""; closing=""; }
       return `${opening}${body}${closing}`;
     }
-    function coachFocusWords(reply){const candidates=reply.toLowerCase().match(/[a-z]{7,}/g)||[];const unique=[...new Set(candidates)].slice(0,5);return unique.map(w=>{const bank=wordBank.find(x=>x.word===w);return bank?`${capitalise(w)} ${bank.phonetic}`:capitalise(w)}).join(" Â· ")||"Speak slowly, stress the main content words and pause between ideas.";}
+    function coachFocusWords(reply){const candidates=reply.toLowerCase().match(/[a-z]{7,}/g)||[];const unique=[...new Set(candidates)].slice(0,5);return unique.map(w=>{const bank=wordBank.find(x=>x.word===w);return bank?`${capitalise(w)} ${bank.phonetic}`:capitalise(w)}).join(" · ")||"Speak slowly, stress the main content words and pause between ideas.";}
     function generateCoachReply(){const input=document.getElementById("coachInput").value.trim();if(!input)return toast("Ask a question or enter a topic first.");const topic=document.getElementById("coachTopic").value;const style=document.getElementById("coachStyle").value;const reply=buildCoachReply(input,topic,style);lastCoachSpeech=reply;const el=document.getElementById("coachReply");el.textContent=reply;el.classList.remove("coach-placeholder");document.getElementById("coachPronunciation").textContent=coachFocusWords(reply);profile().coachHistory.unshift({id:uid("c"),question:input,answer:reply,createdAt:new Date().toISOString()});profile().coachHistory=profile().coachHistory.slice(0,20);recordActivity("coach");saveState();renderCoachHistory();if(document.getElementById("coachAutoSpeak").checked)speak(reply,.88);}
-    function renderCoachHistory(){const el=document.getElementById("coachHistory");if(!el)return;const history=profile().coachHistory||[];el.innerHTML=history.length?history.map(h=>`<div class="conversation-item"><div class="question">${escapeHtml(h.question)}</div><div class="answer">${escapeHtml(h.answer)}</div><div class="button-row" style="margin-top:8px"><button class="btn btn-small btn-soft" data-speak-text="${escapeHtml(h.answer)}">ðŸ”Š Listen</button></div></div>`).join(""):`<div class="empty">Your speaking practice will appear here.</div>`;}
+    function renderCoachHistory(){const el=document.getElementById("coachHistory");if(!el)return;const history=profile().coachHistory||[];el.innerHTML=history.length?history.map(h=>`<div class="conversation-item"><div class="question">${escapeHtml(h.question)}</div><div class="answer">${escapeHtml(h.answer)}</div><div class="button-row" style="margin-top:8px"><button class="btn btn-small btn-soft" data-speak-text="${escapeHtml(h.answer)}">🔊 Listen</button></div></div>`).join(""):`<div class="empty">Your speaking practice will appear here.</div>`;}
 
-    function renderProfiles(){const list=document.getElementById("profileList");if(!list)return;list.innerHTML=Object.values(state.profiles).map(p=>`<div class="profile-row"><div><strong>${escapeHtml(p.name)}</strong><div class="small muted">${p.words.length} saved word${p.words.length===1?"":"s"}${p.id===activeProfileId?" Â· Active":""}</div></div><div class="button-row" style="margin:0">${p.id!==activeProfileId?`<button class="btn btn-small btn-soft" data-profile-action="switch" data-id="${p.id}">Open</button>`:""}${Object.keys(state.profiles).length>1?`<button class="btn btn-small btn-danger" data-profile-action="delete" data-id="${p.id}">Delete</button>`:""}</div></div>`).join("");}
+    function renderProfiles(){const list=document.getElementById("profileList");if(!list)return;list.innerHTML=Object.values(state.profiles).map(p=>`<div class="profile-row"><div><strong>${escapeHtml(p.name)}</strong><div class="small muted">${p.words.length} saved word${p.words.length===1?"":"s"}${p.id===activeProfileId?" · Active":""}</div></div><div class="button-row" style="margin:0">${p.id!==activeProfileId?`<button class="btn btn-small btn-soft" data-profile-action="switch" data-id="${p.id}">Open</button>`:""}${Object.keys(state.profiles).length>1?`<button class="btn btn-small btn-danger" data-profile-action="delete" data-id="${p.id}">Delete</button>`:""}</div></div>`).join("");}
 
     const powerExpressionBank=[
       {word:"big picture",meaning:"The overall situation or most important perspective.",example:"Step back and consider the big picture before making the decision.",example2:"The big picture helped the team connect daily work with its long-term purpose."},
@@ -1885,14 +1882,10 @@
     ];
     function sourceSentenceFor(text,term){const sentences=String(text).replace(/\s+/g," ").split(/(?<=[.!?])\s+/);return cleanText(sentences.find(s=>new RegExp(`\\b${term.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}\\b`,"i").test(s))||"",300);}
     function extractionTier(word,bank,count){if(bank||word.length>=10)return "Strategic Words";if(word.length>=7||count>=3)return "Medium Words";return "Simple Words";}
-    async function prepareOcrImage(file,status){const bitmap=await createImageBitmap(file);const maxWidth=2400;const scale=Math.min(1,maxWidth/bitmap.width);const canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(bitmap.width*scale));canvas.height=Math.max(1,Math.round(bitmap.height*scale));const ctx=canvas.getContext("2d",{willReadFrequently:true});ctx.drawImage(bitmap,0,0,canvas.width,canvas.height);const image=ctx.getImageData(0,0,canvas.width,canvas.height);for(let i=0;i<image.data.length;i+=4){const redInk=image.data[i]>image.data[i+1]*1.12&&image.data[i]>image.data[i+2]*1.08;const grey=image.data[i]*.299+image.data[i+1]*.587+image.data[i+2]*.114;const dark=redInk||grey<135;const contrast=dark?0:255;image.data[i]=image.data[i+1]=image.data[i+2]=contrast;image.data[i+3]=255;}ctx.putImageData(image,0,0);return await new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(new Error("The image could not be prepared for handwriting OCR.")),"image/png",.95));}
-    async function cloudOcrImage(file,status){const key=String((window.ARTICULATE_CONFIG||{}).ocrSpaceApiKey||"").trim();if(!key)return null;status.textContent="Preparing image for cloud handwriting OCR…";const bitmap=await createImageBitmap(file);const scale=Math.min(1,1600/bitmap.width);const canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(bitmap.width*scale));canvas.height=Math.max(1,Math.round(bitmap.height*scale));canvas.getContext("2d").drawImage(bitmap,0,0,canvas.width,canvas.height);const blob=await new Promise((resolve,reject)=>canvas.toBlob(x=>x?resolve(x):reject(new Error("The image could not be prepared.")),"image/jpeg",.78));const body=new FormData();body.append("file",blob,"handwriting.jpg");body.append("language","auto");body.append("OCREngine","3");body.append("detectOrientation","true");body.append("scale","true");body.append("isTable","false");status.textContent="Recognising handwriting with OCR.space Engine 3…";const response=await fetch("https://api.ocr.space/parse/image",{method:"POST",headers:{apikey:key},body});if(!response.ok)throw new Error(`Cloud OCR returned HTTP ${response.status}.`);const data=await response.json();if(data.IsErroredOnProcessing||data.OCRExitCode!==1)throw new Error(data.ErrorMessage||data.ErrorDetails||"Cloud handwriting OCR could not read this image.");return (data.ParsedResults||[]).map(x=>x.ParsedText||"").join("\n").trim();}
-    async function finishExtractedText(text,filename,status){if(!text.trim())throw new Error("No readable text was found. Try a brighter, closer and flatter image.");document.getElementById("ocrTextPreview").value=text.trim();extractedCandidates=extractAdvancedWords(text);renderExtracted();await enrichExtractedCandidates(status);renderExtracted();status.textContent=`Found and organised ${extractedCandidates.length} useful items from ${filename}.`;status.className="status success";}
-    async function runCloudOcr(){const file=document.getElementById("fileInput").files[0];const status=document.getElementById("fileStatus");if(!file){status.textContent="Choose an image first, then choose cloud handwriting OCR.";status.className="status error";return;}if(!file.type.startsWith("image/")){status.textContent="Cloud handwriting OCR accepts image files only.";status.className="status error";return;}try{status.className="status";const text=await cloudOcrImage(file,status);await finishExtractedText(text,file.name,status);}catch(error){console.error(error);status.textContent=error.message||"Cloud handwriting OCR failed.";status.className="status error";}}
-    async function processFile(file){if(!file)return;const status=document.getElementById("fileStatus");status.className="status";status.textContent=`Reading ${file.name}â€¦`;document.getElementById("extractResult").classList.remove("show");try{const ext=file.name.split(".").pop().toLowerCase();const image=file.type.startsWith("image/");if(file.size>(image?MAX_IMAGE_BYTES:MAX_FILE_BYTES))throw new Error(`This file is too large. The limit is ${image?10:20} MB.`);let text="";if(["txt","md","csv","json"].includes(ext)||file.type.startsWith("text/")){text=await file.text();if(text.length>MAX_TEXT_LENGTH)throw new Error("This text file is too large to process safely.");}else if(ext==="pdf"||file.type==="application/pdf"){await loadLibrary("pdf");pdfjsLib.GlobalWorkerOptions.workerSrc=new URL("vendor/pdf.worker.min.js",location.href).href;const pdf=await pdfjsLib.getDocument({data:await file.arrayBuffer()}).promise;const pages=[];for(let i=1;i<=Math.min(pdf.numPages,40);i++){status.textContent=`Reading PDF page ${i} of ${Math.min(pdf.numPages,40)}â€¦`;const page=await pdf.getPage(i);const content=await page.getTextContent();pages.push(content.items.map(x=>x.str).join(" "));}text=pages.join("\n");}else if(ext==="docx"){await loadLibrary("docx");text=(await mammoth.extractRawText({arrayBuffer:await file.arrayBuffer()})).value;}else if(image){await loadLibrary("image");status.textContent="Enhancing the image for handwriting OCR…";const prepared=await prepareOcrImage(file,status);status.textContent="Reading handwriting and printed text…";const result=await Tesseract.recognize(prepared,"eng",{workerPath:new URL("vendor/tesseract-worker.min.js",location.href).href,corePath:new URL("vendor/tesseract-core-simd-lstm.js",location.href).href,langPath:new URL("vendor",location.href).href,workerBlobURL:false,config:{tessedit_pageseg_mode:"6"},logger:m=>{if(m.status&&typeof m.progress==="number")status.textContent=`${capitalise(m.status)} ${Math.round(m.progress*100)}%`;}});text=result.data.text;}else throw new Error("This file type is not supported.");if(!text.trim())throw new Error("No readable text was found. Try a brighter, closer and flatter image.");document.getElementById("ocrTextPreview").value=text.trim();extractedCandidates=extractAdvancedWords(text);renderExtracted();await enrichExtractedCandidates(status);renderExtracted();status.textContent=`Found and organised ${extractedCandidates.length} useful items from ${file.name}.`;status.className="status success";}catch(error){console.error(error);status.textContent=error.message||"The file could not be processed.";status.className="status error";}}
+    async function processFile(file){if(!file)return;const status=document.getElementById("fileStatus");status.className="status";status.textContent=`Reading ${file.name}…`;document.getElementById("extractResult").classList.remove("show");try{const ext=file.name.split(".").pop().toLowerCase();const image=file.type.startsWith("image/");if(file.size>(image?MAX_IMAGE_BYTES:MAX_FILE_BYTES))throw new Error(`This file is too large. The limit is ${image?10:20} MB.`);let text="";if(["txt","md","csv","json"].includes(ext)||file.type.startsWith("text/")){text=await file.text();if(text.length>MAX_TEXT_LENGTH)throw new Error("This text file is too large to process safely.");}else if(ext==="pdf"||file.type==="application/pdf"){await loadLibrary("pdf");pdfjsLib.GlobalWorkerOptions.workerSrc=new URL("vendor/pdf.worker.min.js",location.href).href;const pdf=await pdfjsLib.getDocument({data:await file.arrayBuffer()}).promise;const pages=[];for(let i=1;i<=Math.min(pdf.numPages,40);i++){status.textContent=`Reading PDF page ${i} of ${Math.min(pdf.numPages,40)}…`;const page=await pdf.getPage(i);const content=await page.getTextContent();pages.push(content.items.map(x=>x.str).join(" "));}text=pages.join("\n");}else if(ext==="docx"){await loadLibrary("docx");text=(await mammoth.extractRawText({arrayBuffer:await file.arrayBuffer()})).value;}else if(image){await loadLibrary("image");status.textContent="Reading text from the image…";const result=await Tesseract.recognize(file,"eng",{workerPath:new URL("vendor/tesseract-worker.min.js",location.href).href,corePath:new URL("vendor/tesseract-core-simd-lstm.js",location.href).href,langPath:new URL("vendor",location.href).href,workerBlobURL:false,logger:m=>{if(m.status&&typeof m.progress==="number")status.textContent=`${capitalise(m.status)} ${Math.round(m.progress*100)}%`;}});text=result.data.text;}else throw new Error("This file type is not supported.");if(!text.trim())throw new Error("No readable text was found.");extractedCandidates=extractAdvancedWords(text);renderExtracted();await enrichExtractedCandidates(status);renderExtracted();status.textContent=`Found and organised ${extractedCandidates.length} useful items from ${file.name}.`;status.className="status success";}catch(error){console.error(error);status.textContent=error.message||"The file could not be processed.";status.className="status error";}}
     function extractAdvancedWords(text){const saved=new Set(profile().words.map(w=>normaliseWord(w.word)));const counts=new Map();const words=text.toLowerCase().match(/[a-z][a-z'-]{3,}/g)||[];for(let raw of words){raw=raw.replace(/^'+|'+$/g,"");if(stopWords.has(raw)||saved.has(raw)||raw.length<4)continue;counts.set(raw,(counts.get(raw)||0)+1);}const results=[...counts.entries()].map(([word,count])=>{const bank=wordBank.find(w=>w.word===word);return{word,count,selected:Boolean(bank)||word.length>=9,tier:extractionTier(word,bank,count),sourceExample:sourceSentenceFor(text,word),bank};}).sort((a,b)=>((b.bank?50:0)+b.word.length+b.count)-((a.bank?50:0)+a.word.length+a.count)).slice(0,48);for(const phrase of powerExpressionBank){if(text.toLowerCase().includes(phrase.word)&&!saved.has(phrase.word))results.push({...phrase,count:1,selected:true,tier:"Power Expressions",sourceExample:sourceSentenceFor(text,phrase.word),bank:phrase});}return results;}
-    async function enrichExtractedCandidates(status){const pending=extractedCandidates.filter(x=>x.tier!=="Power Expressions");for(let start=0;start<pending.length;start+=4){status.textContent=`Finding meanings and examples ${Math.min(start+4,pending.length)} of ${pending.length}â€¦`;await Promise.all(pending.slice(start,start+4).map(async item=>{const lookup=item.bank||await dictionaryLookup(item.word,false);item.meaning=lookup?.meaning||"A reliable dictionary definition was not available; review this word in its document context.";item.example=lookup?.example||item.sourceExample||`The document uses â€œ${item.word}â€ as part of its message.`;item.example2=lookup?.example2||(item.sourceExample&&item.sourceExample!==item.example?item.sourceExample:`Notice how â€œ${item.word}â€ contributes to the meaning of the passage.`);item.part=lookup?.part;item.phonetic=lookup?.phonetic;}));}}
-    function renderExtracted(){const result=document.getElementById("extractResult"),chips=document.getElementById("wordChips");result.classList.add("show");if(!extractedCandidates.length){chips.innerHTML=`<div class="empty">No suitable vocabulary was detected.</div>`;return;}const tiers=["Simple Words","Medium Words","Strategic Words","Power Expressions"];chips.innerHTML=tiers.map(tier=>{const items=extractedCandidates.map((item,i)=>({item,i})).filter(x=>x.item.tier===tier);if(!items.length)return"";return`<section class="extract-group"><div class="extract-group-head"><h4>${tier}</h4><span class="small muted">${items.length} suggestion${items.length===1?"":"s"}</span></div><div class="extract-group-list">${items.map(({item,i})=>`<button class="extract-word ${item.selected?"selected":""}" data-chip="${i}" type="button" aria-pressed="${item.selected}"><span class="extract-word-top"><strong>${escapeHtml(capitalise(item.word))}</strong><span class="extract-label">${escapeHtml(tier.replace(" Words",""))} Â· Ã—${item.count}</span></span><p>${escapeHtml(item.meaning||"Finding a reliable meaningâ€¦")}</p>${item.example?`<p class="extract-examples"><b>Everyday:</b> ${escapeHtml(item.example)}</p>`:""}${item.example2?`<p class="extract-examples"><b>In context:</b> ${escapeHtml(item.example2)}</p>`:""}</button>`).join("")}</div></section>`;}).join("");}
+    async function enrichExtractedCandidates(status){const pending=extractedCandidates.filter(x=>x.tier!=="Power Expressions");for(let start=0;start<pending.length;start+=4){status.textContent=`Finding meanings and examples ${Math.min(start+4,pending.length)} of ${pending.length}…`;await Promise.all(pending.slice(start,start+4).map(async item=>{const lookup=item.bank||await dictionaryLookup(item.word,false);item.meaning=lookup?.meaning||"A reliable dictionary definition was not available; review this word in its document context.";item.example=lookup?.example||item.sourceExample||`The document uses “${item.word}” as part of its message.`;item.example2=lookup?.example2||(item.sourceExample&&item.sourceExample!==item.example?item.sourceExample:`Notice how “${item.word}” contributes to the meaning of the passage.`);item.part=lookup?.part;item.phonetic=lookup?.phonetic;}));}}
+    function renderExtracted(){const result=document.getElementById("extractResult"),chips=document.getElementById("wordChips");result.classList.add("show");if(!extractedCandidates.length){chips.innerHTML=`<div class="empty">No suitable vocabulary was detected.</div>`;return;}const tiers=["Simple Words","Medium Words","Strategic Words","Power Expressions"];chips.innerHTML=tiers.map(tier=>{const items=extractedCandidates.map((item,i)=>({item,i})).filter(x=>x.item.tier===tier);if(!items.length)return"";return`<section class="extract-group"><div class="extract-group-head"><h4>${tier}</h4><span class="small muted">${items.length} suggestion${items.length===1?"":"s"}</span></div><div class="extract-group-list">${items.map(({item,i})=>`<button class="extract-word ${item.selected?"selected":""}" data-chip="${i}" type="button" aria-pressed="${item.selected}"><span class="extract-word-top"><strong>${escapeHtml(capitalise(item.word))}</strong><span class="extract-label">${escapeHtml(tier.replace(" Words",""))} · ×${item.count}</span></span><p>${escapeHtml(item.meaning||"Finding a reliable meaning…")}</p>${item.example?`<p class="extract-examples"><b>Everyday:</b> ${escapeHtml(item.example)}</p>`:""}${item.example2?`<p class="extract-examples"><b>In context:</b> ${escapeHtml(item.example2)}</p>`:""}</button>`).join("")}</div></section>`;}).join("");}
     async function addSelectedExtracted(){const selected=extractedCandidates.filter(x=>x.selected);if(!selected.length)return toast("Select at least one word.");const status=document.getElementById("fileStatus");let added=0;for(const item of selected){if(addWord({word:item.word,meaning:item.meaning||item.bank?.meaning||"Meaning to be added",example:item.example||item.bank?.example||item.sourceExample||"",example2:item.example2||item.bank?.example2||"",part:item.part||item.bank?.part||"expression",phonetic:item.phonetic||item.bank?.phonetic||"",source:"File extraction",level:item.tier==="Strategic Words"?"Advanced":item.tier==="Medium Words"?"Intermediate":item.tier==="Simple Words"?"Everyday":"Expression",tags:["extracted",item.tier.toLowerCase().replace(/\s+/g,"-")],category:item.tier==="Power Expressions"?"Power Expressions":inferCategory(["extracted"],item.word),difficulty:item.tier==="Strategic Words"?3:item.tier==="Simple Words"?1:2},true))added++;}status.textContent=`Added ${added} item${added===1?"":"s"} to your library and cloud sync queue.`;status.className="status success";toast(`${added} selected item${added===1?"":"s"} saved.`);}
 
     function downloadText(filename,content,type="text/plain"){const blob=new Blob([content],{type});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(url),500);}
@@ -1908,8 +1901,8 @@
       const view=event.target.closest("[data-view]");if(view)showView(view.dataset.view);const go=event.target.closest("[data-go]");if(go)showView(go.dataset.go);
       const speakText=event.target.closest("[data-speak-text]");if(speakText)speak(speakText.dataset.speakText,.86);
       const rating=event.target.closest("[data-review-rating]");if(rating)reviewCurrent(rating.dataset.reviewRating);
-      const action=event.target.closest("[data-action]");if(action){const w=profile().words.find(x=>x.id===action.dataset.id);if(!w)return;if(action.dataset.action==="speak-word")speak(w.word,.76);if(action.dataset.action==="speak-example")speak(w.example,.86);if(action.dataset.action==="favourite"){w.favourite=!w.favourite;saveState();renderAll();}if(action.dataset.action==="review"){currentPracticeId=w.id;showView("practice");refreshPractice();}if(action.dataset.action==="toggle-status"){w.status=w.status==="mastered"?"learning":"mastered";w.mastered=w.status==="mastered";w.nextReviewAt=w.mastered?addDaysKey(30):localDateKey();saveState();renderAll();}if(action.dataset.action==="delete"&&confirm(`Delete â€œ${w.word}â€ from this profile?`)){profile().words=profile().words.filter(x=>x.id!==w.id);saveState();renderAll();toast("Word deleted.");}}
-      const pb=event.target.closest("[data-profile-action]");if(pb){const id=pb.dataset.id;if(pb.dataset.profileAction==="switch"){activeProfileId=id;state.activeProfileId=id;currentPracticeId=null;saveState();renderAll();showView("dashboard");toast(`Opened ${profile().name}.`);}if(pb.dataset.profileAction==="delete"){const doomed=state.profiles[id];if(!doomed)return;const answer=prompt(`Type the profile name â€œ${doomed.name}â€ to permanently delete it and all its saved words.`);if(answer!==doomed.name)return toast("Profile deletion cancelled.");delete state.profiles[id];if(activeProfileId===id){activeProfileId=Object.keys(state.profiles)[0];state.activeProfileId=activeProfileId;}saveState();renderAll();toast("Profile deleted.");}}
+      const action=event.target.closest("[data-action]");if(action){const w=profile().words.find(x=>x.id===action.dataset.id);if(!w)return;if(action.dataset.action==="speak-word")speak(w.word,.76);if(action.dataset.action==="speak-example")speak(w.example,.86);if(action.dataset.action==="favourite"){w.favourite=!w.favourite;saveState();renderAll();}if(action.dataset.action==="review"){currentPracticeId=w.id;showView("practice");refreshPractice();}if(action.dataset.action==="toggle-status"){w.status=w.status==="mastered"?"learning":"mastered";w.mastered=w.status==="mastered";w.nextReviewAt=w.mastered?addDaysKey(30):localDateKey();saveState();renderAll();}if(action.dataset.action==="delete"&&confirm(`Delete “${w.word}” from this profile?`)){profile().words=profile().words.filter(x=>x.id!==w.id);saveState();renderAll();toast("Word deleted.");}}
+      const pb=event.target.closest("[data-profile-action]");if(pb){const id=pb.dataset.id;if(pb.dataset.profileAction==="switch"){activeProfileId=id;state.activeProfileId=id;currentPracticeId=null;saveState();renderAll();showView("dashboard");toast(`Opened ${profile().name}.`);}if(pb.dataset.profileAction==="delete"){const doomed=state.profiles[id];if(!doomed)return;const answer=prompt(`Type the profile name “${doomed.name}” to permanently delete it and all its saved words.`);if(answer!==doomed.name)return toast("Profile deletion cancelled.");delete state.profiles[id];if(activeProfileId===id){activeProfileId=Object.keys(state.profiles)[0];state.activeProfileId=activeProfileId;}saveState();renderAll();toast("Profile deleted.");}}
       const chip=event.target.closest("[data-chip]");if(chip){const i=Number(chip.dataset.chip);extractedCandidates[i].selected=!extractedCandidates[i].selected;chip.classList.toggle("selected",extractedCandidates[i].selected);chip.setAttribute("aria-pressed",String(extractedCandidates[i].selected));}const quiz=event.target.closest("[data-quiz]");if(quiz)answerQuiz(Number(quiz.dataset.quiz));
     });
 
@@ -1917,10 +1910,10 @@
     wordInput.addEventListener("input",()=>phoneticInput.value="");lookupBtn.addEventListener("click",()=>{const w=cleanDictionaryTerm(wordInput.value);if(!w)return toast("Enter a word first.");dictionaryLookup(w);});
     const speakDaily=()=>{const w=dailyEntry();speak(`${w.word}. ${w.meaning}. ${w.example}`,.86,[{element:dailyWord,text:w.word},{element:dailyMeaning,text:w.meaning},{element:dailyExample,text:w.example}])};speakDailyBtn.addEventListener("click",speakDaily);dailySpeakerIcon.addEventListener("click",()=>{const w=dailyEntry();speak(w.word,.76,[{element:dailyWord,text:w.word}])});saveDailyBtn.addEventListener("click",()=>addWord(dailyEntry()));practiceDailyBtn.addEventListener("click",()=>{const w=dailyEntry();let saved=profile().words.find(x=>x.word===w.word);if(!saved){addWord(w,true);saved=profile().words.find(x=>x.word===w.word);}currentPracticeId=saved.id;showView("practice");refreshPractice();});
     voiceWordBtn.addEventListener("click",()=>startRecognition("wordInput",{buttonId:"voiceWordBtn",append:false,prompt:"Say the word clearly."}));voiceSentenceBtn.addEventListener("click",()=>startRecognition("exampleInput",{buttonId:"voiceSentenceBtn",prompt:"Dictate your example sentence."}));dictatePracticeBtn.addEventListener("click",()=>startRecognition("practiceSentence",{buttonId:"dictatePracticeBtn",append:false,prompt:"Say your complete sentence."}));dictateImproveBtn.addEventListener("click",()=>startRecognition("improveSentenceInput",{buttonId:"dictateImproveBtn",append:false,prompt:"Dictate the sentence you want to improve."}));
-    speakPracticeWordBtn.addEventListener("click",()=>{const w=currentPracticeEntry();speak(w?.word,.76,[{element:practiceWord,text:w?.word}])});speakPracticeSentenceBtn.addEventListener("click",()=>{const s=practiceSentence.value.trim();if(!s)return toast("Write or dictate a sentence first.");speak(s,.86);});speakQuizWordBtn.addEventListener("click",()=>currentQuiz&&speak(currentQuiz.correct.word,.76,[{element:quizWord,text:currentQuiz.correct.word}]));newOfficePromptBtn.addEventListener("click",()=>officePrompt.textContent=`â€œ${officePrompts[Math.floor(Math.random()*officePrompts.length)]}â€`);
+    speakPracticeWordBtn.addEventListener("click",()=>{const w=currentPracticeEntry();speak(w?.word,.76,[{element:practiceWord,text:w?.word}])});speakPracticeSentenceBtn.addEventListener("click",()=>{const s=practiceSentence.value.trim();if(!s)return toast("Write or dictate a sentence first.");speak(s,.86);});speakQuizWordBtn.addEventListener("click",()=>currentQuiz&&speak(currentQuiz.correct.word,.76,[{element:quizWord,text:currentQuiz.correct.word}]));newOfficePromptBtn.addEventListener("click",()=>officePrompt.textContent=`“${officePrompts[Math.floor(Math.random()*officePrompts.length)]}”`);
     checkSentenceBtn.addEventListener("click",checkSentence);nextPracticeBtn.addEventListener("click",()=>{currentPracticeId=null;practiceIndex=(practiceIndex+1)%Math.max(1,getPracticePool().length);practiceSentence.value="";sentenceFeedback.classList.remove("show");refreshPractice();});improveSentenceBtn.addEventListener("click",improveSentence);nextQuizBtn.addEventListener("click",newQuiz);quizMode.addEventListener("change",newQuiz);
     librarySearch.addEventListener("input",renderLibrary);levelFilter.addEventListener("change",renderLibrary);masteryFilter.addEventListener("change",renderLibrary);categoryFilter.addEventListener("change",renderLibrary);favouriteFilter.addEventListener("change",renderLibrary);
-    const fileInput=document.getElementById("fileInput"),dropZone=document.getElementById("dropZone");fileInput.addEventListener("change",()=>processFile(fileInput.files[0]));cloudOcrBtn.addEventListener("click",runCloudOcr);["dragenter","dragover"].forEach(t=>dropZone.addEventListener(t,e=>{e.preventDefault();dropZone.classList.add("dragover")}));["dragleave","drop"].forEach(t=>dropZone.addEventListener(t,e=>{e.preventDefault();dropZone.classList.remove("dragover")}));dropZone.addEventListener("drop",e=>processFile(e.dataTransfer.files[0]));selectAllBtn.addEventListener("click",()=>{extractedCandidates.forEach(x=>x.selected=true);renderExtracted()});addSelectedBtn.addEventListener("click",addSelectedExtracted);
+    const fileInput=document.getElementById("fileInput"),dropZone=document.getElementById("dropZone");fileInput.addEventListener("change",()=>processFile(fileInput.files[0]));["dragenter","dragover"].forEach(t=>dropZone.addEventListener(t,e=>{e.preventDefault();dropZone.classList.add("dragover")}));["dragleave","drop"].forEach(t=>dropZone.addEventListener(t,e=>{e.preventDefault();dropZone.classList.remove("dragover")}));dropZone.addEventListener("drop",e=>processFile(e.dataTransfer.files[0]));selectAllBtn.addEventListener("click",()=>{extractedCandidates.forEach(x=>x.selected=true);renderExtracted()});addSelectedBtn.addEventListener("click",addSelectedExtracted);
     createProfileBtn.addEventListener("click",()=>{const name=cleanText(newProfileName.value,80);if(!name)return toast("Enter a profile name.");if(Object.keys(state.profiles).length>=MAX_PROFILES)return toast(`You can create up to ${MAX_PROFILES} local profiles.`);const p=defaultProfile(name);state.profiles[p.id]=p;activeProfileId=p.id;state.activeProfileId=p.id;newProfileName.value="";saveState();renderAll();toast(`Created ${name}.`)});
     exportBtn.addEventListener("click",exportBackup);importInput.addEventListener("change",async e=>{await importBackup(e.target.files[0]);e.target.value="";});clearAllBtn.addEventListener("click",deleteAllAppData);
     exportCsvBtn.addEventListener("click",exportCsv);importCsvInput.addEventListener("change",async e=>{await importCsv(e.target.files[0]);e.target.value="";});weeklyReportBtn.addEventListener("click",weeklyReport);themeSelect.addEventListener("change",previewPreferences);fontSizeSelect.addEventListener("change",previewPreferences);savePreferencesBtn.addEventListener("click",()=>{state.settings.theme=themeSelect.value;state.settings.fontSize=fontSizeSelect.value;state.settings.dailyTargets={newWords:clamp(Number(newTargetInput.value)||5,1,20),reviews:clamp(Number(reviewTargetInput.value)||5,1,30),sentences:clamp(Number(sentenceTargetInput.value)||2,1,10),pronunciation:clamp(Number(pronunciationTargetInput.value)||1,1,10)};saveState();renderAll();toast("Preferences saved.")});
