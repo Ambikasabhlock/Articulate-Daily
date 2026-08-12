@@ -2,6 +2,8 @@
 
 ## 3.03
 
+- Added optional OCR.space Engine 3 cloud handwriting OCR with orientation detection, scaling and reviewable text output.
+
 - Added local-first optional Supabase authentication and state sync.
 - Added explicit cloud/device/backup conflict handling.
 - Added per-user row-level-security schema and cloud-aware deletion.

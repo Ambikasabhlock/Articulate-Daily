@@ -50,3 +50,4 @@ For separate staging and production projects, follow `docs/ENVIRONMENTS.md` and 
 - Dictionary lookup and optional Supabase sync require internet access.
 - Browser speech recognition may use a browser-vendor online service.
 - Live Supabase authentication/email/database testing must be performed after a project is configured.
+- Cloud handwriting OCR uses OCR.space Engine 3 when the user explicitly chooses it; replace the demo key in `config.js` with your own free OCR.space key for production use.

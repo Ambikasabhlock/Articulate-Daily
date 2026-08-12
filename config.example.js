@@ -3,5 +3,6 @@
 window.ARTICULATE_CONFIG = {
   environment: "staging",
   supabaseUrl: "https://YOUR-STAGING-PROJECT.supabase.co",
-  supabaseAnonKey: "sb_publishable_YOUR_STAGING_KEY"
+  supabaseAnonKey: "sb_publishable_YOUR_STAGING_KEY",
+  ocrSpaceApiKey: "YOUR_FREE_OCR_SPACE_KEY"
 };
