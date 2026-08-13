@@ -43,3 +43,11 @@ After configuration:
 ## Rollback
 
 Keep the previous versioned folder unchanged. Roll back by deploying that folder, while preserving database rows and exported user backups.
+
+## Email verification and Google sign-in
+
+In Supabase Dashboard, open **Authentication → Providers**. Keep Email enabled and turn on **Confirm email** so new registrations receive a verification link. Configure the Site URL and every allowed redirect URL to match the deployed app URL exactly.
+
+For Google sign-in, create an OAuth 2.0 Web application in Google Cloud, add the Supabase callback URL shown by the Google provider screen, then copy the Google client ID and client secret into **Authentication → Providers → Google**. Never place the Google client secret in `config.js` or `index.html`.
+
+After deployment, verify registration with a test email, follow its confirmation link, sign in, sign out, and repeat with the Google button. Confirm that each account can see only its own `user_app_state` row.

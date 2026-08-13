@@ -1,4 +1,4 @@
-# Articulate Daily v3.03
+# Articulate Daily v3.04
 
 Articulate Daily is a local-first English vocabulary, writing and speaking-practice application. Document extraction organises useful language into Simple, Medium and Strategic words plus Power Expressions, with meanings and two examples when available. This folder is the complete versioned package: application, optional backend schema, pinned browser libraries, automated tests, deployment configuration, customer documentation, architecture, licences and executive pitch deck.
 
